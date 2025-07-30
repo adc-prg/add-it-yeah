@@ -313,12 +313,20 @@ function App() {
                     {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
                 </button>
               <div className="relative z-10">
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center">
+                  <h1 
+                    className="font-bold text-slate-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center"
+                    style={{ fontSize: 'clamp(2.25rem, 10vw, 4.5rem)' }} // Fluid font size
+                  >
                     Adeetya Ch
                     <InlinePixelTorus />
                     ubey
                   </h1>
-                  <p className="text-base sm:text-lg md:text-xl text-red-600 dark:text-red-500 mb-12">Algebra | Topology</p>
+                  <p 
+                    className="text-red-600 dark:text-red-500 mb-12"
+                    style={{ fontSize: 'clamp(1rem, 4vw, 1.25rem)'}} // Fluid font size
+                  >
+                    Algebra | Topology
+                  </p>
                   <nav className="flex flex-wrap gap-x-6 gap-y-4 justify-center">
                       {pages.map(page => (
                           <button 
