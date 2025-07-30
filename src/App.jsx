@@ -75,13 +75,13 @@ const pages = ['About', 'Academic Experiences', 'Links', 'Explorations', 'Blog',
 
 // --- Reusable UI Components ---
 const Card = ({ children, className = "" }) => (
-  <div className={`bg-white/10 dark:bg-[#1a1a1a]/50 backdrop-blur-sm shadow-lg rounded-xl p-6 transition-all duration-300 hover:shadow-2xl border border-white/10 dark:border-[#2a2a2a] ${className}`}>
+  <div className={`bg-slate-100 dark:bg-[#1a1a1a] rounded-none p-6 border border-slate-300 dark:border-[#2a2a2a] ${className}`}>
     {children}
   </div>
 );
 
 const SectionTitle = ({ children }) => (
-  <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-8 pb-3 border-b-4 border-red-500 dark:border-red-500">
+  <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-8 pb-3 border-b-4 border-red-500">
     {children}
   </h2>
 );
@@ -100,7 +100,7 @@ const AboutPage = () => (
             <h3 className="text-2xl font-semibold text-slate-800 dark:text-gray-100 mb-6">Education</h3>
             <div className="space-y-6">
                 {cvData.education.map(edu => (
-                    <div key={edu.institution} className="border-l-4 border-red-500 dark:border-red-500 pl-4">
+                    <div key={edu.institution} className="border-l-4 border-red-500 pl-4">
                         <h4 className="text-xl font-bold text-red-700 dark:text-red-400">{edu.institution}</h4>
                         <p className="text-md font-semibold text-slate-600 dark:text-slate-400">{edu.degree}</p>
                         <p className="text-sm text-slate-500 dark:text-slate-500 mb-2">{edu.duration}</p>
@@ -166,7 +166,7 @@ const LinksPage = () => (
                     { href: "https://math.stackexchange.com/", title: "Math StackExchange", desc: "A question and answer site for professional mathematicians and students." },
                     { href: "https://ncatlab.org/nlab/show/HomePage", title: "nLab", desc: "A wiki-lab for collaborative work on mathematics, physics, and philosophy." }
                 ].map(link => (
-                    <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center p-4 bg-slate-100 dark:bg-[#2a2a2a]/50 rounded-lg hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors">
+                    <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center p-4 bg-slate-200 dark:bg-[#2a2a2a] rounded-none border border-slate-300 dark:border-slate-700 hover:border-red-500 dark:hover:border-red-500 transition-colors duration-300">
                         <BookOpen className="w-6 h-6 mr-4 text-red-600 dark:text-red-400 flex-shrink-0"/>
                         <div>
                             <p className="font-bold text-red-800 dark:text-red-300">{link.title}</p>
@@ -186,7 +186,7 @@ const ExplorationsPage = () => (
             <p className="text-lg text-slate-600 dark:text-slate-300 mb-8">{cvData.explorations.description}</p>
             <div className="space-y-6">
                 {cvData.explorations.topics.map(topic => (
-                    <div key={topic.title} className="p-4 border-l-4 border-red-500 dark:border-red-500">
+                    <div key={topic.title} className="p-4 border-l-4 border-red-500">
                         <h4 className="text-xl font-semibold text-slate-800 dark:text-gray-100">{topic.title}</h4>
                         <p className="text-lg text-slate-600 dark:text-slate-400 mt-1">{topic.description}</p>
                     </div>
@@ -204,13 +204,13 @@ const BlogPage = () => (
             <p className="text-lg text-slate-600 dark:text-slate-300">
                 This is a placeholder for the blog. Check back later for posts on mathematics, research, and other musings.
             </p>
-             <div className="mt-8 space-y-6 border-t border-slate-200 dark:border-slate-700 pt-6">
-                <div className="opacity-50">
+             <div className="mt-8 space-y-6 border-t border-slate-300 dark:border-slate-700 pt-6">
+                <div className="opacity-60">
                     <h4 className="text-xl font-bold text-slate-700 dark:text-slate-300">Placeholder Post Title</h4>
                     <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">July 31, 2025</p>
                     <p className="text-slate-600 dark:text-slate-400">This is where a short excerpt of a future blog post will appear. It might discuss a recent finding, a mathematical concept, or an interesting problem...</p>
                 </div>
-                 <div className="opacity-50">
+                 <div className="opacity-60">
                     <h4 className="text-xl font-bold text-slate-700 dark:text-slate-300">Another Example Post</h4>
                     <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">July 31, 2025</p>
                     <p className="text-slate-600 dark:text-slate-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -231,13 +231,13 @@ const ContactPage = () => (
             </p>
             <div className="flex items-center space-x-4">
                 <Mail className="w-6 h-6 text-red-600 dark:text-red-400 flex-shrink-0" />
-                <a href={`mailto:${cvData.contact.email}`} className="text-lg text-red-600 dark:text-red-400 hover:underline break-all">{cvData.contact.email}</a>
+                <a href={`mailto:${cvData.contact.email}`} className="text-lg text-red-600 dark:text-red-400 hover:text-red-400 dark:hover:text-red-300 transition-colors duration-300 underline">{cvData.contact.email}</a>
             </div>
             <div className="flex items-center space-x-4">
                 <Linkedin className="w-6 h-6 text-red-600 dark:text-red-400 flex-shrink-0" />
-                <a href={cvData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-lg text-red-600 dark:text-red-400 hover:underline">LinkedIn Profile</a>
+                <a href={cvData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-lg text-red-600 dark:text-red-400 hover:text-red-400 dark:hover:text-red-300 transition-colors duration-300 underline">LinkedIn Profile</a>
             </div>
-             <div className="mt-4 pt-6 border-t border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+             <div className="mt-4 pt-6 border-t border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400">
                 <p>{cvData.location}</p>
             </div>
         </div>
@@ -255,7 +255,7 @@ const InlinePixelTorus = () => {
         const ctx = canvas.getContext('2d');
         
         const PIXEL_SIZE = 2;
-        const SIZE = 60; // Canvas size
+        const SIZE = 60;
         canvas.width = SIZE;
         canvas.height = SIZE;
 
@@ -266,7 +266,7 @@ const InlinePixelTorus = () => {
         function drawTorus() {
             ctx.clearRect(0, 0, SIZE, SIZE);
             
-            const R = 18, r = 9; // Torus dimensions
+            const R = 18, r = 9;
             const cx = SIZE / 2, cy = SIZE / 2;
             
             const points = [];
@@ -374,16 +374,16 @@ function App() {
   if (showLanding) {
       return (
           <div className="min-h-screen bg-white dark:bg-[#0d0d0d] flex flex-col items-center justify-center text-center p-4 overflow-hidden relative" style={{fontFamily: "'Roboto Mono', monospace"}}>
-               <button onClick={toggleTheme} className="absolute top-4 right-4 p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors z-20">
+               <button onClick={toggleTheme} className="absolute top-4 right-4 p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-300 z-20">
                     {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
                 </button>
               <div className="relative z-10">
-                  <h1 className="text-5xl md:text-7xl font-bold text-slate-800 dark:text-white mb-2 flex items-center justify-center">
+                  <h1 className="text-4xl md:text-6xl font-bold text-slate-800 dark:text-white mb-2 flex items-center justify-center">
                     Adeetya Ch
                     <InlinePixelTorus />
                     ubey
                   </h1>
-                  <p className="text-xl md:text-2xl text-red-600 dark:text-red-500 mb-12">Abstract Algebra | Topology</p>
+                  <p className="text-lg md:text-xl text-red-600 dark:text-red-500 mb-12">Abstract Algebra | Topology</p>
                   <nav className="flex flex-wrap gap-x-6 gap-y-4 justify-center">
                       {pages.map(page => (
                           <button 
@@ -415,10 +415,10 @@ function App() {
   const NavLink = ({ pageName }) => (
     <button
       onClick={() => setActivePage(pageName)}
-      className={`px-3 sm:px-4 py-2 rounded-md text-sm sm:text-lg font-medium transition-all duration-300 ease-in-out transform hover:scale-105 ${
+      className={`px-3 sm:px-4 py-2 rounded-none text-sm sm:text-lg font-medium transition-colors duration-300 border border-transparent ${
         activePage === pageName
-          ? 'bg-red-600 text-white shadow-lg'
-          : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+          ? 'bg-red-600 text-white shadow-inner'
+          : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
       }`}
     >
       {pageName}
@@ -427,19 +427,19 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0d0d0d] text-slate-800 dark:text-slate-200 transition-colors duration-500" style={{fontFamily: "'Roboto Mono', monospace"}}>
-      <header className="bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm shadow-md sticky top-0 z-20 border-b border-white/10 dark:border-[#2a2a2a]">
+      <header className="bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm sticky top-0 z-20 border-b border-slate-300 dark:border-[#2a2a2a]">
         <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <div>
-            <button onClick={() => setShowLanding(true)} className="text-left">
+            <button onClick={() => setShowLanding(true)} className="text-left transition-opacity duration-300 hover:opacity-70">
                 <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">{cvData.name}</h1>
                 <p className="text-sm sm:text-md text-slate-600 dark:text-slate-400">Student of Mathematics</p>
             </button>
           </div>
-          <button onClick={toggleTheme} className="p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+          <button onClick={toggleTheme} className="p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-300">
             {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
           </button>
         </div>
-        <nav className="bg-white/50 dark:bg-[#1f1f1f]/50 border-t border-b border-white/10 dark:border-[#2a2a2a]">
+        <nav className="bg-white/50 dark:bg-[#1f1f1f]/50 border-t border-b border-slate-300 dark:border-[#2a2a2a]">
            <div className="container mx-auto px-2 sm:px-6 py-2 flex justify-center flex-wrap gap-1 sm:gap-2">
                 {pages.map(page => <NavLink key={page} pageName={page} />)}
            </div>
@@ -450,7 +450,7 @@ function App() {
         {renderPage()}
       </main>
       
-      <footer className="bg-white dark:bg-[#1a1a1a] mt-16 py-6 border-t border-white/10 dark:border-[#2a2a2a]">
+      <footer className="bg-white dark:bg-[#1a1a1a] mt-16 py-6 border-t border-slate-300 dark:border-[#2a2a2a]">
         <div className="container mx-auto px-6 text-center text-slate-600 dark:text-slate-400">
             <p>&copy; {new Date().getFullYear()} Adeetya Choubey. Built with React & Tailwind CSS.</p>
         </div>
