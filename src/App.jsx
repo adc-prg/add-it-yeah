@@ -395,7 +395,7 @@ function App() {
                 </button>
               <div className="relative z-10">
                   <h1 
-                    className="font-bold text-slate-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center"
+                    className="font-bold text-slate-800 dark:text-white mb-2 flex flex-wrap items-center justify-center"
                     style={{ fontSize: 'clamp(1.75rem, 10vw, 4.5rem)' }} // Fluid font size with a smaller minimum
                   >
                     Adeetya Ch
