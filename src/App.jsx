@@ -47,11 +47,10 @@ const cvData = {
           { title: "Summer Research Intern", institution: "Institute of Science, Banaras Hindu University", duration: "May – July 2024", description: "This summer project focused on building a foundational understanding of Braid Theory, the development of related algorithms, and exploring its applications. The work involved tackling key problems such as the word problem and the conjugacy problem, studying knot invariants, and delving into other introductory topics in Knot Theory." }
       ],
       summerSchools: [
-          { title: "Advanced Instructional School on Algebraic Topology", institution: "Harish-Chandra Research Institute", duration: "December 2024", description: "Attended a series of advanced lectures and workshops focusing on advanced homotopy theory, spectral sequences, and their applications. Included collaborative problem-solving sessions and research talks from leading mathematicians." },
-          { title: "Summer School on Geometric Group Theory", institution: "Tata Institute of Fundamental Research", duration: "June 2023", description: "An intensive program covering the fundamentals of geometric group theory, including quasi-isometries, hyperbolic groups, and connections to low-dimensional topology." }
+          { title: "Summer Program", institution: "TIFR - Centre for Applicable Mathematics", duration: "June 2025 - July 2025", description: " The program included courses on Reproducing Kernel Hilbert Spaces, Geometric Measure theory, Geometric Function theory, Gibbs Measure and Entropy, Multiscale problems in PDE, Microlocal Analysis and Inverse Problems, along with several keynote lecture about ongoing research in Analysis and Combinatorics, delivered by leading researchers in the field." },
+          { title: "Mathematics Summer Program", institution: "Indraprastha Institute of Information Technology, Delhi", duration: "June 2024", description: "An intensive program covering the fundamentals of Analysis, Abstract Algebra, Topology, Distribution Theory, along with problem solving sessions." }
       ],
       certifications: [
-          { title: "Mathematics Summer Program", institution: "IIIT Delhi" },
           { title: "Crash Course on Python", institution: "Google" },
           { title: "Data Analysis with R", institution: "Coursera" },
           { title: "MATLAB Onramp", institution: "MathWorks" },
@@ -60,13 +59,12 @@ const cvData = {
   explorations: {
       description: "Beyond mathematics, I'm fascinated by the interplay of logic, language, and history. Here are a few things I enjoy exploring in my free time.",
       topics: [
-          { title: "Sanskrit Literature", description: "Reading classical Sanskrit poetry and philosophical texts, appreciating the logical structure and richness of the language." },
           { title: "History of Science", description: "Learning about the historical development of scientific and mathematical ideas, understanding the context in which breakthroughs occurred." },
           { title: "Classical Music", description: "I enjoy listening to and learning about the structure of Indian classical music, finding parallels in its rhythmic and melodic patterns with mathematical concepts." }
       ]
   },
   contact: {
-      email: "adeetyachoubey@gmail.com",
+      email: "adeetya22@iiserb.ac.in",
       linkedin: "https://www.linkedin.com/in/adeetya-choubey-6b2a44254/"
   }
 };
