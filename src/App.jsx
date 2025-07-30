@@ -272,7 +272,7 @@ const InlinePixelTorus = () => {
         };
     }, []);
 
-    return <canvas ref={canvasRef} className="inline-block" style={{ width: '0.8em', height: '0.8em', verticalAlign: '-0.1em', margin: '0 0.1em' }}/>;
+    return <canvas ref={canvasRef} className="inline-block" style={{ width: '0.9em', height: '0.9em', verticalAlign: '-0.15em', margin: '0 0.1em' }}/>;
 };
 
 
