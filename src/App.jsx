@@ -404,7 +404,7 @@ function App() {
                   </h1>
                   <p 
                     className="text-red-600 dark:text-red-500 mb-12"
-                    style={{ fontSize: 'clamp(0.875rem, 4vw, 1.25rem)'}} // Fluid font size with a smaller minimum
+                    style={{ fontSize: 'clamp(0.1rem, 2vw, 1.25rem)'}} // Fluid font size with a smaller minimum
                   >
                     Algebra | Topology
                   </p>
