@@ -33,8 +33,9 @@ const cvData = {
   location: "Bhopal, Madhya Pradesh, India",
   profile: {
     intro: "Math undergraduate, enrolled in the dual degree BS-MS program at IISER Bhopal.",
-    interests: "I have strong interests in Abstract Algebra and Topology, which also slightly extend to some elementary functional analysis. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
-    ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia."
+    interests: "I have strong interests in Abstract Algebra and Topology, which also slightly extend to some functional analysis. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
+    ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia.",
+    Other: "Whenever I am not doing Math, I can be found playing/watching football, playing card games, video games or exploring Art and Music. Still in process of exploring whatever intrigues me".
   },
   education: [
     { institution: "Indian Institute of Science Education and Research, Bhopal", degree: "BS-MS (Dual Degree), Major: Mathematics", duration: "2022 – 2027 (Expected)", grades: ["Cumulative performance: 8.73/10"] },
