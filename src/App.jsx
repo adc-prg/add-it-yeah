@@ -393,7 +393,7 @@ function App() {
               <div className="relative z-10">
                   <h1 
                     className="font-bold text-slate-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center"
-                    style={{ fontSize: 'clamp(2.25rem, 10vw, 4.5rem)' }} // Fluid font size
+                    style={{ fontSize: 'clamp(1.8rem, 10vw, 4.5rem)' }} // Fluid font size with a smaller minimum
                   >
                     Adeetya Ch
                     <InlinePixelTorus />
@@ -401,7 +401,7 @@ function App() {
                   </h1>
                   <p 
                     className="text-red-600 dark:text-red-500 mb-12"
-                    style={{ fontSize: 'clamp(1rem, 4vw, 1.25rem)'}} // Fluid font size
+                    style={{ fontSize: 'clamp(0.9rem, 4vw, 1.25rem)'}} // Fluid font size with a smaller minimum
                   >
                     Algebra | Topology
                   </p>
