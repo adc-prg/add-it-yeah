@@ -427,7 +427,7 @@ function App() {
               <div className="relative z-10">
                   <h1 
                     className="font-bold text-slate-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center"
-                    style={{ fontSize: 'clamp(1.75rem, 10vw, 4.5rem)' }}
+                    style={{ fontSize: 'clamp(1.75rem, 8vw, 4.5rem)' }}
                   >
                     Adeetya Ch
                     <InlinePixelTorus />
