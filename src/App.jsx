@@ -1,23 +1,3 @@
-Of course. I've updated the React code to use "AcadEx" in the navigation and have implemented several improvements to ensure the site is more compatible and looks great on mobile screens.
-
-The main responsive adjustments were made to the contact section to prevent content from overflowing on small devices and to the landing page navigation to give it better spacing.
-
------
-
-### Summary of Changes
-
-1.  **Navigation Link Updated**: The `pages` array, which populates the navigation, was changed from `'Academic Experiences'` to `'AcadEx'`. The corresponding `case` in the `renderPage` function was also updated to match.
-2.  **Responsive Contact Page**: The contact links (Email and LinkedIn) were modified to stack vertically on small screens (`flex-col`) and switch to a horizontal layout on larger screens (`sm:flex-row`). This prevents the long email address from breaking the layout on mobile.
-3.  **Adjusted Landing Page Gaps**: The gaps between navigation links on the initial landing page were slightly reduced for extra-small screens to improve wrapping and appearance.
-4.  **Fluid Typography**: The existing use of `clamp()` for font sizes on the landing page is excellent for responsiveness and has been retained. The responsive prefixes (`sm:`, `md:`, etc.) used throughout the component were already well-suited for mobile compatibility.
-
------
-
-### Updated React Code
-
-Here is the complete, updated `App.js` file with the requested changes.
-
-```jsx
 import React, { useState, useEffect, useRef } from 'react';
 
 // --- Icon Imports ---
@@ -507,4 +487,3 @@ function App() {
 }
 
 export default App;
-```
