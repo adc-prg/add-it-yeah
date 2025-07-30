@@ -33,9 +33,8 @@ const cvData = {
   location: "Bhopal, Madhya Pradesh, India",
   profile: {
     intro: "Math undergraduate, enrolled in the dual degree BS-MS program at IISER Bhopal.",
-    interests: "I have strong interests in Abstract Algebra and Topology, which also slightly extend to some functional analysis. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
-    ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia.",
-    Other: "Whenever I am not doing Math, I can be found playing/watching football, playing card games, video games or exploring Art and Music. Still in process of exploring whatever intrigues me".
+    interests: "I have strong interests in Abstract Algebra and Topology, which also slightly extend to some elementary functional analysis. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
+    ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia."
   },
   education: [
     { institution: "Indian Institute of Science Education and Research, Bhopal", degree: "BS-MS (Dual Degree), Major: Mathematics", duration: "2022 – 2027 (Expected)", grades: ["Cumulative performance: 8.73/10"] },
@@ -55,13 +54,6 @@ const cvData = {
           { title: "Crash Course on Python", institution: "Google" },
           { title: "Data Analysis with R", institution: "Coursera" },
           { title: "MATLAB Onramp", institution: "MathWorks" },
-      ]
-  },
-  explorations: {
-      description: "Beyond mathematics, I'm fascinated by the interplay of logic, language, and history. Here are a few things I enjoy exploring in my free time.",
-      topics: [
-          { title: "History of Science", description: "Learning about the historical development of scientific and mathematical ideas, understanding the context in which breakthroughs occurred." },
-          { title: "Classical Music", description: "I enjoy listening to and learning about the structure of Indian classical music, finding parallels in its rhythmic and melodic patterns with mathematical concepts." }
       ]
   },
   contact: {
@@ -152,73 +144,17 @@ const AcademicExperiencesPage = () => (
     </div>
 );
 
-const LinksPage = () => (
+const ComingSoonPage = ({ title }) => (
     <div>
-        <SectionTitle>Links</SectionTitle>
+        <SectionTitle>{title}</SectionTitle>
         <Card>
-            <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
-                A collection of links to resources, archives, and communities that I find invaluable for research and learning.
-            </p>
-            <div className="space-y-4">
-                {[
-                    { href: "https://arxiv.org/archive/math", title: "arXiv Mathematics Archive", desc: "The essential preprint server for new research in all fields of mathematics." },
-                    { href: "https://math.stackexchange.com/", title: "Math StackExchange", desc: "A question and answer site for professional mathematicians and students." },
-                    { href: "https://ncatlab.org/nlab/show/HomePage", title: "nLab", desc: "A wiki-lab for collaborative work on mathematics, physics, and philosophy." }
-                ].map(link => (
-                    <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center p-4 bg-slate-200 dark:bg-[#2a2a2a] rounded-none border border-slate-300 dark:border-slate-700 hover:border-red-500 dark:hover:border-red-500 transition-colors duration-300">
-                        <BookOpen className="w-6 h-6 mr-4 text-red-600 dark:text-red-400 flex-shrink-0"/>
-                        <div>
-                            <p className="font-bold text-red-800 dark:text-red-300">{link.title}</p>
-                            <p className="text-sm text-slate-600 dark:text-slate-400">{link.desc}</p>
-                        </div>
-                    </a>
-                ))}
-            </div>
-        </Card>
-    </div>
-);
-
-const ExplorationsPage = () => (
-    <div>
-        <SectionTitle>Explorations</SectionTitle>
-        <Card>
-            <p className="text-lg text-slate-600 dark:text-slate-300 mb-8">{cvData.explorations.description}</p>
-            <div className="space-y-6">
-                {cvData.explorations.topics.map(topic => (
-                    <div key={topic.title} className="p-4 border-l-4 border-red-500">
-                        <h4 className="text-xl font-semibold text-slate-800 dark:text-gray-100">{topic.title}</h4>
-                        <p className="text-lg text-slate-600 dark:text-slate-400 mt-1">{topic.description}</p>
-                    </div>
-                ))}
-            </div>
-        </Card>
-    </div>
-);
-
-const BlogPage = () => (
-    <div>
-        <SectionTitle>Blog</SectionTitle>
-        <Card>
-            <h3 className="text-2xl font-semibold text-slate-800 dark:text-gray-100 mb-4">Coming Soon</h3>
+            <h3 className="text-2xl font-semibold text-slate-800 dark:text-gray-100 mb-4">Something's cooking...</h3>
             <p className="text-lg text-slate-600 dark:text-slate-300">
-                This is a placeholder for the blog. Check back later for posts on mathematics, research, and other musings.
+                This page is currently under construction. Check back later for new content!
             </p>
-             <div className="mt-8 space-y-6 border-t border-slate-300 dark:border-slate-700 pt-6">
-                <div className="opacity-60">
-                    <h4 className="text-xl font-bold text-slate-700 dark:text-slate-300">Placeholder Post Title</h4>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">July 31, 2025</p>
-                    <p className="text-slate-600 dark:text-slate-400">This is where a short excerpt of a future blog post will appear. It might discuss a recent finding, a mathematical concept, or an interesting problem...</p>
-                </div>
-                 <div className="opacity-60">
-                    <h4 className="text-xl font-bold text-slate-700 dark:text-slate-300">Another Example Post</h4>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">July 31, 2025</p>
-                    <p className="text-slate-600 dark:text-slate-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            </div>
         </Card>
     </div>
 );
-
 
 const ContactPage = () => (
   <div>
@@ -382,7 +318,7 @@ function App() {
                     <InlinePixelTorus />
                     ubey
                   </h1>
-                  <p className="text-base sm:text-lg md:text-xl text-red-600 dark:text-red-500 mb-12">Abstract Algebra | Topology</p>
+                  <p className="text-base sm:text-lg md:text-xl text-red-600 dark:text-red-500 mb-12">Algebra|Topology</p>
                   <nav className="flex flex-wrap gap-x-6 gap-y-4 justify-center">
                       {pages.map(page => (
                           <button 
@@ -403,9 +339,9 @@ function App() {
     switch (activePage) {
       case 'About': return <AboutPage />;
       case 'Academic Experiences': return <AcademicExperiencesPage />;
-      case 'Links': return <LinksPage />;
-      case 'Explorations': return <ExplorationsPage />;
-      case 'Blog': return <BlogPage />;
+      case 'Links': return <ComingSoonPage title="Links" />;
+      case 'Explorations': return <ComingSoonPage title="Explorations" />;
+      case 'Blog': return <ComingSoonPage title="Blog" />;
       case 'Contact': return <ContactPage />;
       default: return <AboutPage />;
     }
@@ -425,8 +361,8 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0d0d0d] text-slate-800 dark:text-slate-200 transition-colors duration-500" style={{fontFamily: "'Roboto Mono', monospace"}}>
-      <header className="bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm sticky top-0 z-20 border-b border-slate-300 dark:border-[#2a2a2a]">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0d0d0d] text-slate-800 dark:text-slate-200 transition-colors duration-500" style={{fontFamily: "'Roboto Mono', monospace"}}>
+      <header className="bg-white dark:bg-[#1a1a1a] sticky top-0 z-20 border-b border-slate-300 dark:border-[#2a2a2a]">
         <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <div>
             <button onClick={() => setShowLanding(true)} className="text-left transition-opacity duration-300 hover:opacity-70">
@@ -438,7 +374,7 @@ function App() {
             {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
           </button>
         </div>
-        <nav className="bg-white/50 dark:bg-[#1f1f1f]/50 border-t border-b border-slate-300 dark:border-[#2a2a2a]">
+        <nav className="bg-slate-100 dark:bg-[#1f1f1f] border-t border-b border-slate-300 dark:border-[#2a2a2a]">
            <div className="container mx-auto px-2 sm:px-6 py-2 flex justify-center flex-wrap gap-1 sm:gap-2">
                 {pages.map(page => <NavLink key={page} pageName={page} />)}
            </div>
