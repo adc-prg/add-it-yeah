@@ -85,11 +85,11 @@ const cvData = {
   events: [
     {
         title: "Khel-Culus",
-        description: "Khel, in my mother tongue Hindi, stands for sport. Khel-culus represents the treatise of calculus as a sport. It was the name coined by me for the integration bee held during the annual math fest, Continuum, organised by the department of math at IISERb, with the Math Club IISERb. I organised the event, along with Yash Sharma, to fruition despite several unavoidable obstacles."
+        description: "Khel, in my mother tongue Hindi, stands for sport. Khel-culus represents the treatise of calculus as a sport. It was the name coined by me for the integration bee held during the annual math fest, Continuum, organised by the department of math at IISER bhopal. I organised the event, along with Yash Sharma, to fruition despite several unavoidable obstacles."
     },
     {
         title: "Big-Tac-Toe",
-        description: "It's a wordplay (Big + Tic-tac-toe) which is another name coined by Dhruv Dua and myself for the game ultimate tic-tac-toe. The event was again held at Continuum, collaborating with the board games club, Ingenium. The event included a knockout stage gameplay with ultimately Saurav Kanetkar coming out on top as the Big-Tac-Toe champion, 2025 edition.",
+        description: "It's a wordplay (Big + Tic-tac-toe) which is another name for the game ultimate tic-tac-toe. The event was again held at Continuum, collaborating with the board games club, Ingenium. The event included a knockout stage gameplay with ultimately Saurav Kanetkar coming out on top as the Big-Tac-Toe champion, 2025 edition.",
         link: {
             url: "https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe",
             text: "Ultimate Tic-Tac-Toe"
