@@ -196,7 +196,8 @@ const InlinePixelTorus = () => {
 
         const redShades = ['#9f1239', '#dc2626', '#ef4444', '#f87171', '#fca5a5'];
         
-        let rotation = 0;
+        let rotationY = 0;
+        let rotationX = 0;
 
         function drawTorus() {
             ctx.clearRect(0, 0, SIZE, SIZE);
@@ -223,21 +224,19 @@ const InlinePixelTorus = () => {
                     let ny = Math.cos(v) * Math.sin(u);
                     let nz = Math.sin(v);
 
-                    const rotY = rotation;
-                    const rotX = 0.5;
-
-                    let tempZ = z * Math.cos(rotX) - y * Math.sin(rotX);
-                    let tempY = z * Math.sin(rotX) + y * Math.cos(rotX);
+                    // Rotate point and normal
+                    let tempZ = z * Math.cos(rotationX) - y * Math.sin(rotationX);
+                    let tempY = z * Math.sin(rotationX) + y * Math.cos(rotationX);
                     z = tempZ; y = tempY;
-                    let tempNz = nz * Math.cos(rotX) - ny * Math.sin(rotX);
-                    let tempNy = nz * Math.sin(rotX) + ny * Math.cos(rotX);
+                    let tempNz = nz * Math.cos(rotationX) - ny * Math.sin(rotationX);
+                    let tempNy = nz * Math.sin(rotationX) + ny * Math.cos(rotationX);
                     nz = tempNz; ny = tempNy;
 
-                    let tempX = x * Math.cos(rotY) - z * Math.sin(rotY);
-                    tempZ = x * Math.sin(rotY) + z * Math.cos(rotY);
+                    let tempX = x * Math.cos(rotationY) - z * Math.sin(rotationY);
+                    tempZ = x * Math.sin(rotationY) + z * Math.cos(rotationY);
                     x = tempX; z = tempZ;
-                    let tempNx = nx * Math.cos(rotY) - nz * Math.sin(rotY);
-                    tempNz = nx * Math.sin(rotY) + nz * Math.cos(rotY);
+                    let tempNx = nx * Math.cos(rotationY) - nz * Math.sin(rotationY);
+                    tempNz = nx * Math.sin(rotationY) + nz * Math.cos(rotationY);
                     nx = tempNx; nz = tempNz;
                     
                     const intensity = nx * lightNorm.x + ny * lightNorm.y + nz * lightNorm.z;
@@ -258,7 +257,8 @@ const InlinePixelTorus = () => {
         }
 
         function animate() {
-            rotation += 0.01;
+            rotationY += 0.01;
+            rotationX += 0.005;
             drawTorus();
             animationFrameIdRef.current = requestAnimationFrame(animate);
         }
@@ -272,7 +272,7 @@ const InlinePixelTorus = () => {
         };
     }, []);
 
-    return <canvas ref={canvasRef} className="inline-block mx-1" style={{ width: '1em', height: '1em', verticalAlign: 'middle' }}/>;
+    return <canvas ref={canvasRef} className="inline-block" style={{ width: '0.8em', height: '0.8em', verticalAlign: '-0.1em', margin: '0 0.1em' }}/>;
 };
 
 
@@ -318,7 +318,7 @@ function App() {
                     <InlinePixelTorus />
                     ubey
                   </h1>
-                  <p className="text-base sm:text-lg md:text-xl text-red-600 dark:text-red-500 mb-12">Algebra|Topology</p>
+                  <p className="text-base sm:text-lg md:text-xl text-red-600 dark:text-red-500 mb-12">Algebra | Topology</p>
                   <nav className="flex flex-wrap gap-x-6 gap-y-4 justify-center">
                       {pages.map(page => (
                           <button 
@@ -367,7 +367,7 @@ function App() {
           <div>
             <button onClick={() => setShowLanding(true)} className="text-left transition-opacity duration-300 hover:opacity-70">
                 <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">{cvData.name}</h1>
-                <p className="text-sm sm:text-md text-slate-600 dark:text-slate-400">Student of Mathematics</p>
+                <p className="text-sm sm:text-md text-slate-600 dark:text-slate-400">Mathematics Undergraduate</p>
             </button>
           </div>
           <button onClick={toggleTheme} className="p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-300">
