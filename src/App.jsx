@@ -34,12 +34,38 @@ const cvData = {
   profile: {
     intro: "Math undergraduate, enrolled in the dual degree BS-MS program at IISER Bhopal.",
     interests: "I have strong interests in Abstract Algebra and Topology, which also slightly extend to some elementary functional analysis. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
-    ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia. I play football, video games, cards and badminton in my free time. I also venture quite a lot in music, art and literature recently."
+    ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia."
   },
   education: [
     { institution: "Indian Institute of Science Education and Research, Bhopal", degree: "BS-MS (Dual Degree), Major: Mathematics", duration: "2022 – 2027 (Expected)", grades: ["Cumulative performance: 8.73/10"] },
     { institution: "Puna International School, Gandhinagar", degree: "Senior Secondary (CBSE), Science Stream", duration: "2020–2022", grades: ["Grade: 87%"] },
     { institution: "Kendriya Vidyalaya", degree: "Secondary School (CBSE)", duration: "2016–2020", grades: ["Grade: 91.6%"] }
+  ],
+  responsibilities: [
+    {
+      role: "Department Representative, Math Dept.",
+      institution: "IISER Bhopal",
+      duration: "Sep 2024 – Present",
+      description: "Elected representative for the 2022 batch, responsible for facilitating student concerns and academic feedback between students and faculty."
+    },
+    {
+      role: "Core Member, Math Club",
+      institution: "IISER Bhopal",
+      duration: "Jun 2024 – Present",
+      description: "Actively involved in organizing guest lectures, weekly academic discussions, and student outreach events to foster a mathematical community."
+    },
+    {
+      role: "Peer Counselor",
+      institution: "IISER Bhopal",
+      duration: "Jul 2023 – Present",
+      description: "Part of the Institute Counselling Cell, offering peer support and guidance to students on academic and personal issues."
+    },
+    {
+      role: "Founding Student Advisor, Ingenium",
+      institution: "IISER Bhopal",
+      duration: "Ongoing",
+      description: "Ingenium is the board games club of IISER Bhopal, the brainchild of Dhruv Dua, my peer at IISER Bhopal. The aim of the club is to inculcate a culture of different kinds of games apart from the conventional ones, at IISERB."
+    }
   ],
   academicExperiences: {
       internships: [
@@ -56,12 +82,26 @@ const cvData = {
           { title: "MATLAB Onramp", institution: "MathWorks" },
       ]
   },
+  events: [
+    {
+        title: "Khel-Culus",
+        description: "Khel, in my mother tongue Hindi, stands for sport. Khel-culus represents the treatise of calculus as a sport. It was the name coined by me for the integration bee held during the annual math fest, Continuum, organised by the department of math at IISER bhopal. I organised the event, along with Yash Sharma, to fruition despite several unavoidable obstacles."
+    },
+    {
+        title: "Big-Tac-Toe",
+        description: "It's a wordplay (Big + Tic-tac-toe) which is another name for the game ultimate tic-tac-toe. The event was again held at Continuum, collaborating with the board games club, Ingenium. The event included a knockout stage gameplay with ultimately Saurav Kanetkar coming out on top as the Big-Tac-Toe champion, 2025 edition.",
+        link: {
+            url: "https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe",
+            text: "Ultimate Tic-Tac-Toe"
+        }
+    }
+  ],
   contact: {
       email: "adeetya22@iiserb.ac.in",
       linkedin: "https://www.linkedin.com/in/adeetya-choubey-6b2a44254/"
   }
 };
-const pages = ['About', 'Academic Experiences', 'Links', 'Explorations', 'Blog', 'Contact'];
+const pages = ['About', 'Academic Experiences', 'Events', 'Links', 'Explorations', 'Blog', 'Contact'];
 
 
 // --- Reusable UI Components ---
@@ -87,7 +127,7 @@ const AboutPage = () => (
             <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-4">{cvData.profile.interests}</p>
             <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">{cvData.profile.ambition}</p>
         </Card>
-        <Card>
+        <Card className="mb-12">
             <h3 className="text-2xl font-semibold text-slate-800 dark:text-gray-100 mb-6">Education</h3>
             <div className="space-y-6">
                 {cvData.education.map(edu => (
@@ -98,6 +138,19 @@ const AboutPage = () => (
                         <ul className="list-disc list-inside text-slate-600 dark:text-slate-400">
                             {edu.grades.map(grade => <li key={grade}>{grade}</li>)}
                         </ul>
+                    </div>
+                ))}
+            </div>
+        </Card>
+        <Card>
+            <h3 className="text-2xl font-semibold text-slate-800 dark:text-gray-100 mb-6">Positions of Responsibility</h3>
+            <div className="space-y-8">
+                {cvData.responsibilities.map(resp => (
+                    <div key={resp.role} className="border-l-4 border-red-500 pl-4">
+                        <h4 className="text-xl font-bold text-red-700 dark:text-red-400">{resp.role}</h4>
+                        <p className="text-md font-semibold text-slate-600 dark:text-slate-400 mb-1">{resp.institution}</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-500 mb-3">{resp.duration}</p>
+                        <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">{resp.description}</p>
                     </div>
                 ))}
             </div>
@@ -141,6 +194,31 @@ const AcademicExperiencesPage = () => (
                 ))}
              </ul>
         </Card>
+    </div>
+);
+
+const EventsPage = () => (
+    <div>
+        <SectionTitle>Events</SectionTitle>
+        <div className="space-y-8">
+            {cvData.events.map(event => (
+                <Card key={event.title}>
+                    <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">{event.title}</h3>
+                    <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                        {event.description.includes("ultimate tic-tac-toe") 
+                            ? <>
+                                {event.description.split("ultimate tic-tac-toe")[0]}
+                                <a href={event.link.url} target="_blank" rel="noopener noreferrer" className="text-red-600 dark:text-red-400 hover:underline font-semibold">
+                                    {event.link.text}
+                                </a>
+                                {event.description.split("ultimate tic-tac-toe")[1]}
+                              </>
+                            : event.description
+                        }
+                    </p>
+                </Card>
+            ))}
+        </div>
     </div>
 );
 
@@ -313,12 +391,20 @@ function App() {
                     {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
                 </button>
               <div className="relative z-10">
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center">
+                  <h1 
+                    className="font-bold text-slate-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center"
+                    style={{ fontSize: 'clamp(2.25rem, 10vw, 4.5rem)' }} // Fluid font size
+                  >
                     Adeetya Ch
                     <InlinePixelTorus />
                     ubey
                   </h1>
-                  <p className="text-base sm:text-lg md:text-xl text-red-600 dark:text-red-500 mb-12">Algebra | Topology</p>
+                  <p 
+                    className="text-red-600 dark:text-red-500 mb-12"
+                    style={{ fontSize: 'clamp(1rem, 4vw, 1.25rem)'}} // Fluid font size
+                  >
+                    Algebra | Topology
+                  </p>
                   <nav className="flex flex-wrap gap-x-6 gap-y-4 justify-center">
                       {pages.map(page => (
                           <button 
@@ -339,6 +425,7 @@ function App() {
     switch (activePage) {
       case 'About': return <AboutPage />;
       case 'Academic Experiences': return <AcademicExperiencesPage />;
+      case 'Events': return <EventsPage />;
       case 'Links': return <ComingSoonPage title="Links" />;
       case 'Explorations': return <ComingSoonPage title="Explorations" />;
       case 'Blog': return <ComingSoonPage title="Blog" />;
