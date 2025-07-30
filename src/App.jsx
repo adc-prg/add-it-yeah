@@ -29,18 +29,18 @@ const Mail = (props) => (
 // --- Data extracted from your CV ---
 const cvData = {
   name: "Adeetya Choubey",
-  location: "Gandhinagar, Gujarat, India",
+  location: "Bhopal, Madhya Pradesh, India",
   profile: {
-    intro: "I am a Mathematics student, enrolled in the dual degree BS-MS program at IISER Bhopal.",
+    intro: "Math undegraduate, enrolled in the dual degree BS-MS program at IISER Bhopal.",
     interests: "I have strong interests in Abstract Algebra and Topology, which also slightly extend to some elementary functional analysis. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
     ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia."
   },
   education: [
     {
-      institution: "IISER Bhopal",
+      institution: "Indian Institute of Science Education and Research, Bhopal",
       degree: "BS-MS (Dual Degree), Major: Mathematics",
       duration: "2022 – current",
-      grades: ["Cumulative performance: 8.73/10", "Performance of the latest semester: 9.4/10"]
+      grades: ["Cumulative performance: 8.73/10"]
     },
     {
       institution: "Puna International School, Gandhinagar",
@@ -59,22 +59,22 @@ const cvData = {
     title: "Abstract Algebra and Topology",
     experiences: [
       {
-        title: "Summer Research Intern under Prof. Ashish Upadhyay",
+        title: "Research Intern",
         institution: "Institute of Science, Banaras Hindu University",
         duration: "May 2025 – Present",
-        description: "This ongoing project began with a unilateral focus on Algebraic Topology, building a strong foundation leading up to Homotopy Theory and Homology. The first phase has involved studying standard textbooks and exploring papers that present both classical problems and modern perspectives in the field. Currently, the focus has shifted towards problem-solving and applying these theoretical tools to tackle more advanced challenges."
+        description: "This ongoing project began with a unilateral focus on Algebraic Topology, building a strong foundation leading up to Homotopy Theory and Homology. The first phase has involved studying standard textbooks and exploring papers that present both classical problems and modern perspectives in the field. Currently, the focus has shifted towards problem-solving and applying these theoretical tools to tackle more advanced challenges, particularly in Algebraic Graph theory."
       },
       {
         title: "Summer Research Intern",
         institution: "Institute of Science, Banaras Hindu University",
         duration: "May – July 2024",
-        description: "This summer project focused on building a foundational understanding of Braid Theory, the development of related algorithms, and exploring its applications in Cryptography. The work involved tackling key problems such as the word problem and the conjugacy problem, studying knot invariants, and delving into other introductory topics in Knot Theory. In parallel, I engaged in readings and discussions on concepts from General Topology, Group theory, along with exploring ongoing research in these and other areas of Mathematics."
+        description: "This summer project focused on building a foundational understanding of Braid Theory, the development of related algorithms, and exploring its applications. The work involved tackling key problems such as the word problem and the conjugacy problem, studying knot invariants, and delving into other introductory topics in Knot Theory. In parallel, I engaged in readings and discussions on concepts from General Topology, Group theory, along with exploring ongoing research in these and other areas of Mathematics."
       }
     ]
   },
   contact: {
       email: "adeetyachoubey@example.com", // Placeholder email
-      linkedin: "https://www.linkedin.com/in/your-profile" // Placeholder LinkedIn
+      linkedin: "https://www.linkedin.com/in/adeetya-choubey-6b2a44254/" // Placeholder LinkedIn
   }
 };
 
