@@ -69,7 +69,7 @@ const cvData = {
   ],
   academicExperiences: {
       internships: [
-          { title: "Research Intern", institution: "Institute of Science, Banaras Hindu University", duration: "May 2025 – Present", description: "This ongoing project began with a unilateral focus on Algebraic Topology, building a strong foundation leading up to Homotopy Theory and Homology. The first phase has involved studying standard textbooks and exploring papers that present both classical and modern perspectives in the field. Currently, the focus has shifted towards problem-solving and applying these theoretical tools to tackle more advanced challenges." },
+          { title: "Research Intern", institution: "Institute of Science, Banaras Hindu University", duration: "May 2025 – Present", description: "This ongoing project began with a unilateral focus on Algebraic Topology, building a strong foundation leading up to Homotopy Theory and Homology. The first phase has involved studying standard textbooks and exploring papers that present both classical problems and modern perspectives in the field. Currently, the focus has shifted towards problem-solving and applying these theoretical tools to tackle more advanced challenges." },
           { title: "Summer Research Intern", institution: "Institute of Science, Banaras Hindu University", duration: "May – July 2024", description: "This summer project focused on building a foundational understanding of Braid Theory, the development of related algorithms, and exploring its applications. The work involved tackling key problems such as the word problem and the conjugacy problem, studying knot invariants, and delving into other introductory topics in Knot Theory." }
       ],
       summerSchools: [
@@ -85,11 +85,11 @@ const cvData = {
   events: [
     {
         title: "Khel-Culus",
-        description: "Khel, in my mother tongue Hindi, stands for sport. Khel-culus represents the treatise of calculus as a sport. It was the name coined by me for the integration bee held during the annual math fest, Continuum, organised by the department of math at IISER bhopal. I organised the event, along with Yash Sharma, to fruition despite several unavoidable obstacles."
+        description: "Khel, in my mother tongue Hindi, stands for sport. Khel-culus represents the treatise of calculus as a sport. It was the name for the integration bee held during the annual math fest, Continuum, organised by the department of math at IISER bhopal. I organised the event, along with Yash Sharma, to fruition despite several unavoidable obstacles."
     },
     {
         title: "Big-Tac-Toe",
-        description: "It's a wordplay (Big + Tic-tac-toe) which is another name for the game ultimate tic-tac-toe. The event was again held at Continuum, collaborating with the board games club, Ingenium. The event included a knockout stage gameplay with ultimately Saurav Kanetkar coming out on top as the Big-Tac-Toe champion, 2025 edition.",
+        description: "It's a wordplay (Big + Tic-tac-toe) which is another name for the game ultimate tic-tac-toe coined. The event was again held at Continuum, collaborating with the board games club, Ingenium. The event included a knockout stage gameplay with ultimately Saurav Kanetkar coming out on top as the Big-Tac-Toe champion, 2025 edition.",
         link: {
             url: "https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe",
             text: "Ultimate Tic-Tac-Toe"
@@ -101,27 +101,49 @@ const cvData = {
       linkedin: "https://www.linkedin.com/in/adeetya-choubey-6b2a44254/"
   }
 };
-// MODIFIED: Changed 'Academic Experiences' to 'AcadEx' for brevity in navigation
 const pages = ['About', 'AcadEx', 'Events', 'Links', 'Explorations', 'Blog', 'Contact'];
 
 
 // --- Reusable UI Components ---
 const Card = ({ children, className = "" }) => (
-  <div className={`bg-slate-100 dark:bg-[#1a1a1a] rounded-none p-6 border border-slate-300 dark:border-[#2a2a2a] ${className}`}>
+  <div className={`bg-slate-100 dark:bg-[#1a1a1a] rounded-md p-6 border border-slate-300 dark:border-[#2a2a2a] transition-all duration-300 hover:border-red-500/50 dark:hover:border-red-500/50 hover:shadow-lg hover:shadow-red-500/10 ${className}`}>
     {children}
   </div>
 );
 
-const SectionTitle = ({ children }) => (
-  <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-8 pb-3 border-b-4 border-red-500">
-    {children}
-  </h2>
-);
+const TypingTitle = ({ children }) => {
+    const [text, setText] = useState('');
+    const [isTyping, setIsTyping] = useState(true);
+    const fullText = children;
+
+    useEffect(() => {
+        setText('');
+        setIsTyping(true);
+        let i = 0;
+        const interval = setInterval(() => {
+            setText(fullText.substring(0, i + 1));
+            i++;
+            if (i > fullText.length) {
+                clearInterval(interval);
+                setIsTyping(false);
+            }
+        }, 50);
+        return () => clearInterval(interval);
+    }, [fullText]);
+
+    return (
+        <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-8 pb-3 border-b-4 border-red-500 flex items-center">
+            {text}
+            {isTyping && <span className="w-2 h-8 bg-red-500 ml-2 animate-pulse"></span>}
+        </h2>
+    );
+};
+
 
 // --- Page Components ---
 const AboutPage = () => (
     <div>
-        <SectionTitle>About</SectionTitle>
+        <TypingTitle>About</TypingTitle>
         <Card className="mb-12">
             <h3 className="text-2xl font-semibold text-slate-800 dark:text-gray-100 mb-4">Bio-Sketch</h3>
             <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-4">{cvData.profile.intro}</p>
@@ -161,16 +183,16 @@ const AboutPage = () => (
 
 const AcademicExperiencesPage = () => (
     <div>
-        <SectionTitle>Academic Experiences</SectionTitle>
+        <TypingTitle>Academic Experiences</TypingTitle>
         <Card className="mb-12">
             <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-6">Research Internships</h3>
             <div className="space-y-8">
                 {cvData.academicExperiences.internships.map((exp, index) => (
                      <div key={exp.title + exp.duration} className={`pb-8 ${index < cvData.academicExperiences.internships.length - 1 ? 'border-b border-slate-200 dark:border-slate-700' : ''}`}>
-                         <h4 className="text-xl font-semibold text-slate-800 dark:text-gray-100">{exp.title} at {exp.institution}</h4>
-                         <p className="text-sm text-slate-500 dark:text-slate-500 mb-3">{exp.duration}</p>
-                         <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">{exp.description}</p>
-                     </div>
+                        <h4 className="text-xl font-semibold text-slate-800 dark:text-gray-100">{exp.title} at {exp.institution}</h4>
+                        <p className="text-sm text-slate-500 dark:text-slate-500 mb-3">{exp.duration}</p>
+                        <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">{exp.description}</p>
+                    </div>
                 ))}
             </div>
         </Card>
@@ -200,7 +222,7 @@ const AcademicExperiencesPage = () => (
 
 const EventsPage = () => (
     <div>
-        <SectionTitle>Events</SectionTitle>
+        <TypingTitle>Events</TypingTitle>
         <div className="space-y-8">
             {cvData.events.map(event => (
                 <Card key={event.title}>
@@ -225,7 +247,7 @@ const EventsPage = () => (
 
 const ComingSoonPage = ({ title }) => (
     <div>
-        <SectionTitle>{title}</SectionTitle>
+        <TypingTitle>{title}</TypingTitle>
         <Card>
             <h3 className="text-2xl font-semibold text-slate-800 dark:text-gray-100 mb-4">Something's cooking...</h3>
             <p className="text-lg text-slate-600 dark:text-slate-300">
@@ -237,19 +259,17 @@ const ComingSoonPage = ({ title }) => (
 
 const ContactPage = () => (
   <div>
-    <SectionTitle>Contact</SectionTitle>
+    <TypingTitle>Contact</TypingTitle>
     <Card>
         <div className="flex flex-col space-y-6">
             <p className="text-lg text-slate-600 dark:text-slate-300">
                 Feel free to reach out for collaborations, discussions, or inquiries.
             </p>
-            {/* MODIFIED: Made flex layout responsive for mobile */}
-            <div className="flex flex-col items-start sm:flex-row sm:items-center gap-2 sm:gap-4">
+            <div className="flex items-center space-x-4">
                 <Mail className="w-6 h-6 text-red-600 dark:text-red-400 flex-shrink-0" />
-                <a href={`mailto:${cvData.contact.email}`} className="text-lg text-red-600 dark:text-red-400 hover:text-red-400 dark:hover:text-red-300 transition-colors duration-300 underline break-all">{cvData.contact.email}</a>
+                <a href={`mailto:${cvData.contact.email}`} className="text-lg text-red-600 dark:text-red-400 hover:text-red-400 dark:hover:text-red-300 transition-colors duration-300 underline">{cvData.contact.email}</a>
             </div>
-            {/* MODIFIED: Made flex layout responsive for mobile */}
-            <div className="flex flex-col items-start sm:flex-row sm:items-center gap-2 sm:gap-4">
+            <div className="flex items-center space-x-4">
                 <Linkedin className="w-6 h-6 text-red-600 dark:text-red-400 flex-shrink-0" />
                 <a href={cvData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-lg text-red-600 dark:text-red-400 hover:text-red-400 dark:hover:text-red-300 transition-colors duration-300 underline">LinkedIn Profile</a>
             </div>
@@ -305,7 +325,6 @@ const InlinePixelTorus = () => {
                     let ny = Math.cos(v) * Math.sin(u);
                     let nz = Math.sin(v);
 
-                    // Rotate point and normal
                     let tempZ = z * Math.cos(rotationX) - y * Math.sin(rotationX);
                     let tempY = z * Math.sin(rotationX) + y * Math.cos(rotationX);
                     z = tempZ; y = tempY;
@@ -356,6 +375,17 @@ const InlinePixelTorus = () => {
     return <canvas ref={canvasRef} className="inline-block" style={{ width: '0.9em', height: '0.9em', verticalAlign: '-0.15em', margin: '0 0.1em' }}/>;
 };
 
+// --- Retro Overlay Component ---
+const RetroOverlay = () => (
+    <div className="pointer-events-none fixed top-0 left-0 w-full h-full z-30 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMxNDE0MTQiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-5"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/30"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[size:2px_2px]"></div>
+        <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-r from-white/10 to-transparent"></div>
+        <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-l from-white/10 to-transparent"></div>
+    </div>
+);
+
 
 // --- Main App Component ---
 function App() {
@@ -390,13 +420,14 @@ function App() {
   if (showLanding) {
       return (
           <div className="min-h-screen bg-white dark:bg-[#0d0d0d] flex flex-col items-center justify-center text-center p-4 overflow-hidden relative" style={{fontFamily: "'Roboto Mono', monospace"}}>
+               <RetroOverlay />
                <button onClick={toggleTheme} className="absolute top-4 right-4 p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-300 z-20">
                     {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
                 </button>
               <div className="relative z-10">
                   <h1 
-                    className="font-bold text-slate-800 dark:text-white mb-2 flex flex-wrap items-center justify-center"
-                    style={{ fontSize: 'clamp(1.75rem, 8vw, 4.5rem)' }} // Fluid font size with a smaller minimum
+                    className="font-bold text-slate-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center"
+                    style={{ fontSize: 'clamp(1.75rem, 10vw, 4.5rem)' }}
                   >
                     Adeetya Ch
                     <InlinePixelTorus />
@@ -404,12 +435,11 @@ function App() {
                   </h1>
                   <p 
                     className="text-red-600 dark:text-red-500 mb-12"
-                    style={{ fontSize: 'clamp(0.875rem, 4vw, 1.25rem)'}} // Fluid font size with a smaller minimum
+                    style={{ fontSize: 'clamp(0.875rem, 4vw, 1.25rem)'}}
                   >
                     Algebra | Topology
                   </p>
-                  {/* MODIFIED: Adjusted gaps for smaller screens */}
-                  <nav className="flex flex-wrap gap-x-4 gap-y-3 sm:gap-x-6 sm:gap-y-4 justify-center">
+                  <nav className="flex flex-wrap gap-x-6 gap-y-4 justify-center">
                       {pages.map(page => (
                           <button 
                               key={page}
@@ -428,7 +458,6 @@ function App() {
   const renderPage = () => {
     switch (activePage) {
       case 'About': return <AboutPage />;
-      // MODIFIED: Changed case to match updated pages array
       case 'AcadEx': return <AcademicExperiencesPage />;
       case 'Events': return <EventsPage />;
       case 'Links': return <ComingSoonPage title="Links" />;
@@ -442,10 +471,10 @@ function App() {
   const NavLink = ({ pageName }) => (
     <button
       onClick={() => setActivePage(pageName)}
-      className={`px-3 sm:px-4 py-2 rounded-none text-sm sm:text-lg font-medium transition-colors duration-300 border border-transparent ${
+      className={`px-3 sm:px-4 py-2 rounded-md text-sm sm:text-lg font-medium transition-all duration-300 border border-transparent ${
         activePage === pageName
-          ? 'bg-red-600 text-white shadow-inner'
-          : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'
+          ? 'bg-red-600 text-white shadow-inner shadow-red-500/50'
+          : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 hover:shadow-md hover:shadow-red-500/20'
       }`}
     >
       {pageName}
@@ -454,6 +483,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0d0d0d] text-slate-800 dark:text-slate-200 transition-colors duration-500" style={{fontFamily: "'Roboto Mono', monospace"}}>
+      <RetroOverlay />
       <header className="bg-white dark:bg-[#1a1a1a] sticky top-0 z-20 border-b border-slate-300 dark:border-[#2a2a2a]">
         <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <div>
@@ -473,7 +503,7 @@ function App() {
         </nav>
       </header>
       
-      <main className="container mx-auto px-4 sm:px-6 py-12">
+      <main className="container mx-auto px-4 sm:px-6 py-12 relative z-10">
         {renderPage()}
       </main>
       
