@@ -36,14 +36,6 @@ const cvData = {
     interests: "I have strong interests in Abstract Algebra and Topology, which also slightly extend to some functional analysis. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
     ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia. I like playing Football, cards, board games, video games and Badminton. In my free time, I also like to explore Music, Literature and Art."
   },
-  research: [
-    {
-      title: "Title of Your Research Project",
-      guide: "Under the guidance of Prof. [Professor's Name]",
-      duration: "Month Year - Month Year",
-      description: "A brief description of the project, including the main objectives, methodologies used, and key findings or outcomes. Mention any specific mathematical concepts or tools you applied."
-    }
-  ],
   education: [
     { institution: "Indian Institute of Science Education and Research, Bhopal", degree: "BS-MS (Dual Degree), Major: Mathematics", duration: "2022 – 2027 (Expected)", grades: ["Cumulative performance: 8.73/10"] },
     { institution: "Puna International School, Gandhinagar", degree: "Senior Secondary (CBSE), Science Stream", duration: "2020–2022" },
