@@ -113,7 +113,7 @@ const pages = ['About', 'AcadEx', 'Research', 'Events', 'Links', 'Explorations',
 
 // --- Reusable UI Components ---
 const Card = ({ children, className = "" }) => (
-  <div className={`bg-slate-100 dark:bg-[#1a1a1a] rounded-md p-6 border border-slate-300 dark:border-[#2a2a2a] transition-all duration-300 hover:border-red-500/50 dark:hover:border-red-500/50 hover:shadow-lg hover:shadow-red-500/10 ${className}`}>
+  <div className={`bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-lg p-6 border border-slate-300/80 dark:border-slate-700/80 transition-all duration-300 hover:border-red-500/50 dark:hover:border-red-500/50 hover:shadow-lg hover:shadow-red-500/10 ${className}`}>
     {children}
   </div>
 );
@@ -401,22 +401,11 @@ const InlinePixelTorus = () => {
     return <canvas ref={canvasRef} className="inline-block" style={{ width: '0.9em', height: '0.9em', verticalAlign: '-0.15em', margin: '0 0.1em' }}/>;
 };
 
-// --- Retro Overlay Component ---
-const RetroOverlay = () => (
-    <div className="pointer-events-none fixed top-0 left-0 w-full h-full z-30 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMxNDE0MTQiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-5"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/30"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[size:2px_2px]"></div>
-        <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-r from-white/10 to-transparent"></div>
-        <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-l from-white/10 to-transparent"></div>
-    </div>
-);
-
 
 // --- Main App Component ---
 function App() {
   const [activePage, setActivePage] = useState('About');
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light'); // Default to light mode
   const [showLanding, setShowLanding] = useState(true);
 
   useEffect(() => {
@@ -445,9 +434,8 @@ function App() {
 
   if (showLanding) {
       return (
-          <div className="min-h-screen bg-white dark:bg-[#0d0d0d] flex flex-col items-center justify-center text-center p-4 overflow-hidden relative" style={{fontFamily: "'Roboto Mono', monospace"}}>
-               <RetroOverlay />
-               <button onClick={toggleTheme} className="absolute top-4 right-4 p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-300 z-20">
+          <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100 dark:bg-gradient-to-br dark:from-slate-900 dark:to-gray-800 flex flex-col items-center justify-center text-center p-4 overflow-hidden relative" style={{fontFamily: "'Roboto Mono', monospace"}}>
+               <button onClick={toggleTheme} className="absolute top-4 right-4 p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200/60 dark:hover:bg-slate-700/60 transition-colors duration-300 z-20">
                     {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
                 </button>
               <div className="relative z-10">
@@ -500,7 +488,7 @@ function App() {
       className={`px-3 sm:px-4 py-2 rounded-md text-sm sm:text-lg font-medium transition-all duration-300 border border-transparent ${
         activePage === pageName
           ? 'bg-red-600 text-white shadow-inner shadow-red-500/50'
-          : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 hover:shadow-md hover:shadow-red-500/20'
+          : 'text-slate-700 dark:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-800/60 hover:shadow-md hover:shadow-red-500/20'
       }`}
     >
       {pageName}
@@ -508,9 +496,8 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0d0d0d] text-slate-800 dark:text-slate-200 transition-colors duration-500" style={{fontFamily: "'Roboto Mono', monospace"}}>
-      <RetroOverlay />
-      <header className="bg-white dark:bg-[#1a1a1a] sticky top-0 z-20 border-b border-slate-300 dark:border-[#2a2a2a]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100 dark:bg-gradient-to-br dark:from-slate-900 dark:to-gray-800 text-slate-800 dark:text-slate-200 transition-colors duration-500" style={{fontFamily: "'Roboto Mono', monospace"}}>
+      <header className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm sticky top-0 z-20 border-b border-slate-300/80 dark:border-slate-700/80">
         <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <div>
             <button onClick={() => setShowLanding(true)} className="text-left transition-opacity duration-300 hover:opacity-70">
@@ -518,11 +505,11 @@ function App() {
                 <p className="text-sm sm:text-md text-slate-600 dark:text-slate-400">Mathematics Undergraduate</p>
             </button>
           </div>
-          <button onClick={toggleTheme} className="p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-300">
+          <button onClick={toggleTheme} className="p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200/60 dark:hover:bg-slate-700/60 transition-colors duration-300">
             {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
           </button>
         </div>
-        <nav className="bg-slate-100 dark:bg-[#1f1f1f] border-t border-b border-slate-300 dark:border-[#2a2a2a]">
+        <nav className="bg-slate-100/60 dark:bg-slate-800/40 backdrop-blur-sm border-t border-b border-slate-300/80 dark:border-slate-700/80">
            <div className="container mx-auto px-2 sm:px-6 py-2 flex justify-center flex-wrap gap-1 sm:gap-2">
                 {pages.map(page => <NavLink key={page} pageName={page} />)}
            </div>
@@ -533,7 +520,7 @@ function App() {
         {renderPage()}
       </main>
       
-      <footer className="bg-white dark:bg-[#1a1a1a] mt-16 py-6 border-t border-slate-300 dark:border-[#2a2a2a]">
+      <footer className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm mt-16 py-6 border-t border-slate-300/80 dark:border-slate-700/80">
         <div className="container mx-auto px-6 text-center text-slate-600 dark:text-slate-400">
             <p>&copy; {new Date().getFullYear()} Adeetya Choubey. Built with React & Tailwind CSS.</p>
         </div>
