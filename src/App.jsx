@@ -45,8 +45,8 @@ const cvData = {
   ],
   education: [
     { institution: "Indian Institute of Science Education and Research, Bhopal", degree: "BS-MS (Dual Degree), Major: Mathematics", duration: "2022 – 2027 (Expected)", grades: ["Cumulative performance: 8.73/10"] },
-    { institution: "Puna International School, Gandhinagar", degree: "Senior Secondary (CBSE), Science Stream", duration: "2020–2022" },
-    { institution: "Kendriya Vidyalaya", degree: "Secondary School (CBSE)", duration: "2016–2020" }
+    { institution: "Puna International School, Gandhinagar", degree: "Senior Secondary (CBSE), Science Stream", duration: "2020–2022", grades: [""] },
+    { institution: "Kendriya Vidyalaya", degree: "Secondary School (CBSE)", duration: "2016–2020", grades: [""] }
   ],
   responsibilities: [
     {
