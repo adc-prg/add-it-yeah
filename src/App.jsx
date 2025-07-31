@@ -33,13 +33,13 @@ const cvData = {
   location: "Bhopal, Madhya Pradesh, India",
   profile: {
     intro: "Math undergraduate, enrolled in the dual degree BS-MS program at IISER Bhopal.",
-    interests: "I have strong interests in Abstract Algebra and Topology, which also slightly extend to some functional analysis. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
-    ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia. I like playing Football, cards, board games, video games and Badminton. In my free time, I also like to explore Music, Literature and Art."
+    interests: "I have strong interests in Abstract Algebra and Topology, which also slightly extend to some elementary functional analysis. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
+    ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia."
   },
   education: [
     { institution: "Indian Institute of Science Education and Research, Bhopal", degree: "BS-MS (Dual Degree), Major: Mathematics", duration: "2022 – 2027 (Expected)", grades: ["Cumulative performance: 8.73/10"] },
-    { institution: "Puna International School, Gandhinagar", degree: "Senior Secondary (CBSE), Science Stream", duration: "2020–2022" },
-    { institution: "Kendriya Vidyalaya", degree: "Secondary School (CBSE)", duration: "2016–2020" }
+    { institution: "Puna International School, Gandhinagar", degree: "Senior Secondary (CBSE), Science Stream", duration: "2020–2022", grades: ["Grade: 87%"] },
+    { institution: "Kendriya Vidyalaya", degree: "Secondary School (CBSE)", duration: "2016–2020", grades: ["Grade: 91.6%"] }
   ],
   responsibilities: [
     {
@@ -51,13 +51,13 @@ const cvData = {
     {
       role: "Core Member, Math Club",
       institution: "IISER Bhopal",
-      duration: "Jun 2024 – Jun 2025",
+      duration: "Jun 2024 – Present",
       description: "Actively involved in organizing guest lectures, weekly academic discussions, and student outreach events to foster a mathematical community."
     },
     {
       role: "Peer Counselor",
       institution: "IISER Bhopal",
-      duration: "Jul 2023 – Jul 2025",
+      duration: "Jul 2023 – Present",
       description: "Part of the Institute Counselling Cell, offering peer support and guidance to students on academic and personal issues."
     },
     {
