@@ -34,7 +34,7 @@ const cvData = {
   profile: {
     intro: "Math undergraduate, enrolled in the dual degree BS-MS program at IISER Bhopal.",
     interests: "I have strong interests in Abstract Algebra and Topology, which also slightly extend to some elementary functional analysis. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
-    ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia."
+    ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia. Apart from academics, I play football, cards, video games and board games. I am recently exploring alot of music, art and literature."
   },
   research: [
       { 
