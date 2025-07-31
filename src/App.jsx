@@ -45,8 +45,8 @@ const cvData = {
   ],
   education: [
     { institution: "Indian Institute of Science Education and Research, Bhopal", degree: "BS-MS (Dual Degree), Major: Mathematics", duration: "2022 – 2027 (Expected)", grades: ["Cumulative performance: 8.73/10"] },
-    { institution: "Puna International School, Gandhinagar", degree: "Senior Secondary (CBSE), Science Stream", duration: "2020–2022" },
-    { institution: "Kendriya Vidyalaya", degree: "Secondary School (CBSE)", duration: "2016–2020" }
+    { institution: "Puna International School, Gandhinagar", degree: "Senior Secondary (CBSE), Science Stream", duration: "2020–2022", grades: ["Grade: 87%"] },
+    { institution: "Kendriya Vidyalaya", degree: "Secondary School (CBSE)", duration: "2016–2020", grades: ["Grade: 91.6%"] }
   ],
   responsibilities: [
     {
@@ -432,9 +432,19 @@ function App() {
       setTheme(theme === 'light' ? 'dark' : 'light');
   }
 
+  const pageStyle = {
+    fontFamily: "'Roboto Mono', monospace",
+    ...(theme === 'light' 
+        ? { background: 'linear-gradient(to bottom right, #f5f0e6, #ede9e0)' } 
+        : {})
+  };
+
   if (showLanding) {
       return (
-          <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100 dark:bg-gradient-to-br dark:from-slate-900 dark:to-gray-800 flex flex-col items-center justify-center text-center p-4 overflow-hidden relative" style={{fontFamily: "'Roboto Mono', monospace"}}>
+          <div 
+            className="min-h-screen dark:bg-gradient-to-br dark:from-slate-900 dark:to-gray-800 flex flex-col items-center justify-center text-center p-4 overflow-hidden relative" 
+            style={pageStyle}
+          >
                <button onClick={toggleTheme} className="absolute top-4 right-4 p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200/60 dark:hover:bg-slate-700/60 transition-colors duration-300 z-20">
                     {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
                 </button>
@@ -496,7 +506,10 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100 dark:bg-gradient-to-br dark:from-slate-900 dark:to-gray-800 text-slate-800 dark:text-slate-200 transition-colors duration-500" style={{fontFamily: "'Roboto Mono', monospace"}}>
+    <div 
+        className="min-h-screen dark:bg-gradient-to-br dark:from-slate-900 dark:to-gray-800 text-slate-800 dark:text-slate-200 transition-colors duration-500" 
+        style={pageStyle}
+    >
       <header className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm sticky top-0 z-20 border-b border-slate-300/80 dark:border-slate-700/80">
         <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <div>
