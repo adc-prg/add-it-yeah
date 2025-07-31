@@ -36,6 +36,13 @@ const cvData = {
     interests: "I have strong interests in Abstract Algebra and Topology, which also slightly extend to some elementary functional analysis. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
     ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia."
   },
+  research: [
+      { 
+        title: "Exploring Integrality and Genus of some specific Cayley Graphs", 
+        guide: "Guide : Prof. Ashish Updhyay", 
+        description: "Cayley graphs are graphs which exhibit the nature of action of a group G on a set S, which is closed under inverses (typically generating set). A graph is said to be integral if each of the eignevalues of its Adjacency Matrix is an integer. The genus of a graph is the minimum number of handles (or holes) that must be added to a sphere to embed the graph on the resulting surface without any edge crossings. All of this needs to be said and done more precisely. I use computational and algebraic tools to explore these two properties of cayley graphs on finite abelian groups. (More about my work updating soon) " 
+      },
+  ],
   education: [
     { institution: "Indian Institute of Science Education and Research, Bhopal", degree: "BS-MS (Dual Degree), Major: Mathematics", duration: "2022 – 2027 (Expected)", grades: ["Cumulative performance: 8.73/10"] },
     { institution: "Puna International School, Gandhinagar", degree: "Senior Secondary (CBSE), Science Stream", duration: "2020–2022", grades: ["Grade: 87%"] },
@@ -101,7 +108,7 @@ const cvData = {
       linkedin: "https://www.linkedin.com/in/adeetya-choubey-6b2a44254/"
   }
 };
-const pages = ['About', 'AcadEx', 'Events', 'Links', 'Explorations', 'Blog', 'Contact'];
+const pages = ['About', 'AcadEx', 'Research', 'Events', 'Links', 'Explorations', 'Contact'];
 
 
 // --- Reusable UI Components ---
@@ -180,6 +187,25 @@ const AboutPage = () => (
         </Card>
     </div>
 );
+
+const ResearchPage = () => (
+    <div>
+        <TypingTitle>Research</TypingTitle>
+        <Card>
+            <div className="space-y-8">
+                {cvData.research.map((item, index) => (
+                    <div key={index} className={`pb-8 ${index < cvData.research.length - 1 ? 'border-b border-slate-200 dark:border-slate-700' : ''}`}>
+                        <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-2">{item.title}</h3>
+                        <p className="text-md font-semibold text-slate-600 dark:text-slate-400 mb-1">{item.guide}</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-500 mb-3">{item.duration}</p>
+                        <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
+                    </div>
+                ))}
+            </div>
+        </Card>
+    </div>
+);
+
 
 const AcademicExperiencesPage = () => (
     <div>
@@ -459,10 +485,10 @@ function App() {
     switch (activePage) {
       case 'About': return <AboutPage />;
       case 'AcadEx': return <AcademicExperiencesPage />;
+      case 'Research': return <ResearchPage />;
       case 'Events': return <EventsPage />;
       case 'Links': return <ComingSoonPage title="Links" />;
       case 'Explorations': return <ComingSoonPage title="Explorations" />;
-      case 'Blog': return <ComingSoonPage title="Blog" />;
       case 'Contact': return <ContactPage />;
       default: return <AboutPage />;
     }
