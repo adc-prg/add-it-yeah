@@ -423,6 +423,12 @@ function App() {
 
   }, [theme]);
 
+  useEffect(() => {
+    if (!showLanding) {
+      window.scrollTo(0, 0);
+    }
+  }, [activePage, showLanding]);
+
   const navigateToPage = (page) => {
       setActivePage(page);
       setShowLanding(false);
@@ -435,7 +441,7 @@ function App() {
   const pageStyle = {
     fontFamily: "'Roboto Mono', monospace",
     ...(theme === 'light' 
-        ? { background: 'linear-gradient(to bottom right, #f5f0e6, #ede9e0)' } 
+        ? { backgroundColor: '#f5f1e9' } 
         : {})
   };
 
