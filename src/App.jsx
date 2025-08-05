@@ -82,7 +82,7 @@ const cvData = {
       summerSchools: [
           { title: "Summer Program", institution: "TIFR - Centre for Applicable Mathematics", duration: "June 2025 - July 2025", description: " The program included courses on Reproducing Kernel Hilbert Spaces, Geometric Measure theory, Geometric Function theory, Gibbs Measure and Entropy, Multiscale problems in PDE, Microlocal Analysis and Inverse Problems, along with several keynote lecture about ongoing research in Analysis and Combinatorics, delivered by leading researchers in the field." },
           { title: "Mathematics Summer Program", institution: "Indraprastha Institute of Information Technology, Delhi", duration: "June 2024", description: "An intensive program covering the fundamentals of Analysis, Abstract Algebra, Topology, Distribution Theory, along with problem solving sessions." }
-      ]
+      ],
   },
   events: [
     {
