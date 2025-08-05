@@ -82,11 +82,6 @@ const cvData = {
       summerSchools: [
           { title: "Summer Program", institution: "TIFR - Centre for Applicable Mathematics", duration: "June 2025 - July 2025", description: " The program included courses on Reproducing Kernel Hilbert Spaces, Geometric Measure theory, Geometric Function theory, Gibbs Measure and Entropy, Multiscale problems in PDE, Microlocal Analysis and Inverse Problems, along with several keynote lecture about ongoing research in Analysis and Combinatorics, delivered by leading researchers in the field." },
           { title: "Mathematics Summer Program", institution: "Indraprastha Institute of Information Technology, Delhi", duration: "June 2024", description: "An intensive program covering the fundamentals of Analysis, Abstract Algebra, Topology, Distribution Theory, along with problem solving sessions." }
-      ],
-      certifications: [
-          { title: "Crash Course on Python", institution: "Google" },
-          { title: "Data Analysis with R", institution: "Coursera" },
-          { title: "MATLAB Onramp", institution: "MathWorks" },
       ]
   },
   events: [
@@ -96,7 +91,7 @@ const cvData = {
     },
     {
         title: "Big-Tac-Toe",
-        description: "It's a wordplay (Big + Tic-tac-toe) which is another name for the game ultimate tic-tac-toe coined. The event was again held at Continuum, collaborating with the board games club, Ingenium. The event included a knockout stage gameplay with ultimately Saurav Kanetkar coming out on top as the Big-Tac-Toe champion, 2025 edition.",
+        description: "It's a wordplay (Big + Tic-tac-toe) which is another name for the game ultimate tic-tac-toe. The event was again held at Continuum, collaborating with the board games club, Ingenium. The event included a knockout stage gameplay with ultimately Saurav Kanetkar coming out on top as the Big-Tac-Toe champion, 2025 edition.",
         link: {
             url: "https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe",
             text: "Ultimate Tic-Tac-Toe"
