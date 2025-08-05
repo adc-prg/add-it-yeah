@@ -232,14 +232,6 @@ const AcademicExperiencesPage = () => (
                 ))}
             </div>
         </Card>
-        <Card>
-             <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-6">Certifications</h3>
-             <ul className="list-disc list-inside space-y-2 text-lg text-slate-700 dark:text-slate-300">
-                {cvData.academicExperiences.certifications.map(cert => (
-                    <li key={cert.title}><strong>{cert.title}</strong> - {cert.institution}</li>
-                ))}
-             </ul>
-        </Card>
     </div>
 );
 
