@@ -39,8 +39,8 @@ const cvData = {
   research: [
       { 
         title: "Exploring Integrality and Genus of some specific Cayley Graphs", 
-        guide: "Guide : Prof. Ashish Updhyay", 
-        description: "Cayley graphs are graphs which exhibit the nature of action of a group G on a set S, which is closed under inverses (typically generating set). A graph is said to be integral if each of the eignevalues of its Adjacency Matrix is an integer. The genus of a graph is the minimum number of handles (or holes) that must be added to a sphere to embed the graph on the resulting surface without any edge crossings. All of this needs to be said and done more precisely. I use computational and algebraic tools to explore these two properties of cayley graphs on finite abelian groups. (More about my work updating soon) " 
+        guide: "Guide : Prof. Ashish Upadhyay", 
+        description: "Cayley graphs are graphs which exhibit the nature of action of a group G on a set S, which is closed under inverses (typically generating set). A graph is said to be integral if each of the eigenvalues of its Adjacency Matrix is an integer. The genus of a graph is the minimum number of handles (or holes) that must be added to a sphere to embed the graph on the resulting surface without any edge crossings. All of this needs to be said and done more precisely. I use computational and algebraic tools to explore these two properties of cayley graphs on finite abelian groups. (More about my work updating soon) " 
       },
   ],
   education: [
@@ -58,13 +58,13 @@ const cvData = {
     {
       role: "Core Member, Math Club",
       institution: "IISER Bhopal",
-      duration: "Jun 2024 – Present",
+      duration: "Jun 2024 – Jul 2025",
       description: "Actively involved in organizing guest lectures, weekly academic discussions, and student outreach events to foster a mathematical community."
     },
     {
       role: "Peer Counselor",
       institution: "IISER Bhopal",
-      duration: "Jul 2023 – Present",
+      duration: "Jul 2023 – Jul 2025",
       description: "Part of the Institute Counselling Cell, offering peer support and guidance to students on academic and personal issues."
     },
     {
