@@ -93,7 +93,7 @@ const cvData = {
   events: [
     {
         title: "The Probabilistic Method",
-        description: "Gave the first Openboard talk. More about that talk can be looked at on the Openboard website.",
+        description: "Gave the first Openboard talk. The talk focussed on the non-constructive proofing technique, which was heavily abused by Erdos to solve problems in Graph theory. The talk started with setting up the problem and then discussing the place where it all boomed, the proof of lower bound for ramsey numbers, given by Erdos. More about the talk can be explored on the website.",
         link: {
             url: "https://openboard-web.vercel.app/",
             text: "Openboard"
