@@ -53,7 +53,7 @@ const cvData = {
       role: "Co-founder, Openboard",
       institution: "IISER Bhopal",
       duration: "Ongoing",
-      description: "Along with my dear friend Samriddha we have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate about preferably to a general audience."
+      description: "Along with my dear friend Samriddha we have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate, about preferably to a general audience."
     },
     {
       role: "Department Representative, Math Dept.",
@@ -92,11 +92,11 @@ const cvData = {
   },
   events: [
     {
-        title: "The Probabilistic Method in Analysis",
+        title: "The Probabilistic Method",
         description: "Gave the first Openboard talk. More about that talk can be looked at on the Openboard website.",
         link: {
             url: "https://openboard-web.vercel.app/",
-            text: "Openboard website"
+            text: "Openboard"
         }
     },
     {
