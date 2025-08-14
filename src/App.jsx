@@ -50,6 +50,12 @@ const cvData = {
   ],
   responsibilities: [
     {
+      role: "Co-founder, Openboard",
+      institution: "IISER Bhopal",
+      duration: "Ongoing",
+      description: "Along with my dear friend Samriddha we have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate about preferably to a general audience."
+    },
+    {
       role: "Department Representative, Math Dept.",
       institution: "IISER Bhopal",
       duration: "Sep 2024 – Present",
@@ -85,6 +91,14 @@ const cvData = {
       ],
   },
   events: [
+    {
+        title: "The Probabilistic Method in Analysis",
+        description: "Gave the first Openboard talk. More about that talk can be looked at on the Openboard website.",
+        link: {
+            url: "https://openboard-web.vercel.app/",
+            text: "Openboard website"
+        }
+    },
     {
         title: "Khel-Culus",
         description: "Khel, in my mother tongue Hindi, stands for sport. Khel-culus represents the treatise of calculus as a sport. It was the name for the integration bee held during the annual math fest, Continuum, organised by the department of math at IISER bhopal. I organised the event, along with Yash Sharma, to fruition despite several unavoidable obstacles."
@@ -177,7 +191,15 @@ const AboutPage = () => (
                         <h4 className="text-xl font-bold text-red-700 dark:text-red-400">{resp.role}</h4>
                         <p className="text-md font-semibold text-slate-600 dark:text-slate-400 mb-1">{resp.institution}</p>
                         <p className="text-sm text-slate-500 dark:text-slate-500 mb-3">{resp.duration}</p>
-                        <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">{resp.description}</p>
+                        <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                            {resp.role === "Co-founder, Openboard" ? (
+                                <>
+                                    Along with my dear friend <a href="https://samriddhas-quantum-realm.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-red-600 dark:text-red-400 hover:underline font-semibold">Samriddha</a> we have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate about preferably to a general audience. Learn more about <a href="https://openboard-web.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-red-600 dark:text-red-400 hover:underline font-semibold">Openboard</a>.
+                                </>
+                            ) : (
+                                resp.description
+                            )}
+                        </p>
                     </div>
                 ))}
             </div>
@@ -243,16 +265,17 @@ const EventsPage = () => (
                 <Card key={event.title}>
                     <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">{event.title}</h3>
                     <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-                        {event.description.includes("ultimate tic-tac-toe") 
-                            ? <>
-                                {event.description.split("ultimate tic-tac-toe")[0]}
+                        {event.link ? (
+                            <>
+                                {event.description.split(event.link.text)[0]}
                                 <a href={event.link.url} target="_blank" rel="noopener noreferrer" className="text-red-600 dark:text-red-400 hover:underline font-semibold">
                                     {event.link.text}
                                 </a>
-                                {event.description.split("ultimate tic-tac-toe")[1]}
-                              </>
-                            : event.description
-                        }
+                                {event.description.split(event.link.text)[1]}
+                            </>
+                        ) : (
+                            event.description
+                        )}
                     </p>
                 </Card>
             ))}
