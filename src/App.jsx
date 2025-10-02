@@ -469,7 +469,7 @@ const ResourcesPage = () => (
     <div>
         <Title>Resources</Title>
         <p className="text-sm italic text-stone-600 dark:text-neutral-400 mb-6 -mt-6 text-center">
-            All the book links are the ones I found just by a simple google search, and from accessible to public links. If anyone objects, and wants me to take down any links, kindly email me. Thank you.
+            All the book links are the ones I found just by a simple google search, and links which are accessible to general public. If anyone objects, and wants me to take down any links, kindly email me. Thank you.
         </p>
         <Card>
             <div className="space-y-2">
