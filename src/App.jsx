@@ -21,6 +21,12 @@ const Mail = (props) => (
         <rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
     </svg>
 );
+const ChevronDown = (props) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m6 9 6 6 6-6"/>
+    </svg>
+);
+
 
 // --- Data ---
 const cvData = {
@@ -123,7 +129,52 @@ const cvData = {
         linkedin: "https://www.linkedin.com/in/adeetya-choubey-6b2a44254/"
     }
 };
-const pages = ['About', 'AcadEx', 'Research', 'Events', 'Links', 'Resources', 'Contact'];
+const pages = ['About', 'AcadEx', 'Research', 'Events', 'Resources', 'Contact'];
+const resourcesData = [
+    {
+        category: "Algebra",
+        intro: "For group theory, ring theory and modules, field theory and galois theory (and for abstract algebra overall), an excellent resource is the book Abstract Algebra, authored by Dummit and Foote (D&F). Contact me if you cannot find the widely available pdf.",
+        courses: [
+            { name: "Group theory", details: "A great resource is \"Contemporary abstract algebra\", By Gallian. For problems, pick up Herstein if you like challenges." },
+            { name: "Ring theory and Modules", details: "D&F" },
+            { name: "Field theory and Galois Theory", details: "D&F" },
+            {
+                name: "Commutative Algebra",
+                details: [
+                    { text: "Commutative Algebra, N.S. Gopalkrishnan" },
+                    { text: "Introduction to Commutative Algebra, By Atiyah Macdonald", link: "http://math.univ-lyon1.fr/~mathieu/CoursM2-2020/AMD-ComAlg.pdf" },
+                    { text: "Commutative Ring theory, Hideyuki Matsumura" }
+                ]
+            }
+        ]
+    },
+    {
+        category: "Analysis",
+        courses: [
+            { name: "Real analysis" },
+            { name: "Complex Analysis" },
+            { name: "PDE" },
+            { name: "ODE" },
+        ]
+    },
+    {
+        category: "Topology",
+        courses: [
+            { name: "General Topology" },
+            { name: "Algebraic Topology" },
+        ]
+    },
+    {
+        category: "Miscellaneous",
+        courses: [
+            { name: "Number theory" },
+            { name: "Graph Theory" },
+            { name: "Knot theory" },
+            { name: "Braid Groups" },
+            { name: "Combinatorics" },
+        ]
+    }
+];
 
 // --- Custom Hooks ---
 const useTheme = () => {
@@ -152,7 +203,7 @@ const useTheme = () => {
 // --- Reusable UI Components ---
 const Card = ({ children, className = "" }) => (
     <div
-        className={`bg-[#FFDCDC]/40 dark:bg-[#00337C]/30 backdrop-blur-xl rounded-2xl p-6 border border-[#FFD6BA]/50 dark:border-[#1C82AD]/50 transition-all duration-300 shadow-md shadow-[#FFD6BA]/20 dark:shadow-black/20 hover:shadow-[#FFD6BA]/40 dark:hover:shadow-[#03C988]/20 hover:shadow-xl hover:-translate-y-1 ${className}`}
+        className={`bg-[#FFDCDC]/40 dark:bg-slate-800/30 backdrop-blur-xl rounded-2xl p-6 border border-[#FFD6BA]/50 dark:border-slate-700/50 transition-all duration-300 shadow-md shadow-[#FFD6BA]/20 dark:shadow-black/20 hover:shadow-[#FFD6BA]/40 dark:hover:shadow-red-500/20 hover:shadow-xl hover:-translate-y-1 ${className}`}
     >
         {children}
     </div>
@@ -170,10 +221,58 @@ const ThemeToggle = ({ theme, toggleTheme }) => {
     return (
         <button
             onClick={toggleTheme}
-            className="p-2 rounded-full text-stone-800 dark:text-yellow-400 hover:bg-[#FFDCDC]/60 dark:hover:bg-[#00337C]/60 transition-colors duration-300"
+            className="p-2 rounded-full text-stone-800 dark:text-yellow-400 hover:bg-[#FFDCDC]/60 dark:hover:bg-slate-700/60 transition-colors duration-300"
         >
             {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
         </button>
+    );
+};
+
+const AccordionItem = ({ title, intro, items }) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <div className="border-b border-[#FFD6BA]/80 dark:border-slate-700/80 last:border-b-0">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full flex justify-between items-center text-left py-4 px-2 hover:bg-[#FFDCDC]/20 dark:hover:bg-slate-700/20 transition-colors duration-200 rounded-t-lg"
+            >
+                <h3 className="text-xl font-bold font-display text-red-600 dark:text-red-400">{title}</h3>
+                <ChevronDown className={`w-6 h-6 transform transition-transform duration-300 text-red-600 dark:text-red-400 ${isOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isOpen && (
+                <div className="p-4 bg-[#FFDCDC]/10 dark:bg-slate-800/20 rounded-b-lg">
+                    {intro && <p className="mb-4 text-md italic text-stone-600 dark:text-neutral-300">{intro}</p>}
+                    <ul className="space-y-3 text-lg text-stone-700 dark:text-neutral-200 pl-2">
+                        {items.map(item => (
+                            <li key={item.name} className="flex flex-col">
+                                <span className="font-semibold">{item.name}</span>
+                                {item.details && (
+                                    <div className="pl-4 text-md text-stone-600 dark:text-neutral-300">
+                                        {Array.isArray(item.details) ? (
+                                            <ul className="list-disc list-inside mt-1">
+                                                {item.details.map(detail => (
+                                                    <li key={detail.text}>
+                                                        {detail.text}
+                                                        {detail.link && (
+                                                             <a href={detail.link} target="_blank" rel="noopener noreferrer" className="text-red-500 dark:text-red-400 hover:underline ml-2">
+                                                                [Link]
+                                                            </a>
+                                                        )}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        ) : (
+                                            <p className="mt-1 font-light italic opacity-90">&ndash; {item.details}</p>
+                                        )}
+                                    </div>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+        </div>
     );
 };
 
@@ -241,7 +340,7 @@ const ResearchPage = () => (
         <Card>
             <div className="space-y-8">
                 {cvData.research.map((item, index) => (
-                    <div key={index} className={`pb-8 ${index < cvData.research.length - 1 ? 'border-b border-[#FFD6BA]/80 dark:border-[#1C82AD]/80' : ''}`}>
+                    <div key={index} className={`pb-8 ${index < cvData.research.length - 1 ? 'border-b border-[#FFD6BA]/80 dark:border-slate-700/80' : ''}`}>
                         <h3 className="text-2xl font-bold font-display text-red-600 dark:text-red-400 mb-2">{item.title}</h3>
                         <p className="text-md font-semibold text-stone-600 dark:text-neutral-400 mb-1">{item.guide}</p>
                         <p className="text-sm text-stone-500 dark:text-neutral-500 mb-3">{item.duration}</p>
@@ -264,7 +363,7 @@ const AcademicExperiencesPage = () => (
                 <h3 className="text-2xl font-bold font-display text-red-600 dark:text-red-400 mb-6">Research Internships</h3>
                 <div className="space-y-8">
                     {cvData.academicExperiences.internships.map((exp, index) => (
-                         <div key={exp.title + exp.duration} className={`pb-8 ${index < cvData.academicExperiences.internships.length - 1 ? 'border-b border-[#FFD6BA]/80 dark:border-[#1C82AD]/80' : ''}`}>
+                         <div key={exp.title + exp.duration} className={`pb-8 ${index < cvData.academicExperiences.internships.length - 1 ? 'border-b border-[#FFD6BA]/80 dark:border-slate-700/80' : ''}`}>
                             <h4 className="text-xl font-semibold font-display text-stone-800 dark:text-gray-100">{exp.title} at {exp.institution}</h4>
                             <p className="text-sm text-stone-500 dark:text-neutral-500 mb-3">{exp.duration}</p>
                             <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200">{exp.description}</p>
@@ -314,17 +413,19 @@ const EventsPage = () => (
     </div>
 );
 
-const ComingSoonPage = ({ title }) => (
+const ResourcesPage = () => (
     <div>
-        <Title>{title}</Title>
+        <Title>Resources</Title>
         <Card>
-            <h3 className="text-2xl font-semibold font-display text-stone-800 dark:text-gray-100 mb-4">Something's cooking...</h3>
-            <p className="text-lg text-stone-700 dark:text-neutral-200">
-                This page is currently under construction. Check back later for new content!
-            </p>
+            <div className="space-y-2">
+                {resourcesData.map(category => (
+                    <AccordionItem key={category.category} title={category.category} intro={category.intro} items={category.courses} />
+                ))}
+            </div>
         </Card>
     </div>
 );
+
 
 const ContactPage = () => (
     <div>
@@ -342,7 +443,7 @@ const ContactPage = () => (
                     <Linkedin className="w-6 h-6 text-red-600 dark:text-red-400 flex-shrink-0" />
                     <a href={cvData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-lg text-red-600 dark:text-red-400 hover:text-red-500 dark:hover:text-red-300 transition-colors duration-300 underline">LinkedIn Profile</a>
                 </div>
-                <div className="mt-4 pt-6 border-t border-[#FFD6BA]/80 dark:border-[#1C82AD]/80 text-stone-600 dark:text-neutral-400">
+                <div className="mt-4 pt-6 border-t border-[#FFD6BA]/80 dark:border-slate-700/80 text-stone-600 dark:text-neutral-400">
                     <p>{cvData.location}</p>
                 </div>
             </div>
@@ -473,7 +574,7 @@ function App() {
     }
     
     const pageStyle = { fontFamily: "'Inter', sans-serif" };
-    const bgStyle = { background: theme === 'light' ? '#FFF2EB' : '#13005A' };
+    const bgStyle = { background: theme === 'light' ? '#FFF2EB' : '#1A202C' };
 
     if (showLanding) {
         return (
@@ -507,8 +608,7 @@ function App() {
             case 'AcadEx': return <AcademicExperiencesPage />;
             case 'Research': return <ResearchPage />;
             case 'Events': return <EventsPage />;
-            case 'Links': return <ComingSoonPage title="Links" />;
-            case 'Resources': return <ComingSoonPage title="Resources" />;
+            case 'Resources': return <ResourcesPage />;
             case 'Contact': return <ContactPage />;
             default: return <AboutPage />;
         }
@@ -526,7 +626,7 @@ function App() {
     return (
         <div className="min-h-screen text-stone-800 dark:text-neutral-200 transition-colors duration-500 font-sans" style={{...pageStyle, ...bgStyle}}>
             <style>{`.font-sans { font-family: 'Inter', sans-serif; } .font-display { font-family: 'Cal Sans', sans-serif; }`}</style>
-            <header className="bg-[#FFDCDC]/30 dark:bg-[#00337C]/30 backdrop-blur-lg sticky top-0 z-20 border-b border-[#FFD6BA]/50 dark:border-[#1C82AD]/50">
+            <header className="bg-[#FFDCDC]/30 dark:bg-slate-900/30 backdrop-blur-lg sticky top-0 z-20 border-b border-[#FFD6BA]/50 dark:border-slate-700/50">
                 <div className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
                     <div>
                         <button onClick={() => setShowLanding(true)} className="text-left transition-opacity duration-300 hover:opacity-70">
@@ -538,7 +638,7 @@ function App() {
                          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
                     </div>
                 </div>
-                 <nav className="bg-[#FFE8CD]/30 dark:bg-[#00337C]/20 backdrop-blur-lg border-t border-b border-[#FFD6BA]/50 dark:border-[#1C82AD]/50">
+                 <nav className="bg-[#FFE8CD]/30 dark:bg-slate-800/20 backdrop-blur-lg border-t border-b border-[#FFD6BA]/50 dark:border-slate-700/50">
                    <div className="container mx-auto px-2 sm:px-6 py-2 flex justify-center flex-wrap gap-1 sm:gap-2">
                         {pages.map(page => <NavLink key={page} pageName={page} />)}
                    </div>
@@ -549,7 +649,7 @@ function App() {
                  {renderPage()}
             </main>
             
-            <footer className="bg-[#FFDCDC]/30 dark:bg-[#00337C]/30 backdrop-blur-lg mt-16 py-6 border-t border-[#FFD6BA]/50 dark:border-[#1C82AD]/50">
+            <footer className="bg-[#FFDCDC]/30 dark:bg-slate-900/30 backdrop-blur-lg mt-16 py-6 border-t border-[#FFD6BA]/50 dark:border-slate-700/50">
                 <div className="container mx-auto px-6 text-center text-stone-600 dark:text-neutral-400">
                     <p>&copy; {new Date().getFullYear()} Adeetya Choubey. Built with React & Tailwind CSS.</p>
                 </div>
