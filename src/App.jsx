@@ -22,7 +22,7 @@ const Mail = (props) => (
     </svg>
 );
 const BookOpen = (props) => (
-    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
     </svg>
 );
@@ -53,7 +53,7 @@ const cvData = {
       role: "Co-founder, Openboard",
       institution: "IISER Bhopal",
       duration: "Ongoing",
-      description: "Along with my dear friend Samriddha we have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate, about preferably to a general audience."
+      description: "Along with my dear friend Samriddha we have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate about preferably to a general audience."
     },
     {
       role: "Department Representative, Math Dept.",
@@ -92,11 +92,11 @@ const cvData = {
   },
   events: [
     {
-        title: "The Probabilistic Method",
-        description: "Gave the first Openboard talk. The lecture focussed on the non-constructive proofing technique, which was heavily abused by Erdos to solve problems in Graph theory. We discussed the proof of lower bound for ramsey numbers, given by Erdos, which resulted in the popularity of this method. More about the talk can be explored on the website.",
+        title: "The Probabilistic Method in Analysis",
+        description: "Gave the first Openboard talk. More about that talk can be looked at on the Openboard website.",
         link: {
             url: "https://openboard-web.vercel.app/",
-            text: "Openboard"
+            text: "Openboard website"
         }
     },
     {
@@ -122,60 +122,38 @@ const pages = ['About', 'AcadEx', 'Research', 'Events', 'Links', 'Explorations',
 
 // --- Reusable UI Components ---
 const Card = ({ children, className = "" }) => (
-  <div className={`bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-lg p-6 border border-slate-300/80 dark:border-slate-700/80 transition-all duration-300 hover:border-red-500/50 dark:hover:border-red-500/50 hover:shadow-lg hover:shadow-red-500/10 ${className}`}>
+  <div className={`bg-white/50 backdrop-blur-lg rounded-2xl p-6 border border-slate-300/50 transition-all duration-300 hover:shadow-red-500/10 hover:shadow-xl hover:-translate-y-1 ${className}`}>
     {children}
   </div>
 );
 
-const TypingTitle = ({ children }) => {
-    const [text, setText] = useState('');
-    const [isTyping, setIsTyping] = useState(true);
-    const fullText = children;
-
-    useEffect(() => {
-        setText('');
-        setIsTyping(true);
-        let i = 0;
-        const interval = setInterval(() => {
-            setText(fullText.substring(0, i + 1));
-            i++;
-            if (i > fullText.length) {
-                clearInterval(interval);
-                setIsTyping(false);
-            }
-        }, 50);
-        return () => clearInterval(interval);
-    }, [fullText]);
-
-    return (
-        <h2 className="text-4xl font-bold text-slate-800 dark:text-white mb-8 pb-3 border-b-4 border-red-500 flex items-center">
-            {text}
-            {isTyping && <span className="w-2 h-8 bg-red-500 ml-2 animate-pulse"></span>}
-        </h2>
-    );
-};
+const Title = ({ children }) => (
+    <h2 className="text-4xl font-bold font-display text-slate-800 mb-8 pb-3 border-b-4 border-red-500">
+        {children}
+    </h2>
+);
 
 
 // --- Page Components ---
 const AboutPage = () => (
     <div>
-        <TypingTitle>About</TypingTitle>
+        <Title>About</Title>
         <Card className="mb-12">
-            <h3 className="text-2xl font-semibold text-slate-800 dark:text-gray-100 mb-4">Bio-Sketch</h3>
-            <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-4">{cvData.profile.intro}</p>
-            <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-4">{cvData.profile.interests}</p>
-            <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">{cvData.profile.ambition}</p>
+            <h3 className="text-2xl font-bold font-display text-slate-800 mb-4">Bio-Sketch</h3>
+            <p className="text-lg leading-relaxed text-slate-700 mb-4">{cvData.profile.intro}</p>
+            <p className="text-lg leading-relaxed text-slate-700 mb-4">{cvData.profile.interests}</p>
+            <p className="text-lg leading-relaxed text-slate-700">{cvData.profile.ambition}</p>
         </Card>
         <Card className="mb-12">
-            <h3 className="text-2xl font-semibold text-slate-800 dark:text-gray-100 mb-6">Education</h3>
+            <h3 className="text-2xl font-bold font-display text-slate-800 mb-6">Education</h3>
             <div className="space-y-6">
                 {cvData.education.map(edu => (
                     <div key={edu.institution} className="border-l-4 border-red-500 pl-4">
-                        <h4 className="text-xl font-bold text-red-700 dark:text-red-400">{edu.institution}</h4>
-                        <p className="text-md font-semibold text-slate-600 dark:text-slate-400">{edu.degree}</p>
-                        <p className="text-sm text-slate-500 dark:text-slate-500 mb-2">{edu.duration}</p>
+                        <h4 className="text-xl font-bold text-red-700 font-display">{edu.institution}</h4>
+                        <p className="text-md font-semibold text-slate-600">{edu.degree}</p>
+                        <p className="text-sm text-slate-500 mb-2">{edu.duration}</p>
                         {Array.isArray(edu.grades) && (
-                            <ul className="list-disc list-inside text-slate-600 dark:text-slate-400">
+                            <ul className="list-disc list-inside text-slate-600">
                                 {edu.grades.map(grade => <li key={grade}>{grade}</li>)}
                             </ul>
                         )}
@@ -184,17 +162,17 @@ const AboutPage = () => (
             </div>
         </Card>
         <Card>
-            <h3 className="text-2xl font-semibold text-slate-800 dark:text-gray-100 mb-6">Positions of Responsibility</h3>
+            <h3 className="text-2xl font-bold font-display text-slate-800 mb-6">Positions of Responsibility</h3>
             <div className="space-y-8">
                 {cvData.responsibilities.map(resp => (
                     <div key={resp.role} className="border-l-4 border-red-500 pl-4">
-                        <h4 className="text-xl font-bold text-red-700 dark:text-red-400">{resp.role}</h4>
-                        <p className="text-md font-semibold text-slate-600 dark:text-slate-400 mb-1">{resp.institution}</p>
-                        <p className="text-sm text-slate-500 dark:text-slate-500 mb-3">{resp.duration}</p>
-                        <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                        <h4 className="text-xl font-bold text-red-700 font-display">{resp.role}</h4>
+                        <p className="text-md font-semibold text-slate-600 mb-1">{resp.institution}</p>
+                        <p className="text-sm text-slate-500 mb-3">{resp.duration}</p>
+                        <p className="text-lg leading-relaxed text-slate-700">
                             {resp.role === "Co-founder, Openboard" ? (
                                 <>
-                                    Along with my dear friend <a href="https://samriddhas-quantum-realm.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-red-600 dark:text-red-400 hover:underline font-semibold">Samriddha</a> we have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate about preferably to a general audience. Learn more about <a href="https://openboard-web.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-red-600 dark:text-red-400 hover:underline font-semibold">Openboard</a>.
+                                    Along with my dear friend <a href="https://samriddhas-quantum-realm.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:underline font-semibold">Samriddha</a> we have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate about preferably to a general audience. Learn more about <a href="https://openboard-web.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:underline font-semibold">Openboard</a>.
                                 </>
                             ) : (
                                 resp.description
@@ -209,15 +187,15 @@ const AboutPage = () => (
 
 const ResearchPage = () => (
     <div>
-        <TypingTitle>Research</TypingTitle>
+        <Title>Research</Title>
         <Card>
             <div className="space-y-8">
                 {cvData.research.map((item, index) => (
-                    <div key={index} className={`pb-8 ${index < cvData.research.length - 1 ? 'border-b border-slate-200 dark:border-slate-700' : ''}`}>
-                        <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-2">{item.title}</h3>
-                        <p className="text-md font-semibold text-slate-600 dark:text-slate-400 mb-1">{item.guide}</p>
-                        <p className="text-sm text-slate-500 dark:text-slate-500 mb-3">{item.duration}</p>
-                        <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
+                    <div key={index} className={`pb-8 ${index < cvData.research.length - 1 ? 'border-b border-slate-200' : ''}`}>
+                        <h3 className="text-2xl font-bold font-display text-red-600 mb-2">{item.title}</h3>
+                        <p className="text-md font-semibold text-slate-600 mb-1">{item.guide}</p>
+                        <p className="text-sm text-slate-500 mb-3">{item.duration}</p>
+                        <p className="text-lg leading-relaxed text-slate-700">{item.description}</p>
                     </div>
                 ))}
             </div>
@@ -228,28 +206,28 @@ const ResearchPage = () => (
 
 const AcademicExperiencesPage = () => (
     <div>
-        <TypingTitle>Academic Experiences</TypingTitle>
+        <Title>Academic Experiences</Title>
         <Card className="mb-12">
-            <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-6">Research Internships</h3>
+            <h3 className="text-2xl font-bold font-display text-red-600 mb-6">Research Internships</h3>
             <div className="space-y-8">
                 {cvData.academicExperiences.internships.map((exp, index) => (
-                     <div key={exp.title + exp.duration} className={`pb-8 ${index < cvData.academicExperiences.internships.length - 1 ? 'border-b border-slate-200 dark:border-slate-700' : ''}`}>
-                        <h4 className="text-xl font-semibold text-slate-800 dark:text-gray-100">{exp.title} at {exp.institution}</h4>
-                        <p className="text-sm text-slate-500 dark:text-slate-500 mb-3">{exp.duration}</p>
-                        <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">{exp.description}</p>
+                     <div key={exp.title + exp.duration} className={`pb-8 ${index < cvData.academicExperiences.internships.length - 1 ? 'border-b border-slate-200' : ''}`}>
+                        <h4 className="text-xl font-semibold font-display text-slate-800">{exp.title} at {exp.institution}</h4>
+                        <p className="text-sm text-slate-500 mb-3">{exp.duration}</p>
+                        <p className="text-lg leading-relaxed text-slate-700">{exp.description}</p>
                     </div>
                 ))}
             </div>
         </Card>
         <Card className="mb-12">
-            <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-6">Summer Schools</h3>
+            <h3 className="text-2xl font-bold font-display text-red-600 mb-6">Summer Schools</h3>
             <div className="space-y-8">
                 {cvData.academicExperiences.summerSchools.map(exp => (
                     <div key={exp.title}>
-                        <h4 className="text-xl font-bold text-slate-800 dark:text-gray-100">{exp.title}</h4>
-                        <p className="text-md font-semibold text-slate-600 dark:text-slate-400 mb-1">{exp.institution}</p>
-                        <p className="text-sm text-slate-500 dark:text-slate-500 mb-4">{exp.duration}</p>
-                        <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">{exp.description}</p>
+                        <h4 className="text-xl font-bold font-display text-slate-800">{exp.title}</h4>
+                        <p className="text-md font-semibold text-slate-600 mb-1">{exp.institution}</p>
+                        <p className="text-sm text-slate-500 mb-4">{exp.duration}</p>
+                        <p className="text-lg leading-relaxed text-slate-700">{exp.description}</p>
                     </div>
                 ))}
             </div>
@@ -259,16 +237,16 @@ const AcademicExperiencesPage = () => (
 
 const EventsPage = () => (
     <div>
-        <TypingTitle>Events</TypingTitle>
+        <Title>Events</Title>
         <div className="space-y-8">
             {cvData.events.map(event => (
                 <Card key={event.title}>
-                    <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">{event.title}</h3>
-                    <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                    <h3 className="text-2xl font-bold font-display text-red-600 mb-4">{event.title}</h3>
+                    <p className="text-lg leading-relaxed text-slate-700">
                         {event.link ? (
                             <>
                                 {event.description.split(event.link.text)[0]}
-                                <a href={event.link.url} target="_blank" rel="noopener noreferrer" className="text-red-600 dark:text-red-400 hover:underline font-semibold">
+                                <a href={event.link.url} target="_blank" rel="noopener noreferrer" className="text-red-600 hover:underline font-semibold">
                                     {event.link.text}
                                 </a>
                                 {event.description.split(event.link.text)[1]}
@@ -285,10 +263,10 @@ const EventsPage = () => (
 
 const ComingSoonPage = ({ title }) => (
     <div>
-        <TypingTitle>{title}</TypingTitle>
+        <Title>{title}</Title>
         <Card>
-            <h3 className="text-2xl font-semibold text-slate-800 dark:text-gray-100 mb-4">Something's cooking...</h3>
-            <p className="text-lg text-slate-600 dark:text-slate-300">
+            <h3 className="text-2xl font-semibold font-display text-slate-800 mb-4">Something's cooking...</h3>
+            <p className="text-lg text-slate-700">
                 This page is currently under construction. Check back later for new content!
             </p>
         </Card>
@@ -297,21 +275,21 @@ const ComingSoonPage = ({ title }) => (
 
 const ContactPage = () => (
   <div>
-    <TypingTitle>Contact</TypingTitle>
+    <Title>Contact</Title>
     <Card>
         <div className="flex flex-col space-y-6">
-            <p className="text-lg text-slate-600 dark:text-slate-300">
+            <p className="text-lg text-slate-700">
                 Feel free to reach out for collaborations, discussions, or inquiries.
             </p>
             <div className="flex items-center space-x-4">
-                <Mail className="w-6 h-6 text-red-600 dark:text-red-400 flex-shrink-0" />
-                <a href={`mailto:${cvData.contact.email}`} className="text-lg text-red-600 dark:text-red-400 hover:text-red-400 dark:hover:text-red-300 transition-colors duration-300 underline">{cvData.contact.email}</a>
+                <Mail className="w-6 h-6 text-red-600 flex-shrink-0" />
+                <a href={`mailto:${cvData.contact.email}`} className="text-lg text-red-600 hover:text-red-400 transition-colors duration-300 underline">{cvData.contact.email}</a>
             </div>
             <div className="flex items-center space-x-4">
-                <Linkedin className="w-6 h-6 text-red-600 dark:text-red-400 flex-shrink-0" />
-                <a href={cvData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-lg text-red-600 dark:text-red-400 hover:text-red-400 dark:hover:text-red-300 transition-colors duration-300 underline">LinkedIn Profile</a>
+                <Linkedin className="w-6 h-6 text-red-600 flex-shrink-0" />
+                <a href={cvData.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-lg text-red-600 hover:text-red-400 transition-colors duration-300 underline">LinkedIn Profile</a>
             </div>
-             <div className="mt-4 pt-6 border-t border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400">
+             <div className="mt-4 pt-6 border-t border-slate-300 text-slate-600">
                 <p>{cvData.location}</p>
             </div>
         </div>
@@ -426,7 +404,7 @@ function App() {
     root.classList.add(theme);
     
     const fontLink = document.createElement('link');
-    fontLink.href = "https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap";
+    fontLink.href = "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@400;600&display=swap";
     fontLink.rel = "stylesheet";
     
     if(!document.querySelector(`link[href="${fontLink.href}"]`)){
@@ -451,24 +429,25 @@ function App() {
   }
 
   const pageStyle = {
-    fontFamily: "'Roboto Mono', monospace",
-    ...(theme === 'light' 
-        ? { backgroundColor: '#f5f1e9' } 
-        : {})
+    fontFamily: "'Inter', sans-serif",
+    backgroundColor: '#f5f1e9'
   };
 
   if (showLanding) {
       return (
           <div 
-            className="min-h-screen dark:bg-gradient-to-br dark:from-slate-900 dark:to-gray-800 flex flex-col items-center justify-center text-center p-4 overflow-hidden relative" 
+            className="min-h-screen flex flex-col items-center justify-center text-center p-4 overflow-hidden relative" 
             style={pageStyle}
           >
-               <button onClick={toggleTheme} className="absolute top-4 right-4 p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200/60 dark:hover:bg-slate-700/60 transition-colors duration-300 z-20">
+               <style>{`
+                .font-display { font-family: 'DM Sans', sans-serif; }
+               `}</style>
+               <button onClick={toggleTheme} className="absolute top-4 right-4 p-2 rounded-full text-slate-800 hover:bg-slate-200/60 transition-colors duration-300 z-20">
                     {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
                 </button>
               <div className="relative z-10">
                   <h1 
-                    className="font-bold text-slate-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center"
+                    className="font-bold font-display text-slate-800 mb-2 flex flex-nowrap items-center justify-center"
                     style={{ fontSize: 'clamp(1.75rem, 8vw, 4.5rem)' }}
                   >
                     Adeetya Ch
@@ -476,7 +455,7 @@ function App() {
                     ubey
                   </h1>
                   <p 
-                    className="text-red-600 dark:text-red-500 mb-12"
+                    className="text-red-600 mb-12"
                     style={{ fontSize: 'clamp(0.875rem, 4vw, 1.25rem)'}}
                   >
                     Algebra | Topology
@@ -486,7 +465,7 @@ function App() {
                           <button 
                               key={page}
                               onClick={() => navigateToPage(page)}
-                              className="text-lg font-medium text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-500 transition-colors duration-300"
+                              className="text-lg font-medium text-slate-700 hover:text-red-600 transition-colors duration-300"
                           >
                               {page}
                           </button>
@@ -513,10 +492,10 @@ function App() {
   const NavLink = ({ pageName }) => (
     <button
       onClick={() => setActivePage(pageName)}
-      className={`px-3 sm:px-4 py-2 rounded-md text-sm sm:text-lg font-medium transition-all duration-300 border border-transparent ${
+      className={`px-5 py-2 rounded-full text-md font-medium transition-all duration-300 border border-transparent ${
         activePage === pageName
-          ? 'bg-red-600 text-white shadow-inner shadow-red-500/50'
-          : 'text-slate-700 dark:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-800/60 hover:shadow-md hover:shadow-red-500/20'
+          ? 'bg-red-600 text-white shadow-lg shadow-red-500/30'
+          : 'text-slate-600 hover:bg-red-100/60'
       }`}
     >
       {pageName}
@@ -525,34 +504,38 @@ function App() {
 
   return (
     <div 
-        className="min-h-screen dark:bg-gradient-to-br dark:from-slate-900 dark:to-gray-800 text-slate-800 dark:text-slate-200 transition-colors duration-500" 
+        className="min-h-screen text-slate-800 transition-colors duration-500 font-sans" 
         style={pageStyle}
     >
-      <header className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm sticky top-0 z-20 border-b border-slate-300/80 dark:border-slate-700/80">
+       <style>{`
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'DM Sans', sans-serif; }
+       `}</style>
+      <header className="bg-white/30 backdrop-blur-lg sticky top-0 z-20 border-b border-slate-300/50">
         <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <div>
             <button onClick={() => setShowLanding(true)} className="text-left transition-opacity duration-300 hover:opacity-70">
-                <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">{cvData.name}</h1>
-                <p className="text-sm sm:text-md text-slate-600 dark:text-slate-400">Mathematics Undergraduate</p>
+                <h1 className="text-2xl sm:text-3xl font-bold font-display text-slate-900">{cvData.name}</h1>
+                <p className="text-sm sm:text-md text-slate-600">Mathematics Undergraduate</p>
             </button>
           </div>
-          <button onClick={toggleTheme} className="p-2 rounded-full text-slate-800 dark:text-yellow-400 hover:bg-slate-200/60 dark:hover:bg-slate-700/60 transition-colors duration-300">
+          <button onClick={toggleTheme} className="p-2 rounded-full text-slate-800 hover:bg-slate-200/60 transition-colors duration-300">
             {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
           </button>
         </div>
-        <nav className="bg-slate-100/60 dark:bg-slate-800/40 backdrop-blur-sm border-t border-b border-slate-300/80 dark:border-slate-700/80">
+        <nav className="bg-slate-100/60 backdrop-blur-sm border-t border-b border-slate-300/80">
            <div className="container mx-auto px-2 sm:px-6 py-2 flex justify-center flex-wrap gap-1 sm:gap-2">
                 {pages.map(page => <NavLink key={page} pageName={page} />)}
            </div>
         </nav>
       </header>
       
-      <main className="container mx-auto px-4 sm:px-6 py-12 relative z-10">
+      <main className="container mx-auto px-4 sm:px-6 py-16 relative z-10">
         {renderPage()}
       </main>
       
-      <footer className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm mt-16 py-6 border-t border-slate-300/80 dark:border-slate-700/80">
-        <div className="container mx-auto px-6 text-center text-slate-600 dark:text-slate-400">
+      <footer className="bg-white/30 backdrop-blur-lg mt-16 py-6 border-t border-slate-300/50">
+        <div className="container mx-auto px-6 text-center text-slate-600">
             <p>&copy; {new Date().getFullYear()} Adeetya Choubey. Built with React & Tailwind CSS.</p>
         </div>
       </footer>
@@ -561,3 +544,4 @@ function App() {
 }
 
 export default App;
+
