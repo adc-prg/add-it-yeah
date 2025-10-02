@@ -145,7 +145,8 @@ const resourcesData = [
                     { text: "Introduction to Commutative Algebra, By Atiyah Macdonald", link: "http://math.univ-lyon1.fr/~mathieu/CoursM2-2020/AMD-ComAlg.pdf" },
                     { text: "Commutative Ring theory, Hideyuki Matsumura" }
                 ]
-            }
+            },
+            { name: "Linear Algebra" }
         ]
     },
     {
@@ -196,13 +197,33 @@ const resourcesData = [
         ]
     },
     {
-        category: "Miscellaneous",
+        category: "Foundations & Discrete Math",
         courses: [
-            { name: "Number theory", details: "Elementary Number Theory, David Burton" },
-            { name: "Graph Theory" },
+            { 
+                name: "Number theory",
+                details: [
+                    { text: 'Elementary Number theory, David Burton', link: 'https://www.researchgate.net/profile/Issam-Kaddoura/post/Do-irrational-numbers-exist-in-nature/attachment/5f580f02f97a8800014574a2/AS%3A933631606403072%401599606529112/download/david-m-burton-elementary-number-theory-mcgraw-hill-education-2010.pdf' },
+                    { text: 'An introduction to theory of numbers, by Niven, Zuckerman, Montgomery.' }
+                ]
+            },
+            { 
+                name: "Graph Theory",
+                details: "Introduction to Graph theory, by Douglas west is a great book."
+            },
             { name: "Knot theory" },
             { name: "Braid Groups" },
-            { name: "Combinatorics" },
+            { 
+                name: "Combinatorics",
+                details: "Introductory Combinatorics by Richard Brualdi."
+            },
+            { name: "Probability" },
+            { name: "Statistics" }
+        ]
+    },
+    {
+        category: "Miscellaneous",
+        courses: [
+            { name: "More topics coming soon!" }
         ]
     }
 ];
@@ -469,7 +490,7 @@ const ResourcesPage = () => (
     <div>
         <Title>Resources</Title>
         <p className="text-sm italic text-stone-600 dark:text-neutral-400 mb-6 -mt-6 text-center">
-            All the book links are the ones I found just by a simple google search, and links which are accessible to general public. If anyone objects, and wants me to take down any links, kindly email me. Thank you.
+            All the book links are the ones I found just by a simple google search, and from accessible to public links. If anyone objects, and wants me to take down any links, kindly email me. Thank you.
         </p>
         <Card>
             <div className="space-y-2">
