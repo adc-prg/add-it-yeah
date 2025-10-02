@@ -198,7 +198,7 @@ const resourcesData = [
     {
         category: "Miscellaneous",
         courses: [
-            { name: "Number theory", details: "Elementary Number Theory, David Burton", link: 'https://www.researchgate.net/profile/Issam-Kaddoura/post/Do-irrational-numbers-exist-in-nature/attachment/5f580f02f97a8800014574a2/AS%3A933631606403072%401599606529112/download/david-m-burton-elementary-number-theory-mcgraw-hill-education-2010.pdf' },
+            { name: "Number theory", details: "Elementary Number Theory, David Burton" },
             { name: "Graph Theory" },
             { name: "Knot theory" },
             { name: "Braid Groups" },
