@@ -171,15 +171,28 @@ const resourcesData = [
                      { text: 'Functions of One complex Variable, Conway', link: 'https://psm73.wordpress.com/wp-content/uploads/2009/03/conway.pdf' }
                 ]
             },
-            { name: "PDE" },
-            { name: "ODE" },
+            { name: "PDE", details: [
+                    { text: "The book on PDE, John Fritz" },
+                    { text: "An Introduction to PDE, Yehuda Pinchover"},
+                    { text: "Course notes by Prof. Sivaji Ganesh on the following link (MA515, IIT Bombay)", link: 'https://www.math.iitb.ac.in/~siva/ma515.2201.html' }
+                ] },
+            { name: "ODE" , details: "Introduction to ODE, EA Coddington" },
         ]
     },
     {
         category: "Topology",
         courses: [
-            { name: "General Topology" },
-            { name: "Algebraic Topology" },
+            { name: "General Topology", details: [
+                    { text: "Topology, J Dugundji {Email if one is unable to find the PDF.}" },
+                    { text: "Topology, J Munkres"},
+                    { text: "Course notes, MAT327 (summer of 2019), University of Toronto", link: 'https://www.math.toronto.edu/ivan/mat327/?resources' },
+                    { text: "Topology without tears, Sidney Morris", link: 'https://www.topologywithouttears.net/'}
+                ] },
+            { name: "Algebraic Topology", details: [
+                    { text: "Algebraic Topology, Hatcher" },
+                    { text: "Chapters 9 and onwards from the book on general topology, by Munkres. For the Homology and onwards part, one can take a look at Elements of Algebraic Topology by Munkres"},
+                    { text: "Lecture Videos by Dr. Pierre Albin, available on YT", link: 'https://youtube.com/playlist?list=PLpRLWqLFLVTCL15U6N3o35g4uhMSBVA2b&si=jhELA_n416tTRTwC' }
+                ] },
         ]
     },
     {
