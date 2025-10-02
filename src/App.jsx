@@ -151,8 +151,26 @@ const resourcesData = [
     {
         category: "Analysis",
         courses: [
-            { name: "Real analysis" },
-            { name: "Complex Analysis" },
+            {
+                name: "Real analysis",
+                details: [
+                    { type: 'subheading', text: 'Single Variable' },
+                    { text: 'Understanding Analysis, Stephen Abott', link: 'http://ndl.ethernet.edu.et/bitstream/123456789/88631/1/2015_Book_UnderstandingAnalysis.pdf' },
+                    { text: 'The book by Bartle and Sherbert', link: 'https://mashadi.staff.unri.ac.id/files/2018/10/BUKU-REAL-ANALYSIS.pdf' },
+                    { type: 'note', text: 'For a more rigorous introduction, Principles of mathematical analysis, by Walter Rudin' },
+                    { type: 'subheading', text: 'Multivariable' },
+                    { text: 'Analysis on manifolds, by munkres', link: 'https://edscl.in/pluginfile.php/2669/mod_folder/content/0/Analysis%20on%20Manifolds%20Munkres.pdf?forcedownload=1' },
+                    { text: 'Calculus on Manifolds by Spivak', link: 'http://strangebeautiful.com/other-texts/spivak-calc-manifolds.pdf' },
+                    { type: 'note', text: 'For Real Analysis 1, one can also look at the course notes of Dr. Prahlad Vaidyanathan, available on his website.', link: 'https://home.iiserb.ac.in/~prahlad/teaching.html' }
+                ]
+            },
+            {
+                name: "Complex Analysis",
+                details: [
+                     { text: 'Complex Analysis, Ahlfors', link: 'https://mccuan.math.gatech.edu/courses/6321/lars-ahlfors-complex-analysis-third-edition-mcgraw-hill-science_engineering_math-1979.pdf' },
+                     { text: 'Functions of One complex Variable, Conway', link: 'https://psm73.wordpress.com/wp-content/uploads/2009/03/conway.pdf' }
+                ]
+            },
             { name: "PDE" },
             { name: "ODE" },
         ]
@@ -248,22 +266,43 @@ const AccordionItem = ({ title, intro, items }) => {
                             <li key={item.name} className="flex flex-col">
                                 <span className="font-semibold">{item.name}</span>
                                 {item.details && (
-                                    <div className="pl-4 text-md text-stone-600 dark:text-neutral-300">
+                                    <div className="pl-4 mt-1 text-md text-stone-600 dark:text-neutral-300">
                                         {Array.isArray(item.details) ? (
-                                            <ul className="list-disc list-inside mt-1">
-                                                {item.details.map(detail => (
-                                                    <li key={detail.text}>
-                                                        {detail.text}
-                                                        {detail.link && (
-                                                             <a href={detail.link} target="_blank" rel="noopener noreferrer" className="text-red-500 dark:text-red-400 hover:underline ml-2">
-                                                                [Link]
-                                                            </a>
-                                                        )}
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                            <div className="space-y-2">
+                                                {item.details.map((detail, index) => {
+                                                    const key = detail.text || index;
+                                                    if (detail.type === 'subheading') {
+                                                        return <h4 key={key} className="font-semibold text-stone-700 dark:text-neutral-200 mt-2">{detail.text}</h4>;
+                                                    }
+                                                    if (detail.type === 'note') {
+                                                        return (
+                                                            <p key={key} className="italic text-stone-500 dark:text-neutral-400 pl-4 py-1">
+                                                                {detail.text}
+                                                                {detail.link && (
+                                                                    <a href={detail.link} target="_blank" rel="noopener noreferrer" className="text-red-500 dark:text-red-400 hover:underline ml-2">
+                                                                        [Link]
+                                                                    </a>
+                                                                )}
+                                                            </p>
+                                                        );
+                                                    }
+                                                    return (
+                                                         <div key={key} className="flex items-start pl-4">
+                                                            <span className="mr-2 mt-1">&#8226;</span>
+                                                            <div>
+                                                                {detail.text}
+                                                                {detail.link && (
+                                                                    <a href={detail.link} target="_blank" rel="noopener noreferrer" className="text-red-500 dark:text-red-400 hover:underline ml-2">
+                                                                        [Link]
+                                                                    </a>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
                                         ) : (
-                                            <p className="mt-1 font-light italic opacity-90">&ndash; {item.details}</p>
+                                            <p className="font-light italic opacity-90">&ndash; {item.details}</p>
                                         )}
                                     </div>
                                 )}
@@ -416,6 +455,9 @@ const EventsPage = () => (
 const ResourcesPage = () => (
     <div>
         <Title>Resources</Title>
+        <p className="text-sm italic text-stone-600 dark:text-neutral-400 mb-6 -mt-6 text-center">
+            All the book links are the ones I found just by a simple google search, and from accessible to public links. If anyone objects, and wants me to take down any links, kindly email me. Thank you.
+        </p>
         <Card>
             <div className="space-y-2">
                 {resourcesData.map(category => (
