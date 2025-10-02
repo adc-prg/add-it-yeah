@@ -123,7 +123,7 @@ const cvData = {
         linkedin: "https://www.linkedin.com/in/adeetya-choubey-6b2a44254/"
     }
 };
-const pages = ['About', 'AcadEx', 'Research', 'Events', 'Links', 'Explorations', 'Contact'];
+const pages = ['About', 'AcadEx', 'Research', 'Events', 'Links', 'Resources', 'Contact'];
 
 // --- Custom Hooks ---
 const useTheme = () => {
@@ -131,7 +131,6 @@ const useTheme = () => {
 
     React.useEffect(() => {
         const storedTheme = localStorage.getItem('theme');
-        // Default to light mode if no theme is stored
         const initialTheme = storedTheme || 'light';
         setTheme(initialTheme);
     }, []);
@@ -187,7 +186,9 @@ const AboutPage = () => (
             <Card>
                 <h3 className="text-2xl font-bold font-display text-stone-800 dark:text-gray-100 mb-4">Bio-Sketch</h3>
                 <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200 mb-4">{cvData.profile.intro}</p>
-                <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200 mb-4">{cvData.profile.interests}</p>
+                <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200 mb-4">
+                     I have strong interests in <strong className="font-semibold text-stone-800 dark:text-white">Abstract Algebra</strong> and <strong className="font-semibold text-stone-800 dark:text-white">Topology</strong>, which also slightly extend to some elementary <strong className="font-semibold text-stone-800 dark:text-white">functional analysis</strong>. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.
+                </p>
                 <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200">{cvData.profile.ambition}</p>
             </Card>
              <Card>
@@ -244,7 +245,9 @@ const ResearchPage = () => (
                         <h3 className="text-2xl font-bold font-display text-red-600 dark:text-red-400 mb-2">{item.title}</h3>
                         <p className="text-md font-semibold text-stone-600 dark:text-neutral-400 mb-1">{item.guide}</p>
                         <p className="text-sm text-stone-500 dark:text-neutral-500 mb-3">{item.duration}</p>
-                        <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200">{item.description}</p>
+                        <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200">
+                             <strong className="font-semibold text-stone-800 dark:text-white">Cayley graphs</strong> are graphs which exhibit the nature of action of a group G on a set S, which is closed under inverses (typically generating set). A graph is said to be integral if each of the eigenvalues of its Adjacency Matrix is an integer. The <strong className="font-semibold text-stone-800 dark:text-white">genus of a graph</strong> is the minimum number of handles (or holes) that must be added to a sphere to embed the graph on the resulting surface without any edge crossings. All of this needs to be said and done more precisely. I use computational and algebraic tools to explore these two properties of cayley graphs on finite abelian groups. (More about my work updating soon)
+                        </p>
                     </div>
                 ))}
             </div>
@@ -376,17 +379,9 @@ const InlinePixelTorus = () => {
 
             const points = [];
 
-            const light = {
-                x: 0.5,
-                y: 0.5,
-                z: 1
-            };
+            const light = { x: 0.5, y: 0.5, z: 1 };
             const lightMag = Math.sqrt(light.x ** 2 + light.y ** 2 + light.z ** 2);
-            const lightNorm = {
-                x: light.x / lightMag,
-                y: light.y / lightMag,
-                z: light.z / lightMag
-            };
+            const lightNorm = { x: light.x / lightMag, y: light.y / lightMag, z: light.z / lightMag };
 
             for (let i = 0; i < 360; i += 15) {
                 for (let j = 0; j < 360; j += 25) {
@@ -403,30 +398,20 @@ const InlinePixelTorus = () => {
 
                     let tempZ = z * Math.cos(rotationX) - y * Math.sin(rotationX);
                     let tempY = z * Math.sin(rotationX) + y * Math.cos(rotationX);
-                    z = tempZ;
-                    y = tempY;
+                    z = tempZ; y = tempY;
                     let tempNz = nz * Math.cos(rotationX) - ny * Math.sin(rotationX);
                     let tempNy = nz * Math.sin(rotationX) + ny * Math.cos(rotationX);
-                    nz = tempNz;
-                    ny = tempNy;
+                    nz = tempNz; ny = tempNy;
 
                     let tempX = x * Math.cos(rotationY) - z * Math.sin(rotationY);
                     tempZ = x * Math.sin(rotationY) + z * Math.cos(rotationY);
-                    x = tempX;
-                    z = tempZ;
+                    x = tempX; z = tempZ;
                     let tempNx = nx * Math.cos(rotationY) - nz * Math.sin(rotationY);
                     tempNz = nx * Math.sin(rotationY) + nz * Math.cos(rotationY);
-                    nx = tempNx;
-                    nz = tempNz;
+                    nx = tempNx; nz = tempNz;
 
                     const intensity = nx * lightNorm.x + ny * lightNorm.y + nz * lightNorm.z;
-
-                    points.push({
-                        x: x + cx,
-                        y: y + cy,
-                        z: z,
-                        intensity: intensity
-                    });
+                    points.push({ x: x + cx, y: y + cy, z: z, intensity: intensity });
                 }
             }
 
@@ -436,7 +421,6 @@ const InlinePixelTorus = () => {
                 const clampedIntensity = Math.max(0, Math.min(1, (p.intensity + 1) / 2));
                 const colorIndex = Math.floor(clampedIntensity * (redShades.length - 1));
                 ctx.fillStyle = redShades[colorIndex];
-
                 ctx.fillRect(Math.floor(p.x / PIXEL_SIZE) * PIXEL_SIZE, Math.floor(p.y / PIXEL_SIZE) * PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE);
             });
         }
@@ -466,7 +450,7 @@ function App() {
     const [activePage, setActivePage] = React.useState('About');
     const { theme, toggleTheme } = useTheme();
     const [showLanding, setShowLanding] = React.useState(true);
-
+    
     React.useEffect(() => {
         const fontLink = document.createElement('link');
         fontLink.href = "https://fonts.googleapis.com/css2?family=Cal+Sans&family=Inter:wght@400;600;700&display=swap";
@@ -487,49 +471,27 @@ function App() {
         setActivePage(page);
         setShowLanding(false);
     }
-
-    const pageStyle = {
-        fontFamily: "'Inter', sans-serif",
-    };
     
-    const bgStyle = {
-        background: theme === 'light' 
-            ? '#FFF2EB'
-            : '#13005A',
-    }
+    const pageStyle = { fontFamily: "'Inter', sans-serif" };
+    const bgStyle = { background: theme === 'light' ? '#FFF2EB' : '#13005A' };
 
     if (showLanding) {
         return (
-            <div
-                className="min-h-screen flex flex-col items-center justify-center text-center p-4 overflow-hidden relative transition-colors duration-500"
-                style={{...pageStyle, ...bgStyle}}
-            >
+            <div className="min-h-screen flex flex-col items-center justify-center text-center p-4 overflow-hidden relative transition-colors duration-500" style={{...pageStyle, ...bgStyle}}>
                 <style>{`.font-display { font-family: 'Cal Sans', sans-serif; }`}</style>
                  <div className="absolute top-4 right-4 z-20">
                     <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
                 </div>
                 <div className="relative z-10">
-                    <h1
-                        className="font-bold font-display text-stone-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center"
-                        style={{ fontSize: 'clamp(2.5rem, 10vw, 6rem)' }}
-                    >
-                        Adeetya Ch
-                        <InlinePixelTorus />
-                        ubey
+                    <h1 className="font-bold font-display text-stone-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center" style={{ fontSize: 'clamp(2.5rem, 10vw, 6rem)' }}>
+                        Adeetya Ch<InlinePixelTorus />ubey
                     </h1>
-                    <p
-                        className="text-red-600 dark:text-red-500 mb-12 text-lg md:text-2xl"
-                    >
+                    <p className="text-red-600 dark:text-red-500 mb-12 text-lg md:text-2xl">
                         Algebra | Topology
                     </p>
-                    <nav 
-                        className="flex flex-wrap gap-x-6 gap-y-4 justify-center">
+                    <nav className="flex flex-wrap gap-x-6 gap-y-4 justify-center">
                         {pages.map(page => (
-                            <button
-                                key={page}
-                                onClick={() => navigateToPage(page)}
-                                className="text-xl font-medium text-stone-700 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-500 transition-colors duration-300"
-                            >
+                            <button key={page} onClick={() => navigateToPage(page)} className="text-xl font-medium text-stone-700 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-500 transition-colors duration-300">
                                 {page}
                             </button>
                         ))}
@@ -541,47 +503,29 @@ function App() {
 
     const renderPage = () => {
         switch (activePage) {
-            case 'About':
-                return <AboutPage />;
-            case 'AcadEx':
-                return <AcademicExperiencesPage />;
-            case 'Research':
-                return <ResearchPage />;
-            case 'Events':
-                return <EventsPage />;
-            case 'Links':
-                return <ComingSoonPage title="Links" />;
-            case 'Explorations':
-                return <ComingSoonPage title="Explorations" />;
-            case 'Contact':
-                return <ContactPage />;
-            default:
-                return <AboutPage />;
+            case 'About': return <AboutPage />;
+            case 'AcadEx': return <AcademicExperiencesPage />;
+            case 'Research': return <ResearchPage />;
+            case 'Events': return <EventsPage />;
+            case 'Links': return <ComingSoonPage title="Links" />;
+            case 'Resources': return <ComingSoonPage title="Resources" />;
+            case 'Contact': return <ContactPage />;
+            default: return <AboutPage />;
         }
     };
 
     const NavLink = ({ pageName }) => (
         <button
             onClick={() => setActivePage(pageName)}
-            className={`relative px-4 py-2 text-md font-semibold transition-colors duration-300 rounded-full ${
-                activePage === pageName
-                ? 'text-white bg-red-600'
-                : 'text-stone-600 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-400'
-            }`}
+            className={`relative px-4 py-2 text-md font-semibold transition-colors duration-300 rounded-full ${ activePage === pageName ? 'text-white bg-red-600' : 'text-stone-600 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-400'}`}
         >
             {pageName}
         </button>
     );
 
     return (
-        <div
-            className="min-h-screen text-stone-800 dark:text-neutral-200 transition-colors duration-500 font-sans"
-            style={{...pageStyle, ...bgStyle}}
-        >
-            <style>{`
-                .font-sans { font-family: 'Inter', sans-serif; }
-                .font-display { font-family: 'Cal Sans', sans-serif; }
-            `}</style>
+        <div className="min-h-screen text-stone-800 dark:text-neutral-200 transition-colors duration-500 font-sans" style={{...pageStyle, ...bgStyle}}>
+            <style>{`.font-sans { font-family: 'Inter', sans-serif; } .font-display { font-family: 'Cal Sans', sans-serif; }`}</style>
             <header className="bg-[#FFDCDC]/30 dark:bg-[#00337C]/30 backdrop-blur-lg sticky top-0 z-20 border-b border-[#FFD6BA]/50 dark:border-[#1C82AD]/50">
                 <div className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
                     <div>
@@ -604,7 +548,7 @@ function App() {
             <main className="container mx-auto px-4 sm:px-6 py-16 relative z-10">
                  {renderPage()}
             </main>
-
+            
             <footer className="bg-[#FFDCDC]/30 dark:bg-[#00337C]/30 backdrop-blur-lg mt-16 py-6 border-t border-[#FFD6BA]/50 dark:border-[#1C82AD]/50">
                 <div className="container mx-auto px-6 text-center text-stone-600 dark:text-neutral-400">
                     <p>&copy; {new Date().getFullYear()} Adeetya Choubey. Built with React & Tailwind CSS.</p>
