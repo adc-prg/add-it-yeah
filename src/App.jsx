@@ -34,7 +34,7 @@ const cvData = {
     location: "Bhopal, Madhya Pradesh, India",
     profile: {
         intro: "Math undergraduate, enrolled in the dual degree BS-MS program at IISER Bhopal.",
-        interests: "I have strong interests in Abstract Algebra and Topology, which also extend to some applicable mathematics (analysis too). I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
+        interests: "I have strong interests in Abstract Algebra and Topology, which also extend to some applicable mathematics (analysis as well). I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
         ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia. Apart from academics, I play football, cards, video games and board games. I am recently exploring alot of music, art and literature."
     },
     research: [{
@@ -60,7 +60,7 @@ const cvData = {
         role: "Co-founder, Openboard",
         institution: "IISER Bhopal",
         duration: "Ongoing",
-        description: "Along with my friend Samriddha we have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate about preferably to a general audience."
+        description: "Along with my dear friend Samriddha we have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate about preferably to a general audience."
     }, {
         role: "Department Representative, Math Dept.",
         institution: "IISER Bhopal",
@@ -359,7 +359,7 @@ const AboutPage = () => (
                 <h3 className="text-2xl font-bold font-display text-stone-800 dark:text-gray-100 mb-4">Bio-Sketch</h3>
                 <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200 mb-4">{cvData.profile.intro}</p>
                 <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200 mb-4">
-                     I have strong interests in <strong className="font-semibold text-stone-800 dark:text-white">Abstract Algebra</strong> and <strong className="font-semibold text-stone-800 dark:text-white">Topology</strong>, which also slightly extend to some elementary <strong className="font-semibold text-stone-800 dark:text-white">functional analysis</strong>. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.
+                     I have strong interests in <strong className="font-semibold text-stone-800 dark:text-white">Abstract Algebra</strong> and <strong className="font-semibold text-stone-800 dark:text-white">Topology</strong>, which also extend to some <strong className="font-semibold text-stone-800 dark:text-white">applicable mathematics (analysis as well)</strong>. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.
                 </p>
                 <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200">{cvData.profile.ambition}</p>
             </Card>
@@ -735,4 +735,5 @@ function App() {
 }
 
 export default App;
+
 
