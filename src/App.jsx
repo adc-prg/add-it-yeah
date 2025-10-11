@@ -130,6 +130,14 @@ const cvData = {
     }
 };
 const pages = ['About', 'AcadEx', 'Research', 'Events', 'Resources', 'Contact'];
+const pageDescriptions = {
+    About: "A brief bio, my educational background, and positions of responsibility.",
+    AcadEx: "Details about my research internships and summer schools.",
+    Research: "An overview of my current and past research projects.",
+    Events: "A summary of academic and extracurricular events I've organized or participated in.",
+    Resources: "A curated list of books and links for various math topics.",
+    Contact: "How to get in touch with me for collaborations or inquiries."
+};
 const resourcesData = [
     {
         category: "Algebra",
@@ -627,6 +635,7 @@ function App() {
     const [activePage, setActivePage] = React.useState('About');
     const { theme, toggleTheme } = useTheme();
     const [showLanding, setShowLanding] = React.useState(true);
+    const [hoveredPage, setHoveredPage] = React.useState(null);
     
     React.useEffect(() => {
         const fontLink = document.createElement('link');
@@ -638,16 +647,21 @@ function App() {
         }
     }, []);
 
+    // This effect handles routing based on session storage
     React.useEffect(() => {
-        if (!showLanding) {
-            window.scrollTo(0, 0);
+        const savedPage = sessionStorage.getItem('activePage');
+        if (savedPage && pages.includes(savedPage)) {
+            setActivePage(savedPage);
+            setShowLanding(false);
         }
-    }, [activePage, showLanding]);
+    }, []);
 
     const navigateToPage = (page) => {
         setActivePage(page);
         setShowLanding(false);
-    }
+        sessionStorage.setItem('activePage', page);
+        window.scrollTo(0, 0);
+    };
     
     const pageStyle = { fontFamily: "'Inter', sans-serif" };
     const bgStyle = { background: theme === 'light' ? '#FFF2EB' : '#1A202C' };
@@ -663,16 +677,27 @@ function App() {
                     <h1 className="font-bold font-display text-stone-800 dark:text-white mb-2 flex flex-nowrap items-center justify-center" style={{ fontSize: 'clamp(2.5rem, 10vw, 6rem)' }}>
                         Adeetya Ch<InlinePixelTorus />ubey
                     </h1>
-                    <p className="text-red-600 dark:text-red-500 mb-12 text-lg md:text-2xl">
+                    <p className="text-red-600 dark:text-red-500 mb-8 text-lg md:text-2xl">
                         Algebra | Topology
                     </p>
                     <nav className="flex flex-wrap gap-x-6 gap-y-4 justify-center">
                         {pages.map(page => (
-                            <button key={page} onClick={() => navigateToPage(page)} className="text-xl font-medium text-stone-700 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-500 transition-colors duration-300">
+                            <button 
+                                key={page} 
+                                onClick={() => navigateToPage(page)} 
+                                onMouseEnter={() => setHoveredPage(page)}
+                                onMouseLeave={() => setHoveredPage(null)}
+                                className="text-xl font-medium text-stone-700 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-500 transition-colors duration-300"
+                            >
                                 {page}
                             </button>
                         ))}
                     </nav>
+                     <div className="mt-6 text-stone-600 dark:text-neutral-400 h-10 transition-opacity duration-300 text-md px-2">
+                        <p className={`transition-opacity duration-300 ${hoveredPage ? 'opacity-100' : 'opacity-0'}`}>
+                           {hoveredPage ? pageDescriptions[hoveredPage] : ''}
+                        </p>
+                    </div>
                 </div>
             </div>
         );
@@ -692,7 +717,7 @@ function App() {
 
     const NavLink = ({ pageName }) => (
         <button
-            onClick={() => setActivePage(pageName)}
+            onClick={() => navigateToPage(pageName)}
             className={`relative px-4 py-2 text-md font-semibold transition-colors duration-300 rounded-full ${ activePage === pageName ? 'text-white bg-red-600' : 'text-stone-600 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-400'}`}
         >
             {pageName}
@@ -705,7 +730,10 @@ function App() {
             <header className="bg-[#FFDCDC]/30 dark:bg-slate-900/30 backdrop-blur-lg sticky top-0 z-20 border-b border-[#FFD6BA]/50 dark:border-slate-700/50">
                 <div className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
                     <div>
-                        <button onClick={() => setShowLanding(true)} className="text-left transition-opacity duration-300 hover:opacity-70">
+                        <button onClick={() => {
+                            setShowLanding(true);
+                            sessionStorage.removeItem('activePage');
+                        }} className="text-left transition-opacity duration-300 hover:opacity-70">
                             <h1 className="text-2xl sm:text-3xl font-bold font-display text-stone-900 dark:text-white">{cvData.name}</h1>
                             <p className="text-sm sm:text-md text-stone-600 dark:text-neutral-400">Mathematics Undergraduate</p>
                         </button>
@@ -735,5 +763,4 @@ function App() {
 }
 
 export default App;
-
 
