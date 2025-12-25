@@ -34,13 +34,13 @@ const cvData = {
     location: "Bhopal, Madhya Pradesh, India",
     profile: {
         intro: "Math undergraduate, enrolled in the dual degree BS-MS program at IISER Bhopal.",
-        interests: "I have strong interests in Abstract Algebra and Topology, which also extend to some applicable mathematics (analysis as well). I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
+        interests: "I have strong interests in Abstract Algebra and Topology, which also extend to possible areas of their applicability. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
         ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia. Apart from academics, I play football, cards, video games and board games. I am recently exploring alot of music, art and literature."
     },
     research: [{
         title: "Exploring Integrality and Genus of some specific Cayley Graphs",
         guide: "Guide : Prof. Ashish Upadhyay",
-        description: "Cayley graphs are graphs which exhibit the nature of action of a group G on a set S, which is closed under inverses (typically generating set). A graph is said to be integral if each of the eigenvalues of its Adjacency Matrix is an integer. The genus of a graph is the minimum number of handles (or holes) that must be added to a sphere to embed the graph on the resulting surface without any edge crossings. All of this needs to be said and done more precisely. I use computational and algebraic tools to explore these two properties of cayley graphs on finite abelian groups. (More about my work updating soon) "
+        description: "Cayley graphs are graphs which exhibit the nature of action of a group G on a set S, which is closed under inverses (typically generating set). A graph is said to be integral if each of the eigenvalues of its Adjacency Matrix is an integer. The genus of a graph is the minimum number of handles that must be added to a sphere to embed the graph on the resulting surface without any edge crossings. All of this needs to be said and done more precisely. I use computational and algebraic tools to explore these two properties of cayley graphs on finite abelian groups. (More about my work updating soon) "
     }, ],
     education: [{
         institution: "Indian Institute of Science Education and Research, Bhopal",
