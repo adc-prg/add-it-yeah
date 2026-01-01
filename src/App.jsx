@@ -755,7 +755,7 @@ function App() {
             
             <footer className="bg-[#FFDCDC]/30 dark:bg-slate-900/30 backdrop-blur-lg mt-16 py-6 border-t border-[#FFD6BA]/50 dark:border-slate-700/50">
                 <div className="container mx-auto px-6 text-center text-stone-600 dark:text-neutral-400">
-                    <p>&copy; {new Date().getFullYear()} Adeetya Choubey. Built with React & Tailwind CSS.</p>
+                    <p>&copy; {new Date().getFullYear()} Adeetya Choubey. You may use, share and adapt with proper credits.</p>
                 </div>
             </footer>
         </div>
