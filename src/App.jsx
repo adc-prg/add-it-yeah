@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Added for completeness, though not strictly used in the intro fix
 
 // --- Icon Imports ---
 const Sun = (props) => (
@@ -33,10 +34,19 @@ const cvData = {
     name: "Adeetya Choubey",
     location: "Bhopal, Madhya Pradesh, India",
     profile: {
-        intro: "I am a integrated masters student at{' '}
-      <Link to="/my-institute" className="text-blue-600 hover:underline">
-        IISER Bhopal
-      </Link>.",
+        intro: (
+            <>
+                I am a integrated masters student at{' '}
+                <a 
+                    href="https://www.iiserb.ac.in/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-red-600 dark:text-red-400 hover:underline font-semibold"
+                >
+                    IISER Bhopal
+                </a>.
+            </>
+        ),
         interests: "My academic interests lie in abstract algebra and topology, with a particular focus on commutative algebra and algebraic geometry. But broadly, I enjoy engaging with any area involving rich algebraic structure.",
         ambition: "Apart from academics, I play football, cards, video games and board games. I am recently exploring alot of music and other forms of art."
     },
@@ -179,8 +189,8 @@ const resourcesData = [
             {
                 name: "Complex Analysis",
                 details: [
-                     { text: 'Complex Analysis, Ahlfors', link: 'https://mccuan.math.gatech.edu/courses/6321/lars-ahlfors-complex-analysis-third-edition-mcgraw-hill-science_engineering_math-1979.pdf' },
-                     { text: 'Functions of One complex Variable, Conway', link: 'https://psm73.wordpress.com/wp-content/uploads/2009/03/conway.pdf' }
+                      { text: 'Complex Analysis, Ahlfors', link: 'https://mccuan.math.gatech.edu/courses/6321/lars-ahlfors-complex-analysis-third-edition-mcgraw-hill-science_engineering_math-1979.pdf' },
+                      { text: 'Functions of One complex Variable, Conway', link: 'https://psm73.wordpress.com/wp-content/uploads/2009/03/conway.pdf' }
                 ]
             },
             { name: "PDE", details: [
@@ -746,7 +756,7 @@ function App() {
                     </div>
                 </div>
                  <nav className="bg-[#FFE8CD]/30 dark:bg-slate-800/20 backdrop-blur-lg border-t border-b border-[#FFD6BA]/50 dark:border-slate-700/50">
-                   <div className="container mx-auto px-2 sm:px-6 py-2 flex justify-center flex-wrap gap-1 sm:gap-2">
+                    <div className="container mx-auto px-2 sm:px-6 py-2 flex justify-center flex-wrap gap-1 sm:gap-2">
                         {pages.map(page => <NavLink key={page} pageName={page} />)}
                    </div>
                 </nav>
@@ -766,4 +776,3 @@ function App() {
 }
 
 export default App;
-
