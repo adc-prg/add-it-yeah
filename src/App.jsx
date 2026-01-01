@@ -176,8 +176,8 @@ const resourcesData = [
             {
                 name: "Complex Analysis",
                 details: [
-                     { text: 'Complex Analysis, Ahlfors', link: 'https://mccuan.math.gatech.edu/courses/6321/lars-ahlfors-complex-analysis-third-edition-mcgraw-hill-science_engineering_math-1979.pdf' },
-                     { text: 'Functions of One complex Variable, Conway', link: 'https://psm73.wordpress.com/wp-content/uploads/2009/03/conway.pdf' }
+                      { text: 'Complex Analysis, Ahlfors', link: 'https://mccuan.math.gatech.edu/courses/6321/lars-ahlfors-complex-analysis-third-edition-mcgraw-hill-science_engineering_math-1979.pdf' },
+                      { text: 'Functions of One complex Variable, Conway', link: 'https://psm73.wordpress.com/wp-content/uploads/2009/03/conway.pdf' }
                 ]
             },
             { name: "PDE", details: [
@@ -367,7 +367,7 @@ const AboutPage = () => (
                 <h3 className="text-2xl font-bold font-display text-stone-800 dark:text-gray-100 mb-4">Bio-Sketch</h3>
                 <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200 mb-4">{cvData.profile.intro}</p>
                 <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200 mb-4">
-                     I have strong interests in <strong className="font-semibold text-stone-800 dark:text-white">Abstract Algebra</strong> and <strong className="font-semibold text-stone-800 dark:text-white">Topology</strong>, which also extend to some <strong className="font-semibold text-stone-800 dark:text-white">applicable mathematics (analysis as well)</strong>. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.
+                    {cvData.profile.interests}
                 </p>
                 <p className="text-lg leading-relaxed text-stone-700 dark:text-neutral-200">{cvData.profile.ambition}</p>
             </Card>
@@ -743,9 +743,9 @@ function App() {
                     </div>
                 </div>
                  <nav className="bg-[#FFE8CD]/30 dark:bg-slate-800/20 backdrop-blur-lg border-t border-b border-[#FFD6BA]/50 dark:border-slate-700/50">
-                   <div className="container mx-auto px-2 sm:px-6 py-2 flex justify-center flex-wrap gap-1 sm:gap-2">
+                    <div className="container mx-auto px-2 sm:px-6 py-2 flex justify-center flex-wrap gap-1 sm:gap-2">
                         {pages.map(page => <NavLink key={page} pageName={page} />)}
-                   </div>
+                    </div>
                 </nav>
             </header>
 
