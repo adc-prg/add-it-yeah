@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Added for completeness, though not strictly used in the intro fix
 
 // --- Icon Imports ---
 const Sun = (props) => (
@@ -34,32 +33,20 @@ const cvData = {
     name: "Adeetya Choubey",
     location: "Bhopal, Madhya Pradesh, India",
     profile: {
-        intro: (
-            <>
-                I am a integrated masters student at{' '}
-                <a 
-                    href="https://www.iiserb.ac.in/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-red-600 dark:text-red-400 hover:underline font-semibold"
-                >
-                    IISER Bhopal
-                </a>.
-            </>
-        ),
-        interests: "My academic interests lie in abstract algebra and topology, with a particular focus on commutative algebra and algebraic geometry. But broadly, I enjoy engaging with any area involving rich algebraic structure.",
-        ambition: "Apart from academics, I play football, cards, video games and board games. I am recently exploring alot of music and other forms of art."
+        intro: "Math undergraduate, enrolled in the dual degree BS-MS program at IISER Bhopal.",
+        interests: "I have strong interests in Abstract Algebra and Topology, which also extend to possible areas of their applicability. I have tried to engage deeply with the fields and topics that intrigue me through the medium of guided reading projects and summer training programs.",
+        ambition: "My academic trajectory is motivated by a long term goal of entering mathematical research and academia. Apart from academics, I play football, cards, video games and board games. I am recently exploring alot of music, art and literature."
     },
     research: [{
         title: "Exploring Integrality and Genus of some specific Cayley Graphs",
         guide: "Guide : Prof. Ashish Upadhyay",
-        description: "Cayley graphs are graphs which exhibit the nature of action of a group G on a set S, which is closed under inverses (typically generating set). A graph is said to be integral if each of the eigenvalues of its Adjacency Matrix is an integer. The genus of a graph is the minimum number of handles that must be added to a sphere to embed the graph on the resulting surface without any edge crossings. All of this needs to be said and done more precisely. I use computational and algebraic tools to explore these two properties of cayley graphs on finite abelian groups. Currently, the focus has shifted to Generalised Cayley Graphs (Cayley graphs for finite fields), and computation of their genus."
+        description: "Cayley graphs are graphs which exhibit the nature of action of a group G on a set S, which is closed under inverses (typically generating set). A graph is said to be integral if each of the eigenvalues of its Adjacency Matrix is an integer. The genus of a graph is the minimum number of handles that must be added to a sphere to embed the graph on the resulting surface without any edge crossings. All of this needs to be said and done more precisely. I use computational and algebraic tools to explore these two properties of cayley graphs on finite abelian groups. (More about my work updating soon) "
     }, ],
     education: [{
         institution: "Indian Institute of Science Education and Research, Bhopal",
         degree: "BS-MS (Dual Degree), Major: Mathematics",
         duration: "2022 – 2027 (Expected)",
-        grades: ["Cumulative performance: 8.81/10"]
+        grades: ["Cumulative performance: 8.73/10"]
     }, {
         institution: "Puna International School, Gandhinagar",
         degree: "Senior Secondary (CBSE), Science Stream",
@@ -73,11 +60,11 @@ const cvData = {
         role: "Co-founder, Openboard",
         institution: "IISER Bhopal",
         duration: "Ongoing",
-        description: "Along with my friend and batchmate Samriddha, I have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate about preferably to a general audience."
+        description: "Along with my dear friend Samriddha we have started an indepent intitiative to let students come forward and speak their minds about topics which they are passionate about preferably to a general audience."
     }, {
         role: "Department Representative, Math Dept.",
         institution: "IISER Bhopal",
-        duration: "Sep 2024 – Sep 2025",
+        duration: "Sep 2024 – Present",
         description: "Elected representative for the 2022 batch, responsible for facilitating student concerns and academic feedback between students and faculty."
     }, {
         role: "Core Member, Math Club",
@@ -128,7 +115,7 @@ const cvData = {
         }
     }, {
         title: "Khel-Culus",
-        description: "Khel, in my mother tongue Hindi, stands for sport. Khel-culus represents the treatise of calculus as a sport. It was the name for the integration bee held during the annual math fest, Continuum, organised by the department of math at IISER bhopal. I organised the event, along with Yash Sharma, to fruition."
+        description: "Khel, in my mother tongue Hindi, stands for sport. Khel-culus represents the treatise of calculus as a sport. It was the name for the integration bee held during the annual math fest, Continuum, organised by the department of math at IISER bhopal. I organised the event, along with Yash Sharma, to fruition despite several unavoidable obstacles."
     }, {
         title: "Big-Tac-Toe",
         description: "It's a wordplay (Big + Tic-tac-toe) which is another name for the game ultimate tic-tac-toe. The event was again held at Continuum, collaborating with the board games club, Ingenium. The event included a knockout stage gameplay with ultimately Saurav Kanetkar coming out on top as the Big-Tac-Toe champion, 2025 edition.",
@@ -189,8 +176,8 @@ const resourcesData = [
             {
                 name: "Complex Analysis",
                 details: [
-                      { text: 'Complex Analysis, Ahlfors', link: 'https://mccuan.math.gatech.edu/courses/6321/lars-ahlfors-complex-analysis-third-edition-mcgraw-hill-science_engineering_math-1979.pdf' },
-                      { text: 'Functions of One complex Variable, Conway', link: 'https://psm73.wordpress.com/wp-content/uploads/2009/03/conway.pdf' }
+                     { text: 'Complex Analysis, Ahlfors', link: 'https://mccuan.math.gatech.edu/courses/6321/lars-ahlfors-complex-analysis-third-edition-mcgraw-hill-science_engineering_math-1979.pdf' },
+                     { text: 'Functions of One complex Variable, Conway', link: 'https://psm73.wordpress.com/wp-content/uploads/2009/03/conway.pdf' }
                 ]
             },
             { name: "PDE", details: [
@@ -756,7 +743,7 @@ function App() {
                     </div>
                 </div>
                  <nav className="bg-[#FFE8CD]/30 dark:bg-slate-800/20 backdrop-blur-lg border-t border-b border-[#FFD6BA]/50 dark:border-slate-700/50">
-                    <div className="container mx-auto px-2 sm:px-6 py-2 flex justify-center flex-wrap gap-1 sm:gap-2">
+                   <div className="container mx-auto px-2 sm:px-6 py-2 flex justify-center flex-wrap gap-1 sm:gap-2">
                         {pages.map(page => <NavLink key={page} pageName={page} />)}
                    </div>
                 </nav>
