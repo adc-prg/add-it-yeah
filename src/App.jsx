@@ -107,7 +107,7 @@ const cvData = {
         }],
     },
     events: [{
-        title: "The Probabilistic Method in Analysis",
+        title: "The Probabilistic Method",
         description: "Gave the first Openboard talk. More about that talk can be looked at on the Openboard website.",
         link: {
             url: "https://openboard-web.vercel.app/",
