@@ -35,7 +35,7 @@ const cvData = {
     profile: {
         intro: "I am a integrated masters student at the department of mathematics, IISER Bhopal.",
         interests: "I am interested in abstract algebra and topology, especially commutative algebra and algebraic geometry, and enjoy working on anything with rich algebraic structure.",
-        ambition: "Apart from academics, I play football, cards, video games and board games. I am recently exploring alot of music, art and literature."
+        ambition: "Apart from academics, I enjoy football, cards, video games and board games. I am recently exploring alot of music and other forms of art."
         },
     research: [{
         title: "Exploring Integrality and Genus of some specific Cayley Graphs",
