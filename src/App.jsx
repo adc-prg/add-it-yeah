@@ -189,44 +189,6 @@ const FadeIn = ({ children, delay = 0, style = {}, className = '' }) => {
   );
 };
 
-// ─── Pixel Torus (unchanged) ──────────────────────────────────────────────────
-const InlinePixelTorus = () => {
-  const canvasRef = React.useRef(null);
-  const afIdRef = React.useRef(null);
-  React.useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    const PS = 2, SIZE = 60;
-    canvas.width = SIZE; canvas.height = SIZE;
-    const shades = ['#9f1239','#dc2626','#ef4444','#f87171','#fca5a5'];
-    let rY = 0, rX = 0;
-    function draw() {
-      ctx.clearRect(0, 0, SIZE, SIZE);
-      const R = 18, r = 9, cx = SIZE/2, cy = SIZE/2, pts = [];
-      const lm = Math.sqrt(0.75), ln = { x: 0.5/lm, y: 0.5/lm, z: 1/lm };
-      for (let i = 0; i < 360; i += 15) for (let j = 0; j < 360; j += 25) {
-        const u = i*Math.PI/180, v = j*Math.PI/180;
-        let x=(R+r*Math.cos(v))*Math.cos(u), y=(R+r*Math.cos(v))*Math.sin(u), z=r*Math.sin(v);
-        let nx=Math.cos(v)*Math.cos(u), ny=Math.cos(v)*Math.sin(u), nz=Math.sin(v);
-        let tz=z*Math.cos(rX)-y*Math.sin(rX), ty=z*Math.sin(rX)+y*Math.cos(rX); z=tz; y=ty;
-        let tnz=nz*Math.cos(rX)-ny*Math.sin(rX), tny=nz*Math.sin(rX)+ny*Math.cos(rX); nz=tnz; ny=tny;
-        let tx=x*Math.cos(rY)-z*Math.sin(rY); tz=x*Math.sin(rY)+z*Math.cos(rY); x=tx; z=tz;
-        let tnx=nx*Math.cos(rY)-nz*Math.sin(rY); tnz=nx*Math.sin(rY)+nz*Math.cos(rY); nx=tnx; nz=tnz;
-        pts.push({ x:x+cx, y:y+cy, z, intensity:nx*ln.x+ny*ln.y+nz*ln.z });
-      }
-      pts.sort((a,b) => a.z-b.z);
-      pts.forEach(p => {
-        ctx.fillStyle = shades[Math.floor(Math.max(0,Math.min(1,(p.intensity+1)/2))*(shades.length-1))];
-        ctx.fillRect(Math.floor(p.x/PS)*PS, Math.floor(p.y/PS)*PS, PS, PS);
-      });
-    }
-    function loop() { rY+=0.01; rX+=0.005; draw(); afIdRef.current=requestAnimationFrame(loop); }
-    loop();
-    return () => { if(afIdRef.current) cancelAnimationFrame(afIdRef.current); };
-  }, []);
-  return <canvas ref={canvasRef} style={{ display:'inline-block', width:'0.9em', height:'0.9em', verticalAlign:'-0.15em', margin:'0 0.1em' }}/>;
-};
-
 // ─── CSS ──────────────────────────────────────────────────────────────────────
 const CSS = `
   :root {
@@ -661,9 +623,9 @@ function App() {
           <span style={{ display:'block', width:40, height:1, background:'var(--border)' }} />
         </div>
 
-        {/* Name */}
+        {/* Name - Simplified as requested: No surname, no donut animation */}
         <h1 className="df au d1" style={{ fontSize:'clamp(3rem,13vw,7.5rem)', fontWeight:700, lineHeight:0.93, color:'var(--ink)', marginBottom:26, letterSpacing:'-0.02em' }}>
-          Adeetya&nbsp;Ch<InlinePixelTorus />ubey
+          Adeetya
         </h1>
 
         {/* Subtitle */}
