@@ -32,9 +32,9 @@ const cvData = {
   name: "Adeetya Choubey",
   location: "Bhopal, Madhya Pradesh, India",
   profile: {
-    intro: "I am a integrated masters student at the department of mathematics, IISER Bhopal.",
-    interests: "I am interested in abstract algebra and topology, especially commutative algebra and algebraic geometry, and enjoy working on anything with rich algebraic structure.",
-    ambition: "Apart from academics, I enjoy football, cards, video games and board games. I am recently exploring alot of music and other forms of art."
+    intro: "I am a BS-MS student at the Department of Mathematics, IISER Bhopal.",
+    interests: "I am interested in algebra. To be specific, my interests are in homological algebra, and algebraic geometry with a lot of categorical flavor.",
+    ambition: "Apart from academics, I enjoy football, table tennis, badminton and some board games. I am recently exploring alot of music like indian classical, and I enjoy working on creative personal projects from time to time."
   },
   research: [{
     title: "Exploring Integrality and Genus of some specific Cayley Graphs",
@@ -48,28 +48,26 @@ const cvData = {
   ],
   responsibilities: [
     { role: "Co-founder, Openboard", institution: "IISER Bhopal", duration: "Ongoing", isOpenboard: true,
-      description: "Along with my dear friend Samriddha we have started an independent initiative to let students come forward and speak their minds about topics they are passionate about, preferably to a general audience." },
+      description: "Along with my friend Samriddha we have started an independent initiative to let students come forward and speak their minds about topics they are passionate about, preferably to a general audience." },
     { role: "Department Representative, Math Dept.", institution: "IISER Bhopal", duration: "Sep 2024 – Sep 2025",
       description: "Elected representative for the 2022 batch, responsible for facilitating student concerns and academic feedback between students and faculty." },
     { role: "Core Member, Math Club", institution: "IISER Bhopal", duration: "Jun 2024 – Jul 2025",
       description: "Actively involved in organising guest lectures, weekly academic discussions, and student outreach events to foster a mathematical community." },
     { role: "Peer Counselor", institution: "IISER Bhopal", duration: "Jul 2023 – Jul 2025",
-      description: "Part of the Institute Counselling Cell, offering peer support and guidance to students on academic and personal issues." },
-    { role: "Founding Student Advisor, Ingenium", institution: "IISER Bhopal", duration: "Ongoing",
-      description: "Ingenium is the board games club of IISER Bhopal — the brainchild of Dhruv Dua. The aim is to inculcate a culture of different kinds of games apart from the conventional ones at IISERB." }
+      description: "Part of the Institute Counselling Cell, offering peer support and guidance to students on academic and personal issues." }
   ],
   academicExperiences: {
     internships: [
-      { title: "Research Intern", institution: "Institute of Science, Banaras Hindu University", duration: "May 2025 – Present",
-        description: "This ongoing project began with a unilateral focus on Algebraic Topology, building a strong foundation leading up to Homotopy Theory and Homology. The first phase involved studying standard textbooks and exploring papers presenting both classical problems and modern perspectives in the field. Currently, the focus has shifted towards problem-solving and applying these theoretical tools to tackle more advanced challenges." },
-      { title: "Summer Research Intern", institution: "Institute of Science, Banaras Hindu University", duration: "May – July 2024",
-        description: "This summer project focused on building a foundational understanding of Braid Theory, the development of related algorithms, and exploring its applications. The work involved tackling key problems such as the word problem and the conjugacy problem, studying knot invariants, and delving into other introductory topics in Knot Theory." }
+      { title: "Summer Intern", institution: "Institute of Science, Banaras Hindu University", duration: "May 2025 – Present",
+        description: "This project began with a unilateral focus on Algebraic Topology, building a strong foundation leading up to Homotopy Theory and Homology. The first phase involved studying standard textbooks and exploring papers presenting both classical problems and modern perspectives in the field. Currently, the focus has shifted towards problem-solving and applying these theoretical tools to tackle more advanced challenges." },
+      { title: "Summer Intern", institution: "Institute of Science, Banaras Hindu University", duration: "May – July 2024",
+        description: "This project focused on building a foundational understanding of Braid Theory, the development of related algorithms, and exploring its applications. The work involved tackling key problems such as the word problem and the conjugacy problem, studying knot invariants, and delving into other introductory topics in Knot Theory. Throughout course of this endeavour, I followed the book by Murasugi and Kurpita and other related references." }
     ],
     summerSchools: [
       { title: "Summer Program", institution: "TIFR — Centre for Applicable Mathematics", duration: "June – July 2025",
-        description: "The program included courses on Reproducing Kernel Hilbert Spaces, Geometric Measure Theory, Geometric Function Theory, Gibbs Measure and Entropy, Multiscale problems in PDE, Microlocal Analysis and Inverse Problems, along with several keynote lectures on ongoing research in Analysis and Combinatorics." },
+        description: "The program included courses on RKHS, Geometric Measure Theory, Geometric Function Theory, Gibbs Measure and Entropy, Multiscale problems in PDE, Microlocal Analysis and Inverse Problems, along with several keynote lectures on ongoing research in Analysis and Combinatorics." },
       { title: "Mathematics Summer Program", institution: "Indraprastha Institute of Information Technology, Delhi", duration: "June 2024",
-        description: "An intensive program covering the fundamentals of Analysis, Abstract Algebra, Topology, Distribution Theory, along with problem solving sessions." }
+        description: "Two week residential summer program covering some elementary aspects of Analysis, Algebra, Topology. This program included daily lectures on the aforementioned topics, along with problem solving sessions." }
     ]
   },
   events: [
