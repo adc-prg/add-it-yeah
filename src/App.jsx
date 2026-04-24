@@ -51,7 +51,7 @@ const cvData = {
   name: "Adeetya Choubey",
   location: "Bhopal, Madhya Pradesh, India",
   profile: {
-    intro: "I am a math undegrad, at IISER Bhopal.",
+    intro: "Math undergrad at IISER Bhopal.",
     interests: "I am interested in algebra. To be specific, my interests are in homological algebra, and algebraic geometry with a lot of categorical flavor.",
     ambition: "Apart from academics, I enjoy football, table tennis, badminton and some board games. I am recently exploring a lot of music, outside of my usual interests, like Indian classical and Rock, and I enjoy working on creative personal projects from time to time."
   },
