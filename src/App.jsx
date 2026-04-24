@@ -81,7 +81,7 @@ const cvData = {
     cofounder: { name: "Samriddha", url: "https://samriddhas-quantum-realm.vercel.app/" },
     website: "https://openboard-web.vercel.app/",
     description: "Along with my friend Samriddha we have started an independent initiative to let students come forward and speak their minds about topics they are passionate about, preferably to a general audience.",
-    mission: "Openboard is a student-run platform at IISER Bhopal dedicated to independent, idea-driven talks. We believe that intellectual curiosity should have an outlet beyond the classroom — a space where students can address a general audience on topics they genuinely care about, spanning mathematics, science, philosophy, art, and beyond.",
+    mission: "Openboard is a student-run platform at IISER Bhopal dedicated to independent, idea-driven talks. We believe that intellectual curiosity should have an outlet beyond the classroom; a space where students can address a general audience on topics they genuinely care about, spanning mathematics, science, philosophy, art, and beyond.",
     talks: [
       { title: "The Probabilistic Method", speaker: "Adeetya Choubey", description: "The inaugural Openboard talk. The probabilistic method is a non-constructive technique in combinatorics and graph theory for proving the existence of a combinatorial object with certain properties." }
     ]
@@ -95,7 +95,7 @@ const cvData = {
     ],
     summerSchools: [
       { title: "Summer Program", institution: "TIFR — Centre for Applicable Mathematics", duration: "June – July 2025",
-        description: "The program included courses on RKHS, Geometric Measure Theory, Geometric Function Theory, Gibbs Measure and Entropy, Multiscale problems in PDE, Microlocal Analysis and Inverse Problems, along with several keynote lectures on ongoing research in Analysis and Combinatorics." },
+        description: "The program included short courses on RKHS, Geometric Measure Theory, Geometric Function Theory, Gibbs Measure and Entropy, Multiscale problems in PDE, Microlocal Analysis and Inverse Problems, along with several keynote lectures on ongoing research in Analysis and Combinatorics." },
       { title: "Mathematics Summer Program", institution: "Indraprastha Institute of Information Technology, Delhi", duration: "June 2024",
         description: "Two week residential summer program covering some elementary aspects of Analysis, Algebra, Topology. This program included daily lectures on the aforementioned topics, along with problem solving sessions." }
     ]
@@ -640,7 +640,7 @@ const OpenBoardPage = () => (
           </div>
 
           <p className="iq" style={{ marginBottom:20 }}>
-            A space for students to speak about what they care about — to a general audience.
+            A space for students to speak about what they care about, to a general audience.
           </p>
           <Divider style={{ margin:'20px 0' }} />
           <p style={{ fontSize:'0.9rem', color:'var(--ink2)', lineHeight:1.82 }}>
