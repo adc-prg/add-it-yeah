@@ -109,15 +109,15 @@ const cvData = {
     { title: "Big-Tac-Toe", tag: "Organised",
       description: "A wordplay on Big + Tic-tac-toe — another name for ultimate tic-tac-toe. Held at Continuum in collaboration with the board games club, Ingenium. The event featured a knockout stage with Saurav Kanetkar emerging as the Big-Tac-Toe champion, 2025 edition.",
       link: { url: "https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe", text: "Ultimate Tic-Tac-Toe" } },
-    { title: "Realizing Grassmannian as a Projective Variety", tag: "Seminar Talk",
-      description: "Department Seminar presentation on the classical result that the Grassmannian Gr(k, n) embeds into projective space via the Plücker embedding, making it a projective variety. The talk covered the construction of the Plücker map, Plücker coordinates, and the Plücker relations that cut out the image." }
+    { title: "Realizing Grassmannian as a Projective Variety and the Segre embedding", tag: "Seminar Talk",
+      description: "Department Seminar presentation on the classical result that the Grassmannian Gr(k, n) embeds into projective space via the Plücker embedding, making it a projective variety. The focus then shifted to discussing the Segre embedding and how it helps to see product of two projective spaces as a projective variety embedded into a much larger projective space." }
   ],
   contact: { email: "adeetya22@iiserb.ac.in", linkedin: "https://www.linkedin.com/in/adeetya-choubey-6b2a44254/" }
 };
 
 const navPages = [
-  { label: 'AcadEx',    path: '/acadex',    desc: 'Research internships and summer schools.' },
-  { label: 'Research',  path: '/research',  desc: 'Current and past research projects.' },
+  { label: 'AcadEx',    path: '/acadex',    desc: 'Academic internships and summer schools.' },
+  { label: 'Research',  path: '/research',  desc: 'Research projects.' },
   { label: 'Events',    path: '/events',    desc: 'Academic and extracurricular events I\'ve organised.' },
   { label: 'Resources', path: '/resources', desc: 'Curated resources for various math topics.' },
   { label: 'OpenBoard', path: '/openboard', desc: 'An independent student-led ideas initiative.' },
@@ -125,14 +125,14 @@ const navPages = [
 ];
 
 const bentoCategories = [
-  { category: "Algebra",                  icon: "𝔸", span: 2, desc: "Group theory, ring theory, modules, field theory, Galois theory, and commutative algebra." },
-  { category: "Analysis",                  icon: "∫", span: 1, desc: "Real, complex, functional, and geometric analysis." },
-  { category: "Topology",                  icon: "𝕋", span: 1, desc: "Point-set and algebraic topology, including homotopy and homology." },
-  { category: "Algebraic Geometry",        icon: "𝕍", span: 1, desc: "Varieties, schemes, sheaves, line bundles, and cohomology." },
-  { category: "Homological Algebra",       icon: "⟶", span: 1, desc: "Derived categories, spectral sequences, Ext, Tor, and resolutions." },
-  { category: "Category Theory",           icon: "⊸", span: 1, desc: "Functors, natural transformations, adjunctions, limits, and colimits." },
-  { category: "Foundations & Discrete",    icon: "#",  span: 2, desc: "Number theory, graph theory, combinatorics, braid groups, and knot theory." },
-  { category: "Miscellaneous",             icon: "∞",  span: 1, desc: "Topics that don't fit neatly elsewhere — more arriving soon." },
+  { category: "Algebra",                  icon: "𝔸", span: 2},
+  { category: "Analysis",                  icon: "∫", span: 1},
+  { category: "Topology",                  icon: "𝕋", span: 1},
+  { category: "Algebraic Geometry",        icon: "𝕍", span: 1},
+  { category: "Homological Algebra",       icon: "⟶", span: 1},
+  { category: "Category Theory",           icon: "⊸", span: 1},
+  { category: "Foundations & Discrete",    icon: "#",  span: 2},
+  { category: "Miscellaneous",             icon: "∞",  span: 1},
 ];
 
 // ─── Hooks ────────────────────────────────────────────────────────────────────
