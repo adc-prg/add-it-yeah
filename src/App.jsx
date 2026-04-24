@@ -627,7 +627,7 @@ function App() {
         </h1>
 
         {/* Subtitle */}
-        <p className="au d2" style={{ fontSize:'20px', fontWeight:400, letterSpacing:'0.22em', textTransform:'uppercase', color:'var(--ink3)', marginBottom:48 }}>
+        <p className="au d2" style={{ fontSize:'16px', fontWeight:400, letterSpacing:'0.22em', textTransform:'uppercase', color:'var(--ink3)', marginBottom:48 }}>
           Algebra&nbsp;&nbsp;·&nbsp;&nbsp;Topology
         </p>
 
