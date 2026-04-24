@@ -51,14 +51,14 @@ const cvData = {
   name: "Adeetya Choubey",
   location: "Bhopal, Madhya Pradesh, India",
   profile: {
-    intro: "I am a BS-MS student at the Department of Mathematics, IISER Bhopal.",
+    intro: "I am a math undegrad, at IISER Bhopal.",
     interests: "I am interested in algebra. To be specific, my interests are in homological algebra, and algebraic geometry with a lot of categorical flavor.",
-    ambition: "Apart from academics, I enjoy football, table tennis, badminton and some board games. I am recently exploring a lot of music like Indian classical, and I enjoy working on creative personal projects from time to time."
+    ambition: "Apart from academics, I enjoy football, table tennis, badminton and some board games. I am recently exploring a lot of music, outside of my usual interests, like Indian classical and Rock, and I enjoy working on creative personal projects from time to time."
   },
   research: [{
     title: "Exploring Integrality and Genus of some specific Cayley Graphs",
     guide: "Guide: Prof. Ashish Upadhyay",
-    description: "Cayley graphs are graphs which exhibit the nature of action of a group G on a set S, which is closed under inverses (typically generating set). A graph is said to be integral if each of the eigenvalues of its Adjacency Matrix is an integer. The genus of a graph is the minimum number of handles that must be added to a sphere to embed the graph on the resulting surface without any edge crossings."
+    description: "Cayley graphs are graphs which exhibit the nature of action of a group G on a set S, which is closed under inverses (typically generating set). A graph is said to be integral if each of the eigenvalues of its Adjacency Matrix is an integer. The genus of a graph is the minimum number of handles that must be added to a sphere to embed the graph on the resulting surface without any edge crossings. The goal was to work towards finding out the fields for which the 'generalised' cayley graphs are integral and what genus do they have."
   }],
   
   education: [
@@ -68,7 +68,7 @@ const cvData = {
   ],
   responsibilities: [
     { role: "Department Representative, Math Dept.", institution: "IISER Bhopal", duration: "Sep 2024 – Sep 2025",
-      description: "Elected representative for the 2022 batch, responsible for facilitating student concerns and academic feedback between students and faculty." },
+      description: "Elected representative for the batch of 2022, responsible for facilitating student concerns and academic feedback between students and faculty." },
     { role: "Core Member, Math Club", institution: "IISER Bhopal", duration: "Jun 2024 – Jul 2025",
       description: "Actively involved in organising guest lectures, weekly academic discussions, and student outreach events to foster a mathematical community." },
     { role: "Peer Counselor", institution: "IISER Bhopal", duration: "Jul 2023 – Jul 2025",
