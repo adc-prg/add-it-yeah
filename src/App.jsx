@@ -425,7 +425,7 @@ const AboutPage = () => (
               <div style={{ fontSize:'0.76rem', color:'var(--accent)', fontWeight:500, letterSpacing:'0.05em', marginBottom:10 }}>{resp.duration}</div>
               <p style={{ fontSize:'0.86rem', color:'var(--ink2)', lineHeight:1.75 }}>
                 {resp.isOpenboard ? (
-                  <>Along with my dear friend <a href="https://samriddhas-quantum-realm.vercel.app/" target="_blank" rel="noopener noreferrer" className="lnk">Samriddha</a>, we started an independent initiative for students to speak about topics they care about, to a general audience. Learn more about <a href="https://openboard-web.vercel.app/" target="_blank" rel="noopener noreferrer" className="lnk">Openboard</a>.</>
+                  <>Along with my friend <a href="https://samriddhas-quantum-realm.vercel.app/" target="_blank" rel="noopener noreferrer" className="lnk">Samriddha</a>, we started an independent initiative for students to speak about topics they care about, to a general audience. Learn more about <a href="https://openboard-web.vercel.app/" target="_blank" rel="noopener noreferrer" className="lnk">Openboard</a>.</>
                 ) : resp.description}
               </p>
             </div>
