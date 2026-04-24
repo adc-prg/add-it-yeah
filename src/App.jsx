@@ -617,7 +617,7 @@ function App() {
         {/* Ornament */}
         <div className="au eb" style={{ marginBottom:22, display:'flex', alignItems:'center', gap:14, justifyContent:'center' }}>
           <span style={{ display:'block', width:40, height:1, background:'var(--border)' }} />
-          Mathematics
+          Math
           <span style={{ display:'block', width:40, height:1, background:'var(--border)' }} />
         </div>
 
@@ -627,7 +627,7 @@ function App() {
         </h1>
 
         {/* Subtitle */}
-        <p className="au d2" style={{ fontSize:'12px', fontWeight:400, letterSpacing:'0.22em', textTransform:'uppercase', color:'var(--ink3)', marginBottom:48 }}>
+        <p className="au d2" style={{ fontSize:'20px', fontWeight:400, letterSpacing:'0.22em', textTransform:'uppercase', color:'var(--ink3)', marginBottom:48 }}>
           Algebra&nbsp;&nbsp;·&nbsp;&nbsp;Topology
         </p>
 
