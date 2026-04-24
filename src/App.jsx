@@ -60,13 +60,7 @@ const cvData = {
     guide: "Guide: Prof. Ashish Upadhyay",
     description: "Cayley graphs are graphs which exhibit the nature of action of a group G on a set S, which is closed under inverses (typically generating set). A graph is said to be integral if each of the eigenvalues of its Adjacency Matrix is an integer. The genus of a graph is the minimum number of handles that must be added to a sphere to embed the graph on the resulting surface without any edge crossings."
   }],
-  grassmannianNote: {
-    title: "Realizing Grassmannian as a Projective Variety",
-    tag: "Research Notes",
-    summary: "The Grassmannian Gr(k, n) — the space of all k-dimensional linear subspaces of an n-dimensional vector space — admits a natural embedding into projective space via the Plücker embedding, equipping it with the structure of a projective variety.",
-    body: "The Plücker map sends each k-plane (spanned by vectors v₁, …, vₖ) to the equivalence class of the exterior product v₁ ∧ ⋯ ∧ vₖ in ℙ(∧ᵏ ℝⁿ). The image is cut out by the Plücker relations — a system of quadratic equations in the Plücker coordinates — confirming that Gr(k, n) is a smooth projective variety.",
-    status: "Seminar notes. More details updating soon."
-  },
+  
   education: [
     { institution: "Indian Institute of Science Education and Research, Bhopal", degree: "BS-MS (Dual Degree), Major: Mathematics", duration: "2022 – 2027 (Expected)", grades: ["Cumulative performance: 8.81 / 10"] },
     { institution: "Puna International School, Gandhinagar", degree: "Senior Secondary (CBSE), Science Stream", duration: "2020 – 2022" },
@@ -454,29 +448,6 @@ const HomePage = ({ theme, toggleTheme }) => {
       {/* ── Below-fold content ── */}
       <section style={{ maxWidth:960, margin:'0 auto', padding:'20px 24px 80px', position:'relative', zIndex:1 }}>
 
-        {/* Grassmannian Research Notes Card */}
-        <FadeIn delay={0}>
-          <div className="grass-card" style={{ marginBottom:20 }}>
-            <div style={{ display:'flex', flexWrap:'wrap', gap:10, alignItems:'center', marginBottom:18, justifyContent:'space-between' }}>
-              <div className="eb">{cvData.grassmannianNote.tag}</div>
-              <span style={{ fontSize:'0.75rem', color:'var(--ink3)', fontStyle:'italic' }}>{cvData.grassmannianNote.status}</span>
-            </div>
-            <h3 className="df" style={{ fontSize:'clamp(1.3rem,3vw,2rem)', fontWeight:600, color:'var(--ink)', marginBottom:14, lineHeight:1.25 }}>
-              {cvData.grassmannianNote.title}
-            </h3>
-            <p style={{ fontSize:'0.95rem', color:'var(--ink2)', lineHeight:1.85, marginBottom:14 }}>
-              {cvData.grassmannianNote.summary}
-            </p>
-            <p style={{ fontSize:'0.9rem', color:'var(--ink2)', lineHeight:1.85, fontStyle:'italic' }}>
-              {cvData.grassmannianNote.body}
-            </p>
-            <div style={{ marginTop:24 }}>
-              <Link to="/research" className="cta-btn">
-                View Research <ArrowRight />
-              </Link>
-            </div>
-          </div>
-        </FadeIn>
 
         {/* Bio + Education Grid */}
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:20, marginBottom:20 }}>
@@ -595,20 +566,7 @@ const ResearchPage = () => (
       </FadeIn>
     ))}
 
-    {/* Grassmannian Research Note */}
-    <FadeIn delay={160}>
-      <div className="grass-card" style={{ marginBottom:20 }}>
-        <div style={{ display:'flex', flexWrap:'wrap', gap:10, alignItems:'center', marginBottom:14, justifyContent:'space-between' }}>
-          <div className="eb">{cvData.grassmannianNote.tag}</div>
-          <span style={{ fontSize:'0.73rem', color:'var(--ink3)', fontStyle:'italic' }}>{cvData.grassmannianNote.status}</span>
-        </div>
-        <h3 className="df" style={{ fontSize:'clamp(1.2rem,3vw,1.65rem)', fontWeight:600, color:'var(--ink)', marginBottom:12, lineHeight:1.3 }}>
-          {cvData.grassmannianNote.title}
-        </h3>
-        <p style={{ fontSize:'0.95rem', color:'var(--ink2)', lineHeight:1.85, marginBottom:12 }}>{cvData.grassmannianNote.summary}</p>
-        <p style={{ fontSize:'0.9rem', color:'var(--ink2)', lineHeight:1.85, fontStyle:'italic' }}>{cvData.grassmannianNote.body}</p>
-      </div>
-    </FadeIn>
+    
   </PageWrapper>
 );
 
