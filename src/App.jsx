@@ -627,8 +627,8 @@ function App() {
         </h1>
 
         {/* Subtitle */}
-        <p className="au d2" style={{ fontSize:'11px', fontWeight:400, letterSpacing:'0.22em', textTransform:'uppercase', color:'var(--ink3)', marginBottom:48 }}>
-          Algebra&nbsp;&nbsp;·&nbsp;&nbsp;Topology&nbsp;&nbsp;·&nbsp;&nbsp;IISER Bhopal
+        <p className="au d2" style={{ fontSize:'12px', fontWeight:400, letterSpacing:'0.22em', textTransform:'uppercase', color:'var(--ink3)', marginBottom:48 }}>
+          Algebra&nbsp;&nbsp;·&nbsp;&nbsp;Topology
         </p>
 
         {/* Decorative rule */}
