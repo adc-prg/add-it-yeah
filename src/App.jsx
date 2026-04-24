@@ -177,7 +177,7 @@ const CSS = `
     --sh-lg:   0 14px 48px rgba(0,0,0,0.40);
   }
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; zoom: 1.1; }
   body { background:var(--bg); color:var(--ink); font-family:var(--fb); -webkit-font-smoothing:antialiased; transition:background 0.4s,color 0.4s; margin:0; }
 
   /* Grain overlay */
@@ -765,6 +765,13 @@ const InnerLayout = ({ theme, toggleTheme, children }) => (
   </>
 );
 
+// ─── Scroll to top on route change ────────────────────────────────────────────
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
 // ─── Animated Routes ──────────────────────────────────────────────────────────
 function AnimatedRoutes({ theme, toggleTheme }) {
   const location = useLocation();
@@ -840,6 +847,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <style>{CSS}</style>
       <div className="grain" style={{ minHeight:'100vh', background:'var(--bg)', color:'var(--ink)', fontFamily:'var(--fb)', transition:'background 0.4s,color 0.4s' }}>
         <AnimatedRoutes theme={theme} toggleTheme={toggleTheme} />
