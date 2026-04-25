@@ -857,6 +857,6 @@ export default function App() {
       <div className="grain" style={{ minHeight:'100vh', background:'var(--bg)', color:'var(--ink)', fontFamily:'var(--fb)', transition:'background 0.4s,color 0.4s' }}>
         <AnimatedRoutes theme={theme} toggleTheme={toggleTheme} />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
