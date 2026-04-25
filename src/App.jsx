@@ -119,7 +119,7 @@ const navPages = [
   { label: 'AcadEx',    path: '/acadex',    desc: 'Academic internships and summer schools.' },
   { label: 'Research',  path: '/research',  desc: 'Research projects.' },
   { label: 'Events',    path: '/events',    desc: 'Academic and extracurricular events I\'ve organised.' },
-  { label: 'Autodidact', path: '/resources', desc: 'Self-directed learning initiatives and reading areas.' },
+  { label: 'Explorations', path: '/resources', desc: 'Areas I am independently studying and curious about.' },
   { label: 'OpenBoard', path: '/openboard', desc: 'An independent student-led ideas initiative.' },
   { label: 'Contact',   path: '/contact',   desc: 'Get in touch for collaborations or inquiries.' },
 ];
@@ -153,7 +153,7 @@ const CSS = `
     --bg:      #FFFFF0;
     --surface: #FDFDF5;
     --ink:     #1C1012;
-    --ink2:    #4A2D33;
+    --ink2:    #3E2229;
     --ink3:    #9B7A80;
     --accent:  #722F37;
     --border:  #E8DECE;
@@ -167,9 +167,9 @@ const CSS = `
   .dark {
     --bg:      #1A1714;
     --surface: #221E1A;
-    --ink:     #F0EDE8;
-    --ink2:    #C8BAB8;
-    --ink3:    #7A6A6D;
+    --ink:     #F2EEE8;
+    --ink2:    #D4C4C0;
+    --ink3:    #8A7A7D;
     --accent:  #D4556A;
     --border:  #352E29;
     --sh-sm:   0 1px 4px rgba(0,0,0,0.28);
@@ -328,32 +328,6 @@ const FadeIn = ({ children, delay = 0, style = {}, className = '' }) => {
   );
 };
 
-// ─── Page canonical link ───────────────────────────────────────────────────────
-const PageLink = ({ path }) => {
-  const [copied, setCopied] = useState(false);
-  const url = `https://adc-prg.github.io${path}`;
-  const handleCopy = () => {
-    navigator.clipboard.writeText(url).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
-    });
-  };
-  return (
-    <button onClick={handleCopy} title="Copy page link" style={{
-      display:'inline-flex', alignItems:'center', gap:6,
-      background:'none', border:'1px solid var(--border)', borderRadius:20,
-      padding:'3px 12px', cursor:'pointer', fontFamily:'var(--fb)',
-      fontSize:'0.72rem', letterSpacing:'0.07em', color:'var(--ink3)',
-      transition:'border-color 0.2s, color 0.2s', marginBottom:20,
-    }}
-    onMouseEnter={e=>{ e.currentTarget.style.borderColor='var(--accent)'; e.currentTarget.style.color='var(--accent)'; }}
-    onMouseLeave={e=>{ e.currentTarget.style.borderColor='var(--border)'; e.currentTarget.style.color='var(--ink3)'; }}>
-      <ExternalLink />
-      {copied ? 'Copied!' : url.replace('https://','')}
-    </button>
-  );
-};
-
 
 const pageVar = {
   initial: { opacity: 0, y: 18 },
@@ -411,6 +385,10 @@ const HomePage = ({ theme, toggleTheme }) => {
         backgroundImage:'linear-gradient(rgba(114,47,55,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(114,47,55,0.025) 1px,transparent 1px)',
         backgroundSize:'48px 48px' }} />
 
+      {/* Soft radial glow behind hero */}
+      <div style={{ position:'fixed', top:'38%', left:'50%', transform:'translate(-50%,-50%)', width:'min(720px,92vw)', height:'min(480px,55vh)', pointerEvents:'none', zIndex:0,
+        background:'radial-gradient(ellipse at center, rgba(114,47,55,0.09) 0%, transparent 68%)' }} />
+
       <div style={{ position:'absolute', top:20, right:24, zIndex:10 }}>
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       </div>
@@ -426,14 +404,14 @@ const HomePage = ({ theme, toggleTheme }) => {
 
         {/* Subtitle */}
         <p className="au d2" style={{ fontSize:'16px', fontWeight:400, letterSpacing:'0.22em', textTransform:'uppercase', color:'var(--ink3)', marginBottom:32 }}>
-          Algebra&nbsp;&nbsp;·&nbsp;&nbsp;Topology&nbsp;&nbsp;·&nbsp;&nbsp;Category Theory
+          Algebra&nbsp;<span style={{ color:'var(--accent)', opacity:0.7 }}>·</span>&nbsp;&nbsp;Topology&nbsp;<span style={{ color:'var(--accent)', opacity:0.7 }}>·</span>&nbsp;&nbsp;Category Theory
         </p>
 
         {/* Integrated Bio Sketch */}
-        <p className="au d3 df" style={{ maxWidth:560, fontSize:'clamp(1rem,2vw,1.2rem)', fontStyle:'italic', color:'var(--ink2)', lineHeight:1.72, marginBottom:16 }}>
+        <p className="au d3 df" style={{ maxWidth:560, fontSize:'clamp(1rem,2vw,1.2rem)', fontStyle:'italic', color:'var(--ink)', lineHeight:1.72, marginBottom:16 }}>
           {cvData.profile.intro}
         </p>
-        <p className="au d3" style={{ maxWidth:520, fontSize:'0.9rem', color:'var(--ink3)', lineHeight:1.75, marginBottom:44 }}>
+        <p className="au d3" style={{ maxWidth:520, fontSize:'0.9rem', color:'var(--ink2)', lineHeight:1.75, marginBottom:44 }}>
           {cvData.profile.interests}
         </p>
 
@@ -528,7 +506,6 @@ const HomePage = ({ theme, toggleTheme }) => {
 // ─── Academic Experiences Page ─────────────────────────────────────────────────
 const AcademicExperiencesPage = () => (
   <PageWrapper>
-    <PageLink path="/acadex" />
     <SectionHead eyebrow="Academic Experiences" title="Where I've learned" />
     <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(290px,1fr))', gap:20 }}>
       <FadeIn delay={80}>
@@ -570,7 +547,6 @@ const AcademicExperiencesPage = () => (
 // ─── Research Page ─────────────────────────────────────────────────────────────
 const ResearchPage = () => (
   <PageWrapper>
-    <PageLink path="/research" />
     <SectionHead eyebrow="Research" title="Past work & what's ahead" />
 
     {/* Summer 2026 — upcoming */}
@@ -617,7 +593,6 @@ const EventsPage = () => {
   ];
   return (
   <PageWrapper>
-    <PageLink path="/events" />
     <SectionHead eyebrow="Events" title="Things I've made happen" />
     <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(250px,1fr))', gap:20 }}>
       {sortedEvents.map((ev, i) => (
@@ -642,48 +617,21 @@ const EventsPage = () => {
   );
 };
 
-// ─── Autodidact Page (formerly Resources) ────────────────────────────────────
+// ─── Explorations Page ────────────────────────────────────────────────────────
 const ResourcesPage = () => (
   <PageWrapper>
-    <PageLink path="/autodidact" />
-    <SectionHead eyebrow="Self-Learning" title="Autodidact" />
-    <FadeIn delay={60} style={{ marginBottom:36 }}>
-      <p style={{ fontSize:'0.95rem', color:'var(--ink2)', fontStyle:'italic', lineHeight:1.82, maxWidth:640 }}>
-        Outside formal coursework, I pursue topics on my own terms — following curiosity wherever it leads. This page tracks those ongoing self-directed explorations, the areas I'm reading into, and the resources I find worth returning to.
+    <SectionHead eyebrow="Independent Study" title="Explorations" />
+    <FadeIn delay={60}>
+      <p style={{ fontSize:'0.95rem', color:'var(--ink2)', fontStyle:'italic', lineHeight:1.88, maxWidth:600 }}>
+        This page is a work in progress. I'm putting together a curated record of what I'm reading, studying, and thinking about outside of formal coursework — areas I return to out of genuine curiosity. Check back soon.
       </p>
     </FadeIn>
-
-    <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:20 }}>
-      {[
-        { area: "Algebra", note: "Working through commutative algebra, representation theory, and homological methods.", icon: "𝔸" },
-        { area: "Algebraic Geometry", note: "Reading Hartshorne and various notes on schemes, sheaves, and cohomology.", icon: "𝕍" },
-        { area: "Homological Algebra", note: "Derived functors, spectral sequences, and triangulated categories.", icon: "⟶" },
-        { area: "Category Theory", note: "Adjunctions, limits, Kan extensions, and higher categorical structures.", icon: "⊸" },
-        { area: "Topology", note: "Algebraic and differential topology — fundamental groups, fiber bundles.", icon: "𝕋" },
-        { area: "Analysis", note: "Functional analysis and measure theory as supporting language for geometry.", icon: "∫" },
-        { area: "Foundations & Discrete", note: "Set theory, logic, and combinatorics — occasionally revisited.", icon: "#" },
-        { area: "Miscellaneous", note: "Philosophy of mathematics, history of ideas, and whatever else pulls attention.", icon: "∞" },
-      ].map((item, i) => (
-        <FadeIn key={item.area} delay={60 * i}>
-          <div className="card" style={{ padding:'28px 24px', height:'100%' }}>
-            <div style={{ fontFamily:'var(--fd)', fontSize:'1.8rem', color:'var(--accent)', opacity:0.75, marginBottom:10, lineHeight:1 }}>{item.icon}</div>
-            <div className="eb" style={{ marginBottom:8 }}>{item.area}</div>
-            <p style={{ fontSize:'0.86rem', color:'var(--ink3)', lineHeight:1.75 }}>{item.note}</p>
-            <div style={{ display:'inline-flex', alignItems:'center', gap:6, fontSize:'0.71rem', fontWeight:600, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--ink3)', border:'1px solid var(--border)', borderRadius:20, padding:'3px 10px', marginTop:14 }}>
-              <span style={{ width:6, height:6, borderRadius:'50%', background:'var(--accent)', opacity:0.6, animation:'pulse 2s ease-in-out infinite', display:'inline-block' }} />
-              Ongoing
-            </div>
-          </div>
-        </FadeIn>
-      ))}
-    </div>
   </PageWrapper>
 );
 
 // ─── OpenBoard Page ───────────────────────────────────────────────────────────
 const OpenBoardPage = () => (
   <PageWrapper>
-    <PageLink path="/openboard" />
     <SectionHead eyebrow="OpenBoard" title="Ideas, spoken freely" />
 
     <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(300px,1fr))', gap:20, marginBottom:20 }}>
