@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route,
   Link,
@@ -851,7 +851,7 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <style>{CSS}</style>
       <div className="grain" style={{ minHeight:'100vh', background:'var(--bg)', color:'var(--ink)', fontFamily:'var(--fb)', transition:'background 0.4s,color 0.4s' }}>
