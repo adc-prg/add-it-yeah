@@ -52,7 +52,7 @@ const cvData = {
   location: "Bhopal, Madhya Pradesh, India",
   profile: {
     intro: "Math undergrad at IISER Bhopal.",
-    interests: "I am interested in algebra. To be specific, my interests are in homological algebra, and algebraic geometry with a lot of categorical flavor.",
+    interests: "I am interested in abstract algebra. To be specific, my interests are in homological algebra, and algebraic geometry with a lot of categorical flavor.",
     ambition: "Apart from academics, I enjoy football, table tennis, badminton and some board games. I am recently exploring a lot of music, outside of my usual interests, like Indian classical and Rock, and I enjoy working on creative personal projects from time to time."
   },
   research: [{
@@ -83,7 +83,7 @@ const cvData = {
     description: "Along with my friend Samriddha we have started an independent initiative to let students come forward and speak their minds about topics they are passionate about, preferably to a general audience.",
     mission: "Openboard is a student-run platform at IISER Bhopal dedicated to independent, idea-driven talks. We believe that intellectual curiosity should have an outlet beyond the classroom; a space where students can address a general audience on topics they genuinely care about, spanning mathematics, science, philosophy, art, and beyond.",
     talks: [
-      { title: "The Probabilistic Method", speaker: "Adeetya Choubey", description: "The inaugural Openboard talk. The probabilistic method is a non-constructive technique in combinatorics and graph theory for proving the existence of a combinatorial object with certain properties." }
+      { title: "The Probabilistic Method", speaker: "Adeetya Choubey", description: "The innaugral talk for the student-led initiative, Openboard. The probabilistic method is a way of proving existence of any object without explcitly constructing it, through the means of Probability. The famous proof by Erdős for the bounds on ramsey number was discussed in this talk." }
     ]
   },
   academicExperiences: {
@@ -119,7 +119,7 @@ const navPages = [
   { label: 'AcadEx',    path: '/acadex',    desc: 'Academic internships and summer schools.' },
   { label: 'Research',  path: '/research',  desc: 'Research projects.' },
   { label: 'Events',    path: '/events',    desc: 'Academic and extracurricular events I\'ve organised.' },
-  { label: 'Explorations', path: '/resources', desc: 'Areas I am independently studying and curious about.' },
+  { label: 'Explorations', path: '/resources', desc: 'Self learning initiatives.' },
   { label: 'OpenBoard', path: '/openboard', desc: 'An independent student-led ideas initiative.' },
   { label: 'Contact',   path: '/contact',   desc: 'Get in touch for collaborations or inquiries.' },
 ];
@@ -549,7 +549,7 @@ const ResearchPage = () => (
   <PageWrapper>
     <SectionHead eyebrow="Research" title="Past work & what's ahead" />
 
-    {/* Summer 2026 — upcoming */}
+    {/* Summer 2026 — Upcoming Thesis Work */}
     <FadeIn delay={60}>
       <div style={{ background:'var(--surface)', border:'1px dashed var(--accent)', borderRadius:'var(--r)', padding:'32px 30px', marginBottom:20, opacity:0.92 }}>
         <div className="eb" style={{ marginBottom:10, display:'flex', alignItems:'center', gap:8 }}>
@@ -557,10 +557,16 @@ const ResearchPage = () => (
           Summer 2026 &mdash; Upcoming
         </div>
         <h3 className="df" style={{ fontSize:'clamp(1.15rem,2.5vw,1.55rem)', fontWeight:600, color:'var(--ink)', marginBottom:8, lineHeight:1.3 }}>
-          To be announced
+          Master's Thesis Research: Homotopical Algebra
         </h3>
-        <p style={{ fontSize:'0.88rem', color:'var(--ink3)', fontStyle:'italic', lineHeight:1.8 }}>
-          Plans for summer 2026 are in progress. Details will be updated here once confirmed.
+        <div style={{ fontSize:'0.82rem', color:'var(--ink2)', fontWeight:500, marginBottom:12 }}>
+          Advisor: Dr. Vivek Sadhu
+        </div>
+        <p style={{ fontSize:'0.9rem', color:'var(--ink2)', lineHeight:1.8 }}>
+          This project focuses on the study of <strong style={{ color:'var(--ink)', fontWeight:600 }}>homotopical algebra</strong> and <strong style={{ color:'var(--ink)', fontWeight:600 }}>model categories</strong>. Building upon the foundations of homological algebra established during my coursework in <em style={{ color:'var(--ink3)' }}>Commutative Algebra</em> and <em style={{ color:'var(--ink3)' }}>Algebraic Topology II</em>, the objective is to explore the more abstract categorical frameworks that generalize classical derived functors.
+        </p>
+        <p style={{ marginTop:14, fontSize:'0.88rem', color:'var(--ink3)', fontStyle:'italic', lineHeight:1.8 }}>
+          The initial phase involves rigorous reading of foundational literature to bridge the gap between concrete chain complexes and the broader machinery of Quillen model categories.
         </p>
       </div>
     </FadeIn>
@@ -573,14 +579,12 @@ const ResearchPage = () => (
           <div style={{ fontSize:'0.82rem', color:'var(--ink2)', fontWeight:500, marginBottom:2 }}>{item.guide}</div>
           <Divider style={{ margin:'22px 0' }} />
           <p style={{ fontSize:'0.95rem', color:'var(--ink2)', lineHeight:1.85 }}>
-            <strong style={{ color:'var(--ink)', fontWeight:600 }}>Cayley graphs</strong> exhibit the nature of the action of a group G on a set S closed under inverses. A graph is <strong style={{ color:'var(--ink)', fontWeight:600 }}>integral</strong> if each eigenvalue of its adjacency matrix is an integer. The <strong style={{ color:'var(--ink)', fontWeight:600 }}>genus</strong> is the minimum number of handles that must be added to a sphere to embed the graph on the resulting surface without edge crossings. I use computational and algebraic tools to explore these two properties of Cayley graphs on finite abelian groups.
+            <strong style={{ color:'var(--ink)', fontWeight:600 }}>Cayley graphs</strong> exhibit the nature of the action of a group G on a set S closed under inverses. A graph is <strong style={{ color:'var(--ink)', fontWeight:600 }}>integral</strong> if each eigenvalue of its adjacency matrix is an integer. The <strong style={{ color:'var(--ink)', fontWeight:600 }}>genus</strong> is the minimum number of handles that must be added to a sphere to embed the graph on the resulting surface without edge crossings. The goal of the project was to read relevant literature and try to come up with expressions for genus of generalized cayley graphs (cayley graphs over fields). I tried using computational and algebraic tools to explore these two properties of Cayley graphs on finite abelian groups and generalized cayley graphs.
           </p>
           <p style={{ marginTop:14, fontSize:'0.85rem', fontStyle:'italic', color:'var(--ink3)' }}>More about my work updating soon.</p>
         </div>
       </FadeIn>
     ))}
-
-    
   </PageWrapper>
 );
 
