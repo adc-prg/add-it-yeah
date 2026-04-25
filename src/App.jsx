@@ -557,16 +557,13 @@ const ResearchPage = () => (
           Summer 2026 &mdash; Upcoming
         </div>
         <h3 className="df" style={{ fontSize:'clamp(1.15rem,2.5vw,1.55rem)', fontWeight:600, color:'var(--ink)', marginBottom:8, lineHeight:1.3 }}>
-          Master's Thesis Research: Homotopical Algebra
+          Homological algebra and Category theory
         </h3>
         <div style={{ fontSize:'0.82rem', color:'var(--ink2)', fontWeight:500, marginBottom:12 }}>
           Advisor: Dr. Vivek Sadhu
         </div>
         <p style={{ fontSize:'0.9rem', color:'var(--ink2)', lineHeight:1.8 }}>
-          This project focuses on the study of <strong style={{ color:'var(--ink)', fontWeight:600 }}>homotopical algebra</strong> and <strong style={{ color:'var(--ink)', fontWeight:600 }}>model categories</strong>. Building upon the foundations of homological algebra established during my coursework in <em style={{ color:'var(--ink3)' }}>Commutative Algebra</em> and <em style={{ color:'var(--ink3)' }}>Algebraic Topology II</em>, the objective is to explore the more abstract categorical frameworks that generalize classical derived functors.
-        </p>
-        <p style={{ marginTop:14, fontSize:'0.88rem', color:'var(--ink3)', fontStyle:'italic', lineHeight:1.8 }}>
-          The initial phase involves rigorous reading of foundational literature to bridge the gap between concrete chain complexes and the broader machinery of Quillen model categories.
+          This project focuses on the study of <strong style={{ color:'var(--ink)', fontWeight:600 }}>homological algebra</strong> building upon the foundations of homological algebra I have encountered during my courses <em style={{ color:'var(--ink3)' }}>Commutative Algebra</em> and <em style={{ color:'var(--ink3)' }}>Algebraic Topology II</em>; the focus will also be towards working through the book by Mac Lane, on Categories.
         </p>
       </div>
     </FadeIn>
