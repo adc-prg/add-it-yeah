@@ -119,7 +119,7 @@ const navPages = [
   { label: 'AcadEx',    path: '/acadex',    desc: 'Academic internships and summer schools.' },
   { label: 'Research',  path: '/research',  desc: 'Research projects.' },
   { label: 'Events',    path: '/events',    desc: 'Academic and extracurricular events I\'ve organised.' },
-  { label: 'Resources', path: '/resources', desc: 'Curated resources for various math topics.' },
+  { label: 'Autodidact', path: '/resources', desc: 'Self-directed learning initiatives and reading areas.' },
   { label: 'OpenBoard', path: '/openboard', desc: 'An independent student-led ideas initiative.' },
   { label: 'Contact',   path: '/contact',   desc: 'Get in touch for collaborations or inquiries.' },
 ];
@@ -170,14 +170,14 @@ const CSS = `
     --ink:     #F0EDE8;
     --ink2:    #C8BAB8;
     --ink3:    #7A6A6D;
-    --accent:  #A84050;
+    --accent:  #D4556A;
     --border:  #352E29;
     --sh-sm:   0 1px 4px rgba(0,0,0,0.28);
     --sh-md:   0 4px 24px rgba(0,0,0,0.32);
     --sh-lg:   0 14px 48px rgba(0,0,0,0.40);
   }
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; zoom: 1.1; }
+  html { scroll-behavior: smooth; zoom: 1; }
   body { background:var(--bg); color:var(--ink); font-family:var(--fb); -webkit-font-smoothing:antialiased; transition:background 0.4s,color 0.4s; margin:0; }
 
   /* Grain overlay */
@@ -328,7 +328,33 @@ const FadeIn = ({ children, delay = 0, style = {}, className = '' }) => {
   );
 };
 
-// ─── Page transition wrapper ───────────────────────────────────────────────────
+// ─── Page canonical link ───────────────────────────────────────────────────────
+const PageLink = ({ path }) => {
+  const [copied, setCopied] = useState(false);
+  const url = `https://adc-prg.github.io${path}`;
+  const handleCopy = () => {
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    });
+  };
+  return (
+    <button onClick={handleCopy} title="Copy page link" style={{
+      display:'inline-flex', alignItems:'center', gap:6,
+      background:'none', border:'1px solid var(--border)', borderRadius:20,
+      padding:'3px 12px', cursor:'pointer', fontFamily:'var(--fb)',
+      fontSize:'0.72rem', letterSpacing:'0.07em', color:'var(--ink3)',
+      transition:'border-color 0.2s, color 0.2s', marginBottom:20,
+    }}
+    onMouseEnter={e=>{ e.currentTarget.style.borderColor='var(--accent)'; e.currentTarget.style.color='var(--accent)'; }}
+    onMouseLeave={e=>{ e.currentTarget.style.borderColor='var(--border)'; e.currentTarget.style.color='var(--ink3)'; }}>
+      <ExternalLink />
+      {copied ? 'Copied!' : url.replace('https://','')}
+    </button>
+  );
+};
+
+
 const pageVar = {
   initial: { opacity: 0, y: 18 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.42, ease: [0.16, 1, 0.3, 1] } },
@@ -392,15 +418,9 @@ const HomePage = ({ theme, toggleTheme }) => {
       {/* ── Hero ── */}
       <section style={{ minHeight:'100vh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'80px 24px 40px', textAlign:'center', position:'relative', zIndex:1 }}>
 
-        {/* Ornament */}
-        <div className="au eb" style={{ marginBottom:22, display:'flex', alignItems:'center', gap:14, justifyContent:'center' }}>
-          <span style={{ display:'block', width:40, height:1, background:'var(--border)' }} />
-          Mathematics
-          <span style={{ display:'block', width:40, height:1, background:'var(--border)' }} />
-        </div>
 
         {/* Name */}
-        <h1 className="df au d1" style={{ fontSize:'clamp(3rem,13vw,7.5rem)', fontWeight:700, lineHeight:0.93, color:'var(--ink)', marginBottom:26, letterSpacing:'-0.02em' }}>
+        <h1 className="au d1" style={{ fontSize:'clamp(3rem,13vw,7.5rem)', fontWeight:900, lineHeight:0.93, color:'var(--ink)', marginBottom:26, letterSpacing:'-0.02em', fontFamily:"'Playfair Display', Georgia, serif", fontStyle:'italic' }}>
           Adeetya
         </h1>
 
@@ -508,6 +528,7 @@ const HomePage = ({ theme, toggleTheme }) => {
 // ─── Academic Experiences Page ─────────────────────────────────────────────────
 const AcademicExperiencesPage = () => (
   <PageWrapper>
+    <PageLink path="/acadex" />
     <SectionHead eyebrow="Academic Experiences" title="Where I've learned" />
     <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(290px,1fr))', gap:20 }}>
       <FadeIn delay={80}>
@@ -549,12 +570,29 @@ const AcademicExperiencesPage = () => (
 // ─── Research Page ─────────────────────────────────────────────────────────────
 const ResearchPage = () => (
   <PageWrapper>
-    <SectionHead eyebrow="Research" title="What I work on" />
+    <PageLink path="/research" />
+    <SectionHead eyebrow="Research" title="Past work & what's ahead" />
+
+    {/* Summer 2026 — upcoming */}
+    <FadeIn delay={60}>
+      <div style={{ background:'var(--surface)', border:'1px dashed var(--accent)', borderRadius:'var(--r)', padding:'32px 30px', marginBottom:20, opacity:0.92 }}>
+        <div className="eb" style={{ marginBottom:10, display:'flex', alignItems:'center', gap:8 }}>
+          <span className="wip-dot" style={{ display:'inline-block', width:7, height:7, borderRadius:'50%', background:'var(--accent)', opacity:0.7, animation:'pulse 2s ease-in-out infinite' }} />
+          Summer 2026 &mdash; Upcoming
+        </div>
+        <h3 className="df" style={{ fontSize:'clamp(1.15rem,2.5vw,1.55rem)', fontWeight:600, color:'var(--ink)', marginBottom:8, lineHeight:1.3 }}>
+          To be announced
+        </h3>
+        <p style={{ fontSize:'0.88rem', color:'var(--ink3)', fontStyle:'italic', lineHeight:1.8 }}>
+          Plans for summer 2026 are in progress. Details will be updated here once confirmed.
+        </p>
+      </div>
+    </FadeIn>
 
     {cvData.research.map((item, i) => (
-      <FadeIn key={item.title} delay={80 * i}>
+      <FadeIn key={item.title} delay={80 * (i + 1)}>
         <div className="card" style={{ padding:'40px 36px', marginBottom:20 }}>
-          <div className="eb" style={{ marginBottom:12 }}>Current Project</div>
+          <div className="eb" style={{ marginBottom:12 }}>Completed Project</div>
           <h3 className="df" style={{ fontSize:'clamp(1.25rem,3vw,1.75rem)', fontWeight:600, color:'var(--ink)', marginBottom:6, lineHeight:1.3 }}>{item.title}</h3>
           <div style={{ fontSize:'0.82rem', color:'var(--ink2)', fontWeight:500, marginBottom:2 }}>{item.guide}</div>
           <Divider style={{ margin:'22px 0' }} />
@@ -571,11 +609,18 @@ const ResearchPage = () => (
 );
 
 // ─── Events Page ───────────────────────────────────────────────────────────────
-const EventsPage = () => (
+const EventsPage = () => {
+  // Put Grassmannian seminar first
+  const sortedEvents = [
+    ...cvData.events.filter(e => e.title.includes('Grassmannian')),
+    ...cvData.events.filter(e => !e.title.includes('Grassmannian')),
+  ];
+  return (
   <PageWrapper>
+    <PageLink path="/events" />
     <SectionHead eyebrow="Events" title="Things I've made happen" />
     <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(250px,1fr))', gap:20 }}>
-      {cvData.events.map((ev, i) => (
+      {sortedEvents.map((ev, i) => (
         <FadeIn key={ev.title} delay={80 * i}>
           <div className="card" style={{ padding:'30px 26px', height:'100%' }}>
             <div className="ev-tag">{ev.tag}</div>
@@ -594,28 +639,39 @@ const EventsPage = () => (
       ))}
     </div>
   </PageWrapper>
-);
+  );
+};
 
-// ─── Resources Page (Bento) ───────────────────────────────────────────────────
+// ─── Autodidact Page (formerly Resources) ────────────────────────────────────
 const ResourcesPage = () => (
   <PageWrapper>
-    <SectionHead eyebrow="Resources" title="A reading list" />
-    <FadeIn delay={60} style={{ marginBottom:28 }}>
-      <p style={{ fontSize:'0.9rem', color:'var(--ink3)', fontStyle:'italic', lineHeight:1.7 }}>
-        Curated references for each area are being compiled and will appear here. Each section is a work in progress — check back soon.
+    <PageLink path="/autodidact" />
+    <SectionHead eyebrow="Self-Learning" title="Autodidact" />
+    <FadeIn delay={60} style={{ marginBottom:36 }}>
+      <p style={{ fontSize:'0.95rem', color:'var(--ink2)', fontStyle:'italic', lineHeight:1.82, maxWidth:640 }}>
+        Outside formal coursework, I pursue topics on my own terms — following curiosity wherever it leads. This page tracks those ongoing self-directed explorations, the areas I'm reading into, and the resources I find worth returning to.
       </p>
     </FadeIn>
 
-    <div className="bento-grid">
-      {bentoCategories.map((cat, i) => (
-        <FadeIn key={cat.category} delay={60 * i} className={cat.span === 2 ? 'bento-span-2' : ''}>
-          <div className="bento-card" style={{ height:'100%' }}>
-            <div className="bento-icon">{cat.icon}</div>
-            <div className="eb" style={{ marginBottom:8 }}>{cat.category}</div>
-            <p style={{ fontSize:'0.84rem', color:'var(--ink3)', lineHeight:1.7, marginBottom:0 }}>{cat.desc}</p>
-            <div className="bento-wip">
-              <span className="wip-dot" />
-              Work in Progress
+    <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:20 }}>
+      {[
+        { area: "Algebra", note: "Working through commutative algebra, representation theory, and homological methods.", icon: "𝔸" },
+        { area: "Algebraic Geometry", note: "Reading Hartshorne and various notes on schemes, sheaves, and cohomology.", icon: "𝕍" },
+        { area: "Homological Algebra", note: "Derived functors, spectral sequences, and triangulated categories.", icon: "⟶" },
+        { area: "Category Theory", note: "Adjunctions, limits, Kan extensions, and higher categorical structures.", icon: "⊸" },
+        { area: "Topology", note: "Algebraic and differential topology — fundamental groups, fiber bundles.", icon: "𝕋" },
+        { area: "Analysis", note: "Functional analysis and measure theory as supporting language for geometry.", icon: "∫" },
+        { area: "Foundations & Discrete", note: "Set theory, logic, and combinatorics — occasionally revisited.", icon: "#" },
+        { area: "Miscellaneous", note: "Philosophy of mathematics, history of ideas, and whatever else pulls attention.", icon: "∞" },
+      ].map((item, i) => (
+        <FadeIn key={item.area} delay={60 * i}>
+          <div className="card" style={{ padding:'28px 24px', height:'100%' }}>
+            <div style={{ fontFamily:'var(--fd)', fontSize:'1.8rem', color:'var(--accent)', opacity:0.75, marginBottom:10, lineHeight:1 }}>{item.icon}</div>
+            <div className="eb" style={{ marginBottom:8 }}>{item.area}</div>
+            <p style={{ fontSize:'0.86rem', color:'var(--ink3)', lineHeight:1.75 }}>{item.note}</p>
+            <div style={{ display:'inline-flex', alignItems:'center', gap:6, fontSize:'0.71rem', fontWeight:600, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--ink3)', border:'1px solid var(--border)', borderRadius:20, padding:'3px 10px', marginTop:14 }}>
+              <span style={{ width:6, height:6, borderRadius:'50%', background:'var(--accent)', opacity:0.6, animation:'pulse 2s ease-in-out infinite', display:'inline-block' }} />
+              Ongoing
             </div>
           </div>
         </FadeIn>
@@ -627,6 +683,7 @@ const ResourcesPage = () => (
 // ─── OpenBoard Page ───────────────────────────────────────────────────────────
 const OpenBoardPage = () => (
   <PageWrapper>
+    <PageLink path="/openboard" />
     <SectionHead eyebrow="OpenBoard" title="Ideas, spoken freely" />
 
     <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(300px,1fr))', gap:20, marginBottom:20 }}>
@@ -837,7 +894,7 @@ export default function App() {
 
   // Inject Google Fonts
   useEffect(() => {
-    const href = "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap";
+    const href = "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Jost:wght@300;400;500;600&display=swap";
     if (!document.querySelector(`link[href="${href}"]`)) {
       const l = document.createElement('link');
       l.href = href; l.rel = 'stylesheet';
