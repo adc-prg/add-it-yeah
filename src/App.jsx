@@ -95,7 +95,7 @@ const cvData = {
     ],
     summerSchools: [
       { title: "Summer Program", institution: "TIFR — Centre for Applicable Mathematics", duration: "June – July 2025",
-        description: "The program included short courses on RKHS, Geometric Measure Theory, Geometric Function Theory, Gibbs Measure and Entropy, Multiscale problems in PDE, Microlocal Analysis and Inverse Problems, along with several keynote lectures on ongoing research in Analysis and Combinatorics." },
+        description: "The program included short  on RKHS, Geometric Measure Theory, Geometric Function Theory, Gibbs Measure and Entropy, Multiscale problems in PDE, Microlocal Analysis and Inverse Problems, along with several keynote lectures on ongoing research in Analysis and Combinatorics." },
       { title: "Mathematics Summer Program", institution: "Indraprastha Institute of Information Technology, Delhi", duration: "June 2024",
         description: "Two week residential summer program covering some elementary aspects of Analysis, Algebra, Topology. This program included daily lectures on the aforementioned topics, along with problem solving sessions." }
     ]
@@ -755,7 +755,7 @@ const coursesData = [
     area: "Algebra",
     symbol: "Spec",
     refs: ["N.S. Gopalkrishnan", "Matsumura — Commutative Ring Theory"],
-    note: "I took this course just as a precursor for algebraic geometry. Somehow, it ended up being much more than that.",
+    note: "I took this course just as a precursor for algebraic geometry. Somehow, it ended up being much more than that. My first introduction to elementary homological algebra.",
   },
   {
     id: "03",
@@ -771,7 +771,7 @@ const coursesData = [
     area: "Topology",
     symbol: "Hₙ",
     refs: ["Hatcher - Algebraic Topology"],
-    note: "In my first course on Rings and Modules, I remember proving that all abelian groups are modules over the ring of integers. After that, this course just felt like applied commutative algebra :).",
+    note: "In my first course on Rings and Modules, I remember proving that all abelian groups are modules over integers. After that, this course just felt like applied commutative algebra :).",
   },
   {
     id: "05",
@@ -798,7 +798,7 @@ const CoursesPage = () => {
             Five rooms I keep<br />returning to.
           </h2>
           <p style={{ fontSize: '0.93rem', color: 'var(--ink2)', lineHeight: 1.9, maxWidth: 500 }}>
-            Not a transcript. These are the courses that left marks — that changed the way I read a definition, follow an argument, or sit with a problem.
+            Not a transcript. Just the courses that have shaped my thinking and my interests. 
           </p>
         </FadeIn>
 
