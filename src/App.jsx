@@ -554,7 +554,7 @@ const ResearchPage = () => (
           Advisor: Dr. Vivek Sadhu
         </div>
         <p style={{ fontSize:'0.9rem', color:'var(--ink2)', lineHeight:1.8 }}>
-          Currently reading up on some category theory and its applications in commutative algebra and algebraic geometry.
+          Currently reading up on some category theory and working out examples from algebraic geometry and commutative algebra. 
         </p>
       </div>
     </FadeIn>
