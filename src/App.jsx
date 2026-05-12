@@ -88,10 +88,10 @@ const cvData = {
   },
   academicExperiences: {
     internships: [
-      { title: "Summer Intern", institution: "Institute of Science, Banaras Hindu University", duration: "May 2025 – Present",
-        description: "This project began with a unilateral focus on Algebraic Topology, building a strong foundation leading up to Homotopy Theory and Homology. The first phase involved studying standard textbooks and exploring papers presenting both classical problems and modern perspectives in the field. Currently, the focus has shifted towards problem-solving and applying these theoretical tools to tackle more advanced challenges." },
+      { title: "Summer Intern", institution: "Institute of Science, Banaras Hindu University", duration: "May 2025 – Aug 2025",
+        description: "First phase involved getting used to with some algebraic topology, referring to books like hatcher, harper and munkres. Towards the end, the focus shifted to finding out groups with integral cayley graphs of genus one through computational and algebraic means." },
       { title: "Summer Intern", institution: "Institute of Science, Banaras Hindu University", duration: "May – July 2024",
-        description: "This project focused on building a foundational understanding of Braid Theory, the development of related algorithms, and exploring its applications. The work involved tackling key problems such as the word problem and the conjugacy problem, studying knot invariants, and delving into other introductory topics in Knot Theory." }
+        description: "This project focussed on studying general topology from the book by J Dugundji, while working through problems, along with reading the book by Murasugi on Braids." }
     ],
     summerSchools: [
       { title: "Summer Program", institution: "TIFR — Centre for Applicable Mathematics", duration: "June – July 2025",
@@ -545,16 +545,16 @@ const ResearchPage = () => (
       <div style={{ background:'var(--surface)', border:'1px dashed var(--accent)', borderRadius:'var(--r)', padding:'32px 30px', marginBottom:20, opacity:0.92 }}>
         <div className="eb" style={{ marginBottom:10, display:'flex', alignItems:'center', gap:8 }}>
           <span className="wip-dot" style={{ display:'inline-block', width:7, height:7, borderRadius:'50%', background:'var(--accent)', opacity:0.7, animation:'pulse 2s ease-in-out infinite' }} />
-          Summer 2026 &mdash; Upcoming
+          Summer 2026 &mdash; Ongoing
         </div>
         <h3 className="df" style={{ fontSize:'clamp(1.15rem,2.5vw,1.55rem)', fontWeight:600, color:'var(--ink)', marginBottom:8, lineHeight:1.3 }}>
-          Homological algebra and Category theory
+          Categories
         </h3>
         <div style={{ fontSize:'0.82rem', color:'var(--ink2)', fontWeight:500, marginBottom:12 }}>
           Advisor: Dr. Vivek Sadhu
         </div>
         <p style={{ fontSize:'0.9rem', color:'var(--ink2)', lineHeight:1.8 }}>
-          The primary focus would be the study of <strong style={{ color:'var(--ink)', fontWeight:600 }}>homological algebra</strong> building upon some elementary homological algebra I have encountered during my courses <em style={{ color:'var(--ink3)' }}>Commutative Algebra</em> and <em style={{ color:'var(--ink3)' }}>Algebraic Topology II</em>; the focus will also be towards learning some category theory. The current plan is to work through the book by Mac Lane.
+          Currently reading up on some category theory and its applications in commutative algebra and algebraic geometry.
         </p>
       </div>
     </FadeIn>
