@@ -795,7 +795,7 @@ const CoursesPage = () => {
         <FadeIn style={{ marginBottom: 64 }}>
           <div className="eb" style={{ marginBottom: 12 }}>Coursework</div>
           <h2 className="df" style={{ fontSize: 'clamp(2.4rem,5.5vw,3.4rem)', fontWeight: 600, lineHeight: 1.06, color: 'var(--ink)', letterSpacing: '-0.02em', marginBottom: 22 }}>
-            Five rooms I keep<br />returning to.
+            Some courses that<br />stuck with me.
           </h2>
           <p style={{ fontSize: '0.93rem', color: 'var(--ink2)', lineHeight: 1.9, maxWidth: 500 }}>
             Not a transcript. Just the courses that have shaped my thinking and my interests. 
